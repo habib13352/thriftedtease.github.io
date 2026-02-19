@@ -1,5 +1,21 @@
 /* ========================================
-   THRIFTED TEASE - Professional Band Website
+   THRIFTED TEASE - Professional Band Website Stylesheet
+   ========================================
+   
+   CRITICAL CUSTOMIZATION:
+   1. Update CSS variables (lines 11-24) to match brand colors
+   2. Adjust responsive breakpoints (bottom of file) for different devices
+   3. Modify section padding/spacing to taste
+   4. Add custom fonts via @import or Google Fonts
+   
+   STRUCTURE:
+   - Root CSS variables for consistent theming
+   - Mobile-first responsive design (smallest to largest screens)
+   - Flexbox & Grid layouts for responsive design
+   - Smooth transitions & animations throughout
+   - Breakpoints: <480px (mobile), 480-768px (tablet), 768px+ (desktop)
+   
+   See main.js for JavaScript that adds interactivity to these styles.
    ======================================== */
 
 * {
@@ -8,33 +24,45 @@
     box-sizing: border-box;
 }
 
+/* ===== CSS VARIABLES - Update these to customize colors throughout site ===== */
 :root {
+    /* Primary dark background - used for navbar, sections, overall feel */
     --primary-color: #0a0e27;
+    /* Gold accent - used for buttons, links, highlights - UPDATE to your brand color */
     --secondary-color: #d4a574;
+    /* Cream/light accent - used for text highlights and subtle backgrounds */
     --accent-color: #e8d4c0;
+    /* Main text color - light gray for readability on dark background */
     --text-color: #e0e0e0;
+    /* Dark text for use on light backgrounds */
     --text-dark: #2a2a2a;
+    /* Light background for about/gallery sections */
     --light-bg: #f5f5f5;
+    /* Dark section background - slightly lighter than primary */
     --dark-bg: #1a1f3a;
+    /* Red/pink accent for urgent CTAs (merch, book now) - UPDATE if needed */
     --highlight: #ff6b6b;
+    /* Green for success states - UPDATE if needed */
     --success: #51cf66;
+    /* Animation timing - used for smooth transitions */
     --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Smooth scroll when clicking anchor links */
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* OPTIONAL: Import custom fonts - Google Fonts recommended */
     color: var(--text-color);
-    line-height: 1.6;
+    line-height: 1.6; /* Good readability - don't set lower than 1.5 */
     background-color: var(--primary-color);
 }
 
 /* ========== Typography ========== */
 h1, h2, h3, h4, h5, h6 {
-    letter-spacing: 1px;
+    letter-spacing: 1px; /* Slightly wider letter spacing for professional look */
 }
 
 h2 {
@@ -46,6 +74,7 @@ h2 {
     display: inline-block;
 }
 
+/* Decorative line under section titles */
 h2::after {
     content: '';
     position: absolute;
@@ -71,19 +100,19 @@ h2::after {
 
 /* ========== Navigation ========== */
 .navbar {
-    background: rgba(10, 14, 39, 0.98);
+    background: rgba(10, 14, 39, 0.98); /* Slightly transparent for glass effect */
     color: white;
     padding: 1rem 0;
-    position: sticky;
+    position: sticky; /* Stays at top when scrolling */
     top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
+    z-index: 1000; /* Ensure it's above all other content */
+    backdrop-filter: blur(10px); /* Modern glass morphism effect */
     border-bottom: 1px solid rgba(212, 165, 116, 0.2);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1200px; /* Consistent max-width across site */
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
@@ -104,7 +133,7 @@ h2::after {
     color: var(--secondary-color);
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin: 0;
+    margin: 0; /* Override default h1 margin */
 }
 
 .tagline-mini {
@@ -129,7 +158,7 @@ h2::after {
     font-weight: 500;
     transition: var(--transition);
     padding: 0.5rem 0;
-    border-bottom: 2px solid transparent;
+    border-bottom: 2px solid transparent; /* Creates underline effect on hover */
 }
 
 .nav-menu a:hover {
@@ -137,21 +166,23 @@ h2::after {
     border-bottom-color: var(--secondary-color);
 }
 
+/* Prominent merch button in nav - drives revenue */
 .nav-merch {
     background: linear-gradient(135deg, var(--highlight) 0%, var(--secondary-color) 100%);
     padding: 0.5rem 1rem !important;
     border-radius: 25px;
     color: white !important;
-    border-bottom: none !important;
+    border-bottom: none !important; /* Override border effect */
 }
 
 .nav-merch:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Slight lift effect */
     box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
 }
 
+/* Mobile hamburger menu - shown only on small screens via @media query */
 .hamburger {
-    display: none;
+    display: none; /* Hidden on desktop, shown on mobile -->
     flex-direction: column;
     cursor: pointer;
     background: none;
@@ -252,7 +283,8 @@ h2::after {
     animation: bounce 2s infinite;
 }
 
-/* ========== Buttons ========== */
+/* ========== Buttons (Reusable throughout site) ========== */
+/* Base button styles - extended with .btn-primary, .btn-secondary, .btn-accent */
 .btn {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -267,16 +299,18 @@ h2::after {
     letter-spacing: 0.5px;
 }
 
+/* Primary button - Gold/yellow, used for main CTAs (Stream, Listen, etc.) */
 .btn-primary {
     background: linear-gradient(135deg, var(--secondary-color) 0%, #c49563 100%);
     color: white;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
+    transform: translateY(-3px); /* Lift effect */
     box-shadow: 0 10px 25px rgba(212, 165, 116, 0.3);
 }
 
+/* Secondary button - Cream/light, used for secondary CTAs -->
 .btn-secondary {
     background: linear-gradient(135deg, var(--accent-color) 0%, #d4a574 100%);
     color: var(--text-dark);
@@ -288,6 +322,7 @@ h2::after {
     box-shadow: 0 10px 25px rgba(232, 212, 192, 0.3);
 }
 
+/* Accent button - Red/pink, used for urgent CTAs (Shop Merch, Get Tickets) -->
 .btn-accent {
     background: linear-gradient(135deg, var(--highlight) 0%, #e55555 100%);
     color: white;
@@ -298,6 +333,7 @@ h2::after {
     box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
 }
 
+/* Button size variations -->
 .btn-small {
     padding: 0.5rem 1rem;
     font-size: 0.8rem;
@@ -1072,7 +1108,12 @@ section {
 }
 
 /* ========== Responsive Design ========== */
+/* Mobile-first approach: Start with mobile styles, add larger screens via @media -->
+/* ADJUST these breakpoints if you want different responsive behavior -->
+
+/* Breakpoint: Tablets and smaller devices (max-width: 768px) -->
 @media (max-width: 768px) {
+    /* Reduce hero title size on small screens -->
     .hero-title {
         font-size: 2.5rem;
     }
@@ -1085,10 +1126,12 @@ section {
         font-size: 1rem;
     }
     
+    /* Stack buttons vertically on mobile -->
     .hero-buttons {
         gap: 1rem;
     }
     
+    /* Hide menu on mobile, show hamburger button instead -->
     .nav-menu {
         display: none;
         position: fixed;
@@ -1102,23 +1145,28 @@ section {
         z-index: 999;
     }
     
+    /* Show menu when .active class is added by JavaScript -->
     .nav-menu.active {
         display: flex;
     }
     
+    /* Show hamburger menu on mobile -->
     .hamburger {
         display: flex;
     }
     
+    /* Single column contact form on mobile -->
     .contact-wrapper {
         grid-template-columns: 1fr;
     }
     
+    /* Stack tour dates vertically -->
     .tour-date {
         flex-direction: column;
         text-align: center;
     }
     
+    /* Reduce heading sizes -->
     h2 {
         font-size: 1.8rem;
     }
@@ -1127,6 +1175,7 @@ section {
         padding: 3rem 1.5rem;
     }
     
+    /* Convert grid layouts to single column -->
     .gallery-grid,
     .streaming-platforms,
     .releases-grid {
@@ -1134,23 +1183,29 @@ section {
     }
 }
 
+/* Breakpoint: Small mobile phones (max-width: 480px) -- Very small screens -->
 @media (max-width: 480px) {
+    /* Extra small hero title for phone screens -->
     .hero-title {
         font-size: 2rem;
     }
     
+    /* Mobile logo size -->
     .logo {
         font-size: 1.2rem;
     }
     
+    /* Reduce nav menu gaps -->
     .nav-menu {
         gap: 1rem;
     }
     
+    /* Smaller section headings -->
     h2 {
         font-size: 1.5rem;
     }
     
+    /* Single column about highlights -->
     .about-highlights {
         grid-template-columns: 1fr;
     }

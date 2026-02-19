@@ -1,79 +1,118 @@
+<!-- 
+    =====================================================
+    THRIFTED TEASE - Official Band Landing Page
+    =====================================================
+    Professional, fully responsive band website.
+    Built with HTML5, CSS3, and Vanilla JavaScript.
+    
+    CRITICAL CUSTOMIZATION NEEDED:
+    1. Search for "UPDATE:" to find customization points
+    2. Replace placeholder images in images/ folder
+    3. Update streaming links (href="#" markers)
+    4. Set Shopify store URL for merch section
+    5. Add real social media URLs in footer & contact
+    
+    See README.md for detailed customization guide.
+    =====================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Essential meta tags for SEO and mobile responsiveness -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CUSTOMIZE: Update description for SEO (appears in search results) -->
     <meta name="description" content="Thrifted Tease - Official Band Website. Discover our music, photos, merch, and tour dates.">
+    <!-- CUSTOMIZE: Add band-specific keywords for search engines -->
     <meta name="keywords" content="Thrifted Tease, band, music, indie, streaming, merch">
     <title>Thrifted Tease | Band</title>
+    <!-- Font Awesome 6.4.0 CDN - Provides all social media and UI icons automatically -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Main stylesheet - contains all colors, layouts, animations, and responsive breakpoints -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- ===== STICKY NAVIGATION ===== Mobile-responsive header (fixed top) with hamburger menu on mobile -->
     <nav class="navbar">
         <div class="nav-container">
+            <!-- Brand logo - UPDATE: Change band name and tagline -->
             <div class="nav-brand">
                 <h1 class="logo">THRIFTED TEASE</h1>
                 <p class="tagline-mini">Fresh Sound. Vintage Soul.</p>
             </div>
+            <!-- Hamburger menu button for mobile - JavaScript toggles .active class on click (see main.js) -->
             <button class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            <!-- Main navigation menu - id="navMenu" is targeted by JavaScript for mobile toggle functionality -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#listen">Listen</a></li>
                 <li><a href="#media">Media</a></li>
                 <li><a href="#tour">Tour</a></li>
-                <li><a href="#merch" class="nav-merch">Shop Merch</a></li>
+                <!-- Prominently featured merch link to drive conversions -->\n                <li><a href="#merch" class="nav-merch">Shop Merch</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ===== FULL-SCREEN HERO SECTION ===== Band name, tagline, and 3 main CTAs (conversion funnels) -->
     <section id="home" class="hero">
+        <!-- Gradient overlay ensures text readability over video background -->
         <div class="hero-overlay"></div>
+        <!-- Hero video background - UPDATE: Replace images/hero-bg.mp4 with your band's video (MP4 format) -->
+        <!-- NOTE: iOS Safari doesn't autoplay videos; consider adding fallback background image in CSS -->
         <video class="hero-video" autoplay muted loop playsinline>
             <source src="images/hero-bg.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
+            <!-- UPDATE: Change to your band name -->
             <h1 class="hero-title">THRIFTED TEASE</h1>
+            <!-- UPDATE: Update band tagline -->
             <p class="hero-tagline">Fresh Sound. Vintage Soul.</p>
             <p class="hero-subtitle">The Official Home of Thrifted Tease</p>
+            <!-- Three conversion-focused CTAs: Stream, Media, Merch - Links to key sections below -->
             <div class="hero-buttons">
                 <a href="#listen" class="btn btn-primary">🎵 Stream Music</a>
                 <a href="#media" class="btn btn-secondary">📷 Photos & Videos</a>
                 <a href="#merch" class="btn btn-accent">🛍️ Shop Merch</a>
             </div>
         </div>
+        <!-- Animated scroll indicator at bottom - JavaScript adds click handler to scroll to about section -->
         <div class="hero-scroll-indicator">
             <span>Scroll to explore</span>
             <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ===== ABOUT SECTION ===== Band overview with 3 highlight cards showing band strengths -->
     <section id="about" class="about">
         <div class="section-container">
             <div class="about-content">
                 <h2>About Thrifted Tease</h2>
+                <!-- UPDATE: Replace with your band's actual story and background -->
                 <p>Welcome to the official home of <strong>Thrifted Tease</strong> — a band that brings together fresh sound with vintage soul. We craft music that resonates with audiences and tells our unique story.</p>
+                <!-- UPDATE: Replace with band's mission statement -->
                 <p>Our mission is to create memorable experiences through our music and performances. Whether you're discovering us for the first time or have been a loyal fan, we invite you to explore our world.</p>
+                <!-- Three highlight cards - customize icon, title, and description to match band strengths -->
+                <!-- Font Awesome icons: fas fa-music, fas fa-star, fas fa-users, fas fa-microphone, etc. -->
                 <div class="about-highlights">
+                    <!-- Highlight 1 - UPDATE: Icon, title, and description -->
                     <div class="highlight">
                         <i class="fas fa-music"></i>
                         <h4>Original Music</h4>
                         <p>Authentic compositions that blend genres</p>
                     </div>
+                    <!-- Highlight 2 -->
                     <div class="highlight">
                         <i class="fas fa-star"></i>
                         <h4>Live Performances</h4>
                         <p>Energetic shows for venues and festivals</p>
                     </div>
+                    <!-- Highlight 3 -->
                     <div class="highlight">
                         <i class="fas fa-users"></i>
                         <h4>Community</h4>
@@ -84,27 +123,33 @@
         </div>
     </section>
 
-    <!-- Listen Section -->
+    <!-- ===== STREAMING SECTION ===== Spotify, Apple Music, YouTube, SoundCloud + Latest Releases -->
     <section id="listen" class="listen">
         <div class="section-container">
             <h2>Listen Now</h2>
             <p class="section-subtitle">Stream our music on your favorite platform</p>
+            <!-- Streaming platform cards - Each has platform-specific styling and branding colors -->
+            <!-- CRITICAL: Update href="#" with actual artist profile URLs -->
             <div class="streaming-platforms">
+                <!-- Spotify Card - UPDATE: Replace # with https://open.spotify.com/artist/YOUR_ARTIST_ID -->
                 <a href="#" class="streaming-card spotify" target="_blank">
                     <i class="fab fa-spotify"></i>
                     <h3>Spotify</h3>
                     <p>Listen & Follow</p>
                 </a>
+                <!-- Apple Music Card - UPDATE: Replace # with https://music.apple.com/artist/YOUR_ID -->
                 <a href="#" class="streaming-card apple" target="_blank">
                     <i class="fab fa-apple"></i>
                     <h3>Apple Music</h3>
                     <p>Stream Now</p>
                 </a>
+                <!-- YouTube Music Card - UPDATE: Replace # with https://music.youtube.com/channel/YOUR_CHANNEL_ID -->
                 <a href="#" class="streaming-card youtube" target="_blank">
                     <i class="fab fa-youtube"></i>
                     <h3>YouTube Music</h3>
                     <p>Watch & Listen</p>
                 </a>
+                <!-- SoundCloud Card - UPDATE: Replace # with https://soundcloud.com/your-username -->
                 <a href="#" class="streaming-card soundcloud" target="_blank">
                     <i class="fab fa-soundcloud"></i>
                     <h3>SoundCloud</h3>
@@ -112,21 +157,25 @@
                 </a>
             </div>
             
+            <!-- Latest Releases Grid - Showcase 3-5 most recent albums/EPs -->
+            <!-- UPDATE: Replace images, titles, dates, and listen link URLs -->
             <div class="latest-releases">
                 <h3>Latest Releases</h3>
                 <div class="releases-grid">
-                    <div class="release-card">
+                    <!-- Album 1 - UPDATE: Replace album cover image, title, year, and link -->\n                    <div class="release-card">
                         <img src="images/album1-placeholder.jpg" alt="Latest Release">
-                        <h4>Album/EP Title</h4>
-                        <p class="release-date">2026</p>
+                        <h4>Album/EP Title</h4>\n                        <p class="release-date">2026</p>
+                        <!-- Link to streaming platform (Spotify, Apple Music, etc.) -->
                         <a href="#" class="btn btn-small">Listen</a>
                     </div>
+    <!-- Album 2 -->
                     <div class="release-card">
                         <img src="images/album2-placeholder.jpg" alt="Latest Release">
                         <h4>Album/EP Title</h4>
                         <p class="release-date">2026</p>
                         <a href="#" class="btn btn-small">Listen</a>
                     </div>
+                    <!-- Album 3 -->
                     <div class="release-card">
                         <img src="images/album3-placeholder.jpg" alt="Latest Release">
                         <h4>Album/EP Title</h4>
@@ -138,7 +187,7 @@
         </div>
     </section>
 
-    <!-- Media Section -->
+    <!-- ===== MEDIA SECTION ===== Tab-based photos & videos gallery, dynamically switches via JavaScript -->
     <section id="media" class="media">
         <div class="section-container">
             <h2>Photos & Videos</h2>
@@ -209,23 +258,30 @@
         </div>
     </section>
 
-    <!-- Tour Dates Section -->
+    <!-- Tour Dates Section - List upcoming shows with venue info and ticket purchase links -->
+    <!-- CRITICAL: Update with real dates, venues, and ticketing platform URLs -->
+    <!-- Ticket platforms: Eventbrite, Ticketmaster, AXS, Brown Paper Tickets, etc. -->
     <section id="tour" class="tour">
         <div class="section-container">
             <h2>Tour Dates</h2>
             <p class="section-subtitle">Coming to a venue near you</p>
             <div class="tour-dates">
+                <!-- Tour Date 1 - UPDATE: Replace month, day, venue name, city/state, and ticket URL -->
                 <div class="tour-date">
                     <div class="date-info">
+                        <!-- Month (abbreviated): MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC -->
                         <span class="date">MAR</span>
+                        <!-- Day of month (1-31) -->
                         <span class="day">15</span>
                     </div>
                     <div class="event-info">
                         <h4>Venue Name</h4>
                         <p>City, State</p>
+                        <!-- CRITICAL: Update href to actual ticketing platform URL -->
                         <a href="https://www.ticketlink.com" target="_blank" class="btn btn-small">Get Tickets</a>
                     </div>
                 </div>
+                <!-- Tour Date 2 -->
                 <div class="tour-date">
                     <div class="date-info">
                         <span class="date">APR</span>
@@ -237,6 +293,7 @@
                         <a href="https://www.ticketlink.com" target="_blank" class="btn btn-small">Get Tickets</a>
                     </div>
                 </div>
+                <!-- Tour Date 3 -->
                 <div class="tour-date">
                     <div class="date-info">
                         <span class="date">MAY</span>
@@ -249,11 +306,12 @@
                     </div>
                 </div>
             </div>
+            <!-- Link to booking inquiries in contact section -->
             <p class="tour-contact">Interested in booking us? <a href="#contact">Contact us</a></p>
         </div>
     </section>
 
-    <!-- Merch Section -->
+    <!-- ===== MERCH SECTION ===== Product showcase with Shopify store integration for revenue -->
     <section id="merch" class="merch">
         <div class="section-container">
             <h2>Shop Merch</h2>
