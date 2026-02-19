@@ -1,22 +1,40 @@
 // ========================================
-// THRIFTED TEASE - Main JavaScript
-// Professional Band Website
+// THRIFTED TEASE - Main JavaScript File
+// Professional Band Website Interactivity
+// ========================================
+// 
+// This file handles all interactive features:
+// - Mobile menu toggle
+// - Smooth scroll navigation
+// - Tab switching (Photos/Videos)
+// - Contact form handling
+// - Scroll animations
+// - Analytics event tracking hooks
+//
+// All code is vanilla JavaScript (no jQuery or frameworks)
+// Total: ~200 lines of focused, modular code
+//
 // ========================================
 
 /**
- * Mobile Menu Toggle
+ * ===== MOBILE MENU TOGGLE =====
+ * Handles hamburger menu for mobile devices
+ * - Click hamburger to open/close menu
+ * - Click menu link to close menu
+ * - Targets: #hamburger button, #navMenu list
  */
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
 if (hamburger) {
     hamburger.addEventListener('click', function() {
+        // Toggle .active class on both button and menu
         navMenu.classList.toggle('active');
         this.classList.toggle('active');
     });
 }
 
-// Close menu when a link is clicked
+// Close menu when any nav link is clicked
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         navMenu.classList.remove('active');
@@ -25,7 +43,9 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 });
 
 /**
- * Smooth Scrolling for Navigation Links
+ * ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+ * Smooth scroll when clicking navigation links (#home, #about, etc.)
+ * Overrides default instant jump behavior
  */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -41,14 +61,18 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 /**
- * Tab Switching for Photos/Videos
+ * ===== TAB SWITCHING (PHOTOS/VIDEOS) =====
+ * Switches between Photos and Videos tabs
+ * - Tab selector: .tab-btn with data-tab attribute
+ * - Tab content divs: #photos, #videos (must match data-tab value)
+ * - JavaScript toggles .active class on button and content div
  */
 const tabBtns = document.querySelectorAll('.tab-btn');
 const tabContents = document.querySelectorAll('.tab-content');
 
 tabBtns.forEach(btn => {
     btn.addEventListener('click', function() {
-        const tabName = this.getAttribute('data-tab');
+        const tabName = this.getAttribute('data-tab'); // Get tab name from data-tab
         
         // Remove active class from all buttons and contents
         tabBtns.forEach(b => b.classList.remove('active'));
@@ -61,142 +85,184 @@ tabBtns.forEach(btn => {
 });
 
 /**
- * Contact Form Handler
+ * ===== CONTACT FORM HANDLER =====
+ * Currently shows alert; needs backend integration
+ * TODO: Connect to email service (Formspree, EmailJS, Firebase, etc.)
+ * Targets: #contactForm
  */
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // Prevent default form submission
         
-        const formData = new FormData(this);
+        const formData = new FormData(this); // Get form data
         
-        // Show success message (replace with actual backend integration)
+        // PLACEHOLDER: Show alert (replace with actual backend call)
         alert('Thank you for your message! We\'ll get back to you soon.');
-        this.reset();
+        // TODO: Send formData to backend service
+        // TODO: Show success/error message from server
+        
+        this.reset(); // Clear form fields
     });
 }
 
 /**
- * Scroll Animations - Fade in elements on scroll
+ * ===== SCROLL ANIMATIONS (Fade-in on scroll) =====
+ * Sections fade in as user scrolls to them
+ * Uses Intersection Observer API for performance
+ * Animate all section elements as they come into view
  */
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    threshold: 0.1, // Trigger when 10% of element is visible
+    rootMargin: '0px 0px -100px 0px' // Offset: trigger 100px before bottom
 };
 
 const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Element is in view - make it visible
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
+            observer.unobserve(entry.target); // Stop watching this element
         }
     });
 }, observerOptions);
 
-// Apply to all sections
+// Apply fade-in animation to all sections
 document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
+    section.style.opacity = '0'; // Start hidden
+    section.style.transform = 'translateY(20px)'; // Start below
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
+    observer.observe(section); // Start watching
 });
 
 /**
- * CTA Button Handlers
+ * ===== BUTTON HOVER ANIMATIONS =====
+ * Lift buttons up on hover for tactile feedback
+ * Applied to all buttons (.btn-primary, .btn-secondary, .btn-accent)
  */
 document.querySelectorAll('.btn-primary, .btn-secondary, .btn-accent').forEach(btn => {
     btn.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-3px)';
+        this.style.transform = 'translateY(-3px)'; // Lift up
     });
     btn.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
+        this.style.transform = 'translateY(0)'; // Return to normal
     });
 });
 
 /**
- * Streaming Platform Links Handler
+ * ===== STREAMING PLATFORM LINKS (Analytics hook) =====
+ * Track which streaming platform users click
+ * TODO: Wire to analytics service (Google Analytics, Mixpanel, etc.)
+ * Targets: .streaming-card
  */
 document.querySelectorAll('.streaming-card').forEach(card => {
     card.addEventListener('click', function(e) {
         if (!this.href || this.href === '#') {
-            e.preventDefault();
-            const platform = this.classList[1];
+            e.preventDefault(); // Prevent navigation
+            const platform = this.classList[1]; // Get platform name (spotify, apple, youtube, soundcloud)
             console.log(`Opening ${platform}...`);
-            // Replace with actual streaming links:
-            // Spotify: https://open.spotify.com/artist/ARTIST_ID
-            // Apple Music: https://music.apple.com/artist/ARTIST_ID
-            // YouTube Music: https://music.youtube.com/channel/CHANNEL_ID
-            // SoundCloud: https://soundcloud.com/thriftedtease
+            // TODO: Send analytics event to tracking service
+            // Example: trackEvent('streaming_platform_click', { platform: platform })
         }
     });
 });
 
 /**
- * Gallery Image Lightbox Enhancement
+ * ===== GALLERY IMAGE LIGHTBOX HOOK =====
+ * Currently opens image in new tab
+ * TODO: Implement modal/lightbox plugin for better UX
+ * Consider: lightbox2, GLightbox, Fancybox, or custom modal
+ * Targets: .gallery-link
  */
 document.querySelectorAll('.gallery-link').forEach(link => {
     link.addEventListener('click', function(e) {
-        e.preventDefault();
+        // Currently just opens in new tab (target="_blank")
+        // Future: Add modal lightbox instead
         const imgSrc = this.getAttribute('href');
         console.log('Image clicked:', imgSrc);
-        // TODO: Implement modal/lightbox functionality
+        // TODO: Implement modal gallery here
     });
 });
 
 /**
- * Page Load Animations
+ * ===== PAGE LOAD ANIMATIONS & INITIAL SETUP =====
+ * Runs when page fully loads (all images, scripts, etc.)
+ * Useful for analytics, feature detection, etc.
  */
 window.addEventListener('load', function() {
+    // Styled console message for debugging
     console.log('%cThrifted Tease - Official Band Website Loaded! 🎵', 'color: #d4a574; font-size: 16px; font-weight: bold;');
     
-    // Add subtle animation to hero scroll indicator
+    // Add click handler to scroll indicator
     const scrollIndicator = document.querySelector('.hero-scroll-indicator');
     if (scrollIndicator) {
         scrollIndicator.addEventListener('click', function() {
+            // Scroll to About section when user clicks scroll indicator
             document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
         });
     }
 });
 
 /**
- * Navbar Sticky Enhancement - Add shadow on scroll
+ * ===== NAVBAR SHADOW EFFECT ON SCROLL =====
+ * Adds shadow to navbar when user scrolls (shows it has depth)
+ * Improves visual hierarchy as user navigates down
  */
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
+        // User scrolled down - add stronger shadow
         navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
     } else {
+        // User at top - use lighter shadow
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
     }
 });
 
 /**
- * Analytics & Event Tracking (Optional - replace with your analytics service)
+ * ===== ANALYTICS EVENT TRACKING (Integration point) =====
+ * Hook function for sending events to analytics services
+ * TODO: Integrate with Google Analytics, Segment, Mixpanel, etc.
+ * Example services:
+ * - Google Analytics: gtag('event', eventName, eventData)
+ * - Segment: analytics.track(eventName, eventData)
+ * - Mixpanel: mixpanel.track(eventName, eventData)
  */
 function trackEvent(eventName, eventData) {
     console.log(`Event: ${eventName}`, eventData);
-    // TODO: Integrate with Google Analytics, Segment, Mixpanel, etc.
+    // TODO: Send to your analytics service:
+    // if (window.gtag) {
+    //     gtag('event', eventName, eventData);
+    // }
 }
 
-// Track button clicks
+/**
+ * ===== TRACK ALL BUTTON CLICKS (For analytics) =====
+ * Logs when users click buttons - helpful for conversion tracking
+ * Targets: All .btn elements
+ */
 document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('click', function() {
         trackEvent('button_click', {
             text: this.textContent,
-            href: this.href || 'no-link'
+            href: this.href || 'no-link',
+            class: this.className
         });
     });
 });
 
 /**
- * TODO: Future Enhancements
- * - Newsletter signup form
- * - Music player widget
- * - Real-time tour dates from API
+ * ===== FUTURE ENHANCEMENTS (TODO) =====
+ * These features are noted for future development:
+ * - Newsletter signup form with email validation
+ * - Music player widget (Spotify embed or custom)
+ * - Real-time tour dates from API/CMS
  * - Blog/News integration
- * - Fan engagement features
- * - Email campaigns
- * - Social media integration
- * - Performance optimization
+ * - Fan engagement features (voting, polls)
+ * - Email campaign integration
+ * - Advanced social media integration
+ * - Performance optimizations (lazy loading, code splitting)
+ * - Progressive Web App (PWA) features
+ * - Advanced analytics and heat mapping
  */'
