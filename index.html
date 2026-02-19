@@ -2,15 +2,22 @@
     =====================================================
     THRIFTED TEASE - Official Band Landing Page
     =====================================================
-    Professional, fully responsive band website.
+    Simplified, clean design focused on hero section.
     Built with HTML5, CSS3, and Vanilla JavaScript.
     
-    CRITICAL CUSTOMIZATION NEEDED:
-    1. Search for "UPDATE:" to find customization points
-    2. Replace placeholder images in images/ folder
-    3. Update streaming links (href="#" markers)
-    4. Set Shopify store URL for merch section
-    5. Add real social media URLs in footer & contact
+    SECTIONS:
+    1. Navigation - 4 core menu items
+    2. Hero - Main focus with 3 CTAs
+    3. Listen - Streaming platforms
+    4. Media - Photo gallery
+    5. Contact - Email & social links
+    6. Footer - Simple footer
+    
+    CUSTOMIZATION NEEDED:
+    1. Update streaming platform links
+    2. Update Shopify store URL
+    3. Add real social media URLs
+    4. Replace placeholder images
     
     See README.md for detailed customization guide.
     =====================================================
@@ -32,21 +39,16 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <!-- ===== STICKY NAVIGATION ===== Mobile-responsive header (fixed top) with hamburger menu on mobile -->
     <nav class="navbar">
         <div class="nav-container">
-            <!-- Brand logo - UPDATE: Change band name and tagline -->
             <div class="nav-brand">
                 <h1 class="logo">THRIFTED TEASE</h1>
-                <p class="tagline-mini">Fresh Sound. Vintage Soul.</p>
             </div>
-            <!-- Hamburger menu button for mobile - JavaScript toggles .active class on click (see main.js) -->
             <button class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <!-- Main navigation menu -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#listen">Listen</a></li>
@@ -56,22 +58,17 @@
         </div>
     </nav>
 
-    <!-- ===== FULL-SCREEN HERO SECTION ===== Band name, tagline, and 3 main CTAs (conversion funnels) -->
+    <!-- ===== HERO SECTION ===== Main focus with 3 CTAs -->
     <section id="home" class="hero">
-        <!-- Gradient overlay ensures text readability over video background -->
         <div class="hero-overlay"></div>
-        <!-- Hero video background - UPDATE: Replace images/hero-bg.mp4 with your band's video (MP4 format) -->
-        <!-- NOTE: iOS Safari doesn't autoplay videos; consider adding fallback background image in CSS -->
         <video class="hero-video" autoplay muted loop playsinline>
             <source src="images/hero-bg.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
-            <!-- UPDATE: Change to your band name -->
             <h1 class="hero-title">THRIFTED TEASE</h1>
-            <!-- UPDATE: Update band tagline -->
             <p class="hero-tagline">Fresh Sound. Vintage Soul.</p>
             <p class="hero-subtitle">The Official Home of Thrifted Tease</p>
-            <!-- Three key CTAs -->
+            
             <div class="hero-ctas">
                 <a href="#listen" class="btn btn-primary">🎵 Stream Now</a>
                 <a href="https://thriftedtease.myshopify.com" class="btn btn-accent" target="_blank">🛍️ Shop</a>
