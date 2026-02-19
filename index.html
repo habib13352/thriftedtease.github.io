@@ -46,14 +46,11 @@
                 <span></span>
                 <span></span>
             </button>
-            <!-- Main navigation menu - id="navMenu" is targeted by JavaScript for mobile toggle functionality -->
+            <!-- Main navigation menu -->
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#listen">Listen</a></li>
-                <li><a href="#media">Media</a></li>
-                <li><a href="#tour">Tour</a></li>
-                <!-- Prominently featured merch link to drive conversions -->\n                <li><a href="#merch" class="nav-merch">Shop Merch</a></li>
+                <li><a href="#media">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -74,372 +71,104 @@
             <!-- UPDATE: Update band tagline -->
             <p class="hero-tagline">Fresh Sound. Vintage Soul.</p>
             <p class="hero-subtitle">The Official Home of Thrifted Tease</p>
-            <!-- Three conversion-focused CTAs: Stream, Media, Merch - Links to key sections below -->
-            <div class="hero-buttons">
-                <a href="#listen" class="btn btn-primary">🎵 Stream Music</a>
-                <a href="#media" class="btn btn-secondary">📷 Photos & Videos</a>
-                <a href="#merch" class="btn btn-accent">🛍️ Shop Merch</a>
-            </div>
-        </div>
-        <!-- Animated scroll indicator at bottom - JavaScript adds click handler to scroll to about section -->
-        <div class="hero-scroll-indicator">
-            <span>Scroll to explore</span>
-            <i class="fas fa-chevron-down"></i>
-        </div>
-    </section>
-
-    <!-- ===== ABOUT SECTION ===== Band overview with 3 highlight cards showing band strengths -->
-    <section id="about" class="about">
-        <div class="section-container">
-            <div class="about-content">
-                <h2>About Thrifted Tease</h2>
-                <!-- UPDATE: Replace with your band's actual story and background -->
-                <p>Welcome to the official home of <strong>Thrifted Tease</strong> — a band that brings together fresh sound with vintage soul. We craft music that resonates with audiences and tells our unique story.</p>
-                <!-- UPDATE: Replace with band's mission statement -->
-                <p>Our mission is to create memorable experiences through our music and performances. Whether you're discovering us for the first time or have been a loyal fan, we invite you to explore our world.</p>
-                <!-- Three highlight cards - customize icon, title, and description to match band strengths -->
-                <!-- Font Awesome icons: fas fa-music, fas fa-star, fas fa-users, fas fa-microphone, etc. -->
-                <div class="about-highlights">
-                    <!-- Highlight 1 - UPDATE: Icon, title, and description -->
-                    <div class="highlight">
-                        <i class="fas fa-music"></i>
-                        <h4>Original Music</h4>
-                        <p>Authentic compositions that blend genres</p>
-                    </div>
-                    <!-- Highlight 2 -->
-                    <div class="highlight">
-                        <i class="fas fa-star"></i>
-                        <h4>Live Performances</h4>
-                        <p>Energetic shows for venues and festivals</p>
-                    </div>
-                    <!-- Highlight 3 -->
-                    <div class="highlight">
-                        <i class="fas fa-users"></i>
-                        <h4>Community</h4>
-                        <p>Connecting with fans and supporters</p>
-                    </div>
-                </div>
+            <!-- Three key CTAs -->
+            <div class="hero-ctas">
+                <a href="#listen" class="btn btn-primary">🎵 Stream Now</a>
+                <a href="https://thriftedtease.myshopify.com" class="btn btn-accent" target="_blank">🛍️ Shop</a>
+                <a href="#contact" class="btn btn-secondary">📧 Contact</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== STREAMING SECTION ===== Spotify, Apple Music, YouTube, SoundCloud + Latest Releases -->
+    <!-- ===== STREAMING SECTION ===== -->
     <section id="listen" class="listen">
         <div class="section-container">
-            <h2>Listen Now</h2>
-            <p class="section-subtitle">Stream our music on your favorite platform</p>
-            <!-- Streaming platform cards - Each has platform-specific styling and branding colors -->
-            <!-- CRITICAL: Update href="#" with actual artist profile URLs -->
-            <div class="streaming-platforms">
-                <!-- Spotify Card - UPDATE: Replace # with https://open.spotify.com/artist/YOUR_ARTIST_ID -->
-                <a href="#" class="streaming-card spotify" target="_blank">
-                    <i class="fab fa-spotify"></i>
-                    <h3>Spotify</h3>
-                    <p>Listen & Follow</p>
-                </a>
-                <!-- Apple Music Card - UPDATE: Replace # with https://music.apple.com/artist/YOUR_ID -->
-                <a href="#" class="streaming-card apple" target="_blank">
-                    <i class="fab fa-apple"></i>
-                    <h3>Apple Music</h3>
-                    <p>Stream Now</p>
-                </a>
-                <!-- YouTube Music Card - UPDATE: Replace # with https://music.youtube.com/channel/YOUR_CHANNEL_ID -->
-                <a href="#" class="streaming-card youtube" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                    <h3>YouTube Music</h3>
-                    <p>Watch & Listen</p>
-                </a>
-                <!-- SoundCloud Card - UPDATE: Replace # with https://soundcloud.com/your-username -->
-                <a href="#" class="streaming-card soundcloud" target="_blank">
-                    <i class="fab fa-soundcloud"></i>
-                    <h3>SoundCloud</h3>
-                    <p>Explore</p>
-                </a>
-            </div>
+            <h2>Stream Our Music</h2>
+            <p class="section-subtitle">Available on all platforms</p>
             
-            <!-- Latest Releases Grid - Showcase 3-5 most recent albums/EPs -->
-            <!-- UPDATE: Replace images, titles, dates, and listen link URLs -->
-            <div class="latest-releases">
-                <h3>Latest Releases</h3>
-                <div class="releases-grid">
-                    <!-- Album 1 - UPDATE: Replace album cover image, title, year, and link -->\n                    <div class="release-card">
-                        <img src="images/album1-placeholder.jpg" alt="Latest Release">
-                        <h4>Album/EP Title</h4>\n                        <p class="release-date">2026</p>
-                        <!-- Link to streaming platform (Spotify, Apple Music, etc.) -->
-                        <a href="#" class="btn btn-small">Listen</a>
-                    </div>
-    <!-- Album 2 -->
-                    <div class="release-card">
-                        <img src="images/album2-placeholder.jpg" alt="Latest Release">
-                        <h4>Album/EP Title</h4>
-                        <p class="release-date">2026</p>
-                        <a href="#" class="btn btn-small">Listen</a>
-                    </div>
-                    <!-- Album 3 -->
-                    <div class="release-card">
-                        <img src="images/album3-placeholder.jpg" alt="Latest Release">
-                        <h4>Album/EP Title</h4>
-                        <p class="release-date">2026</p>
-                        <a href="#" class="btn btn-small">Listen</a>
-                    </div>
-                </div>
+            <div class="streaming-platforms">
+                <a href="#" class="stream-link spotify" target="_blank">
+                    <i class="fab fa-spotify"></i>
+                    <span>Spotify</span>
+                </a>
+                <a href="#" class="stream-link apple" target="_blank">
+                    <i class="fab fa-apple"></i>
+                    <span>Apple Music</span>
+                </a>
+                <a href="#" class="stream-link youtube" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="#" class="stream-link soundcloud" target="_blank">
+                    <i class="fab fa-soundcloud"></i>
+                    <span>SoundCloud</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- ===== MEDIA SECTION ===== Tab-based photos & videos gallery, dynamically switches via JavaScript -->
+    <!-- ===== MEDIA SECTION ===== Photo gallery -->
     <section id="media" class="media">
         <div class="section-container">
             <h2>Photos & Videos</h2>
-            <p class="section-subtitle">Behind the scenes, live performances, and more</p>
             
-            <div class="media-tabs">
-                <button class="tab-btn active" data-tab="photos"><i class="fas fa-images"></i> Photos</button>
-                <button class="tab-btn" data-tab="videos"><i class="fas fa-video"></i> Videos</button>
-            </div>
-
-            <div id="photos" class="tab-content active">
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <img src="images/photo1-placeholder.jpg" alt="Photo 1">
-                        <div class="gallery-overlay">
-                            <a href="images/photo1-placeholder.jpg" class="gallery-link" target="_blank"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/photo2-placeholder.jpg" alt="Photo 2">
-                        <div class="gallery-overlay">
-                            <a href="images/photo2-placeholder.jpg" class="gallery-link" target="_blank"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/photo3-placeholder.jpg" alt="Photo 3">
-                        <div class="gallery-overlay">
-                            <a href="images/photo3-placeholder.jpg" class="gallery-link" target="_blank"><i class="fas fa-expand"></i></a>
-                        </div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="images/photo4-placeholder.jpg" alt="Photo 4">
-                        <div class="gallery-overlay">
-                            <a href="images/photo4-placeholder.jpg" class="gallery-link" target="_blank"><i class="fas fa-expand"></i></a>
-                        </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/photo1-placeholder.jpg" alt="Photo 1">
+                    <div class="gallery-overlay">
+                        <a href="images/photo1-placeholder.jpg" target="_blank"><i class="fas fa-expand"></i></a>
                     </div>
                 </div>
-            </div>
-
-            <div id="videos" class="tab-content">
-                <div class="videos-grid">
-                    <div class="video-card">
-                        <a href="#" class="video-thumbnail" target="_blank">
-                            <img src="images/photo1-placeholder.jpg" alt="Video Thumbnail">
-                            <div class="play-button"><i class="fas fa-play"></i></div>
-                        </a>
-                        <h4>Video Title</h4>
-                        <p>Performance / Music Video</p>
+                <div class="gallery-item">
+                    <img src="images/photo2-placeholder.jpg" alt="Photo 2">
+                    <div class="gallery-overlay">
+                        <a href="images/photo2-placeholder.jpg" target="_blank"><i class="fas fa-expand"></i></a>
                     </div>
-                    <div class="video-card">
-                        <a href="#" class="video-thumbnail" target="_blank">
-                            <img src="images/photo2-placeholder.jpg" alt="Video Thumbnail">
-                            <div class="play-button"><i class="fas fa-play"></i></div>
-                        </a>
-                        <h4>Video Title</h4>
-                        <p>Behind the Scenes</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo3-placeholder.jpg" alt="Photo 3">
+                    <div class="gallery-overlay">
+                        <a href="images/photo3-placeholder.jpg" target="_blank"><i class="fas fa-expand"></i></a>
                     </div>
-                    <div class="video-card">
-                        <a href="#" class="video-thumbnail" target="_blank">
-                            <img src="images/photo3-placeholder.jpg" alt="Video Thumbnail">
-                            <div class="play-button"><i class="fas fa-play"></i></div>
-                        </a>
-                        <h4>Video Title</h4>
-                        <p>Interview</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/photo4-placeholder.jpg" alt="Photo 4">
+                    <div class="gallery-overlay">
+                        <a href="images/photo4-placeholder.jpg" target="_blank"><i class="fas fa-expand"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tour Dates Section - List upcoming shows with venue info and ticket purchase links -->
-    <!-- CRITICAL: Update with real dates, venues, and ticketing platform URLs -->
-    <!-- Ticket platforms: Eventbrite, Ticketmaster, AXS, Brown Paper Tickets, etc. -->
-    <section id="tour" class="tour">
-        <div class="section-container">
-            <h2>Tour Dates</h2>
-            <p class="section-subtitle">Coming to a venue near you</p>
-            <div class="tour-dates">
-                <!-- Tour Date 1 - UPDATE: Replace month, day, venue name, city/state, and ticket URL -->
-                <div class="tour-date">
-                    <div class="date-info">
-                        <!-- Month (abbreviated): MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC -->
-                        <span class="date">MAR</span>
-                        <!-- Day of month (1-31) -->
-                        <span class="day">15</span>
-                    </div>
-                    <div class="event-info">
-                        <h4>Venue Name</h4>
-                        <p>City, State</p>
-                        <!-- CRITICAL: Update href to actual ticketing platform URL -->
-                        <a href="https://www.ticketlink.com" target="_blank" class="btn btn-small">Get Tickets</a>
-                    </div>
-                </div>
-                <!-- Tour Date 2 -->
-                <div class="tour-date">
-                    <div class="date-info">
-                        <span class="date">APR</span>
-                        <span class="day">22</span>
-                    </div>
-                    <div class="event-info">
-                        <h4>Venue Name</h4>
-                        <p>City, State</p>
-                        <a href="https://www.ticketlink.com" target="_blank" class="btn btn-small">Get Tickets</a>
-                    </div>
-                </div>
-                <!-- Tour Date 3 -->
-                <div class="tour-date">
-                    <div class="date-info">
-                        <span class="date">MAY</span>
-                        <span class="day">10</span>
-                    </div>
-                    <div class="event-info">
-                        <h4>Venue Name</h4>
-                        <p>City, State</p>
-                        <a href="https://www.ticketlink.com" target="_blank" class="btn btn-small">Get Tickets</a>
-                    </div>
-                </div>
-            </div>
-            <!-- Link to booking inquiries in contact section -->
-            <p class="tour-contact">Interested in booking us? <a href="#contact">Contact us</a></p>
-        </div>
-    </section>
-
-    <!-- ===== MERCH SECTION ===== Product showcase with Shopify store integration for revenue -->
-    <section id="merch" class="merch">
-        <div class="section-container">
-            <h2>Shop Merch</h2>
-            <p class="section-subtitle">Show your support with exclusive Thrifted Tease merchandise</p>
-            <div class="merch-grid">
-                <div class="merch-card">
-                    <img src="images/merch-tshirt.jpg" alt="T-Shirt">
-                    <h4>Classic T-Shirt</h4>
-                    <p>Premium cotton tee with band logo</p>
-                </div>
-                <div class="merch-card">
-                    <img src="images/merch-hoodie.jpg" alt="Hoodie">
-                    <h4>Hoodie</h4>
-                    <p>Comfortable zip-up hoodie</p>
-                </div>
-                <div class="merch-card">
-                    <img src="images/merch-vinyl.jpg" alt="Vinyl">
-                    <h4>Vinyl Record</h4>
-                    <p>Limited edition vinyl pressings</p>
-                </div>
-                <div class="merch-card">
-                    <img src="images/merch-cap.jpg" alt="Cap">
-                    <h4>Baseball Cap</h4>
-                    <p>Adjustable cap with embroidery</p>
-                </div>
-            </div>
-            <a href="https://thriftedtease.myshopify.com" target="_blank" class="btn btn-primary btn-large">Visit Shopify Store</a>
-        </div>
-    </section>
-
-    <!-- Booking Section (For Venues/Promoters) -->
-    <section id="booking" class="booking">
-        <div class="section-container">
-            <h2>Booking & Promoters</h2>
-            <p class="section-subtitle">Interested in booking Thrifted Tease for your venue or event?</p>
-            <div class="booking-content">
-                <div class="booking-card">
-                    <i class="fas fa-microphone"></i>
-                    <h4>Live Performances</h4>
-                    <p>High-energy, professional performances tailored to your venue</p>
-                </div>
-                <div class="booking-card">
-                    <i class="fas fa-calendar-check"></i>
-                    <h4>Professional Team</h4>
-                    <p>Experienced performers with professional equipment and setup</p>
-                </div>
-                <div class="booking-card">
-                    <i class="fas fa-headset"></i>
-                    <h4>Always Ready</h4>
-                    <p>Quick response times and flexible scheduling options</p>
-                </div>
-            </div>
-            <a href="#contact" class="btn btn-primary">Get Booking Info</a>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- ===== CONTACT SECTION ===== -->
     <section id="contact" class="contact">
         <div class="section-container">
             <h2>Get In Touch</h2>
-            <p class="section-subtitle">Questions? Want to book us? Drop us a line!</p>
-            <div class="contact-wrapper">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+            
+            <div class="contact-content">
                 <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="mailto:contact@thriftedtease.com">contact@thriftedtease.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-music"></i>
-                        <div>
-                            <h4>Booking</h4>
-                            <a href="mailto:booking@thriftedtease.com">booking@thriftedtease.com</a>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <h4>Follow Us</h4>
-                        <div class="social-icons">
-                            <a href="https://instagram.com/thriftedtease" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="https://spotify.com/thriftedtease" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
-                            <a href="https://youtube.com/@thriftedtease" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                            <a href="https://tiktok.com/@thriftedtease" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                            <a href="https://twitter.com/thriftedtease" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        </div>
+                    <p><strong>Email:</strong> <a href="mailto:contact@thriftedtease.com">contact@thriftedtease.com</a></p>
+                    <p><strong>Booking:</strong> <a href="mailto:booking@thriftedtease.com">booking@thriftedtease.com</a></p>
+                </div>
+                
+                <div class="contact-socials">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/thriftedtease" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://spotify.com/thriftedtease" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
+                        <a href="https://youtube.com/@thriftedtease" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://tiktok.com/@thriftedtease" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://twitter.com/thriftedtease" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <h5>Thrifted Tease</h5>
-                <p>Fresh Sound. Vintage Soul.</p>
-            </div>
-            <div class="footer-section">
-                <h5>Quick Links</h5>
-                <ul>
-                    <li><a href="#listen">Listen</a></li>
-                    <li><a href="#media">Media</a></li>
-                    <li><a href="#tour">Tour</a></li>
-                    <li><a href="#merch">Merch</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h5>Follow Us</h5>
-                <div class="footer-socials">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-spotify"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 Thrifted Tease. All rights reserved.</p>
-        </div>
+        <p>&copy; 2026 Thrifted Tease. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>
