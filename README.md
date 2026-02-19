@@ -1,46 +1,45 @@
 # Thrifted Tease - Professional Band Landing Page
 
-**The Official Website for Thrifted Tease** - A professional, modern landing page designed to showcase the band's music, build fan engagement, and convert visitors into customers and booking opportunities.
+**The Official Website for Thrifted Tease** - A clean, focused landing page designed to showcase the band's music, engage fans, and drive visitors to key platforms (streaming, merch, social).
 
 ## 🎵 Project Overview
 
-This is a fully responsive, production-ready band website built with modern web standards. The site serves three primary audiences:
+This is a streamlined, fully responsive band landing page built with modern web standards. Focus: **Less clutter, more impact.**
 
-1. **Fans & Listeners** - Discover music, photos, videos, and merchandise
-2. **Venues & Promoters** - Professional bookings and tour information
-3. **Social Media & Streaming** - Multiple platforms for content distribution
+**Primary Objectives:**
+1. **Hero Section First** - Immediate visual impact with clear CTAs
+2. **Streaming Links** - Direct paths to all music platforms
+3. **Visual Gallery** - Photos for social media and fan engagement
+4. **Quick Contact** - Email and social links for bookings/inquiries
 
 ## 🌟 Current Features (Implemented)
 
 ### Navigation & UX
-- ✅ Sticky navigation with backdrop blur effect
+- ✅ Sticky navigation with 4 core menu items
 - ✅ Responsive hamburger menu for mobile devices
 - ✅ Smooth scroll navigation with anchor links
-- ✅ Prominent merch link in main navigation
 - ✅ Professional hover animations throughout
+- ✅ Mobile-first responsive design
 
-### Hero Section
+### Hero Section (Primary Focus)
 - ✅ Full-screen hero with video background support
-- ✅ Multiple call-to-action buttons (Stream, Media, Merch)
-- ✅ Animated scroll indicator
+- ✅ Three key call-to-action buttons:
+  - Stream Now → Streaming platforms section
+  - 🛍️ Shop → Shopify store
+  - 📧 Contact → Contact section
 - ✅ Gradient overlay for text readability
-- ✅ Responsive typography
+- ✅ Professional typography and animations
 
 ### Content Sections
-- ✅ **About** - Band overview with highlights (icons, descriptions)
-- ✅ **Listen Now** - Streaming platform cards (Spotify, Apple Music, YouTube, SoundCloud)
-- ✅ **Latest Releases** - Album/EP grid with listen links
-- ✅ **Photos & Videos** - Tabbed media gallery with hover effects
-- ✅ **Tour Dates** - Upcoming shows with ticket purchase links
-- ✅ **Merch** - Product grid with Shopify store integration
-- ✅ **Booking** - Professional section for venues/promoters
-- ✅ **Contact** - Contact form + social media links
+- ✅ **Listen** - Streaming platform cards (Spotify, Apple Music, YouTube, SoundCloud)
+- ✅ **Media** - Photo gallery with hover expand effects
+- ✅ **Contact** - Email info + social media links
+- ✅ **Footer** - Clean, minimal footer
 
 ### Technical Features
 - ✅ Mobile-first responsive design (mobile, tablet, desktop)
 - ✅ Smooth animations and transitions
-- ✅ Tab switching for photos/videos
-- ✅ Form handling with validation ready
+- ✅ Form handling structure (ready for backend)
 - ✅ Scroll-triggered animations
 - ✅ Event tracking hooks for analytics
 - ✅ SEO metadata (meta tags, keywords)
@@ -51,18 +50,20 @@ This is a fully responsive, production-ready band website built with modern web 
 
 ```
 thriftedtease.github.io/
-├── index.html              # Main landing page (390 lines)
+├── index.html              # Main landing page (177 lines)
+│                            # - Clean, focused sections
+│                            # - 5 core sections only
+│                            # - Minimal comments for clarity
 ├── css/
-│   └── styles.css          # Professional stylesheet (1259 lines)
+│   └── styles.css          # Professional stylesheet (~430 lines)
 │                            # - Responsive grid layouts
 │                            # - CSS variables for theming
 │                            # - Mobile-first design
-│                            # - Animations & transitions
+│                            # - Smooth animations
 ├── js/
-│   └── main.js             # JavaScript functionality (203 lines)
+│   └── main.js             # JavaScript functionality (~150 lines)
 │                            # - Mobile menu toggle
 │                            # - Smooth scrolling
-│                            # - Tab switching
 │                            # - Form handling
 │                            # - Analytics hooks
 ├── images/                 # Band photos & media
@@ -70,15 +71,7 @@ thriftedtease.github.io/
 │   ├── photo2-placeholder.jpg
 │   ├── photo3-placeholder.jpg
 │   ├── photo4-placeholder.jpg
-│   ├── album1-placeholder.jpg
-│   ├── album2-placeholder.jpg
-│   ├── album3-placeholder.jpg
-│   ├── merch-tshirt.jpg
-│   ├── merch-hoodie.jpg
-│   ├── merch-vinyl.jpg
-│   ├── merch-cap.jpg
-│   └── hero-bg.mp4        # Hero section video
-├── assets/                 # Additional resources (fonts, icons, etc.)
+│   └── hero-bg.mp4         # Hero section video
 ├── .gitignore              # Git ignore rules
 └── README.md               # This file
 ```
@@ -96,7 +89,7 @@ Highlight:        #ff6b6b (Red/Pink accent)
 ```
 
 ### Customizing Colors
-Edit CSS variables in `css/styles.css` (lines 10-24):
+Edit CSS variables in `css/styles.css` (lines 14-21):
 
 ```css
 :root {
@@ -135,56 +128,50 @@ npx http-server
 
 **File: `index.html`**
 
-1. **Hero Section** (lines 57-70)
-   - Update band name, tagline, subtitle
-   - Replace button text and links if needed
+1. **Hero Section** (lines 43-65)
+   - Band name, tagline, subtitle
+   - Three CTAs: Stream, Shop, Contact
 
-2. **About Section** (lines 72-95)
-   - Update band description
-   - Customize highlight cards (icons, titles, descriptions)
-
-3. **Contact Information** (lines 283-310)
-   - Update email addresses
-   - Add social media URLs
+2. **Contact Information** (lines 125-150)
+   - Email addresses
+   - Social media URLs
 
 ### B. Add Content
 
-**1. Photos**
-- Add JPG/PNG files to `images/` folder
-- Update `src` paths in HTML (sections: Media, Gallery, Merch preview)
-
-**2. Video Background**
+**1. Hero Video**
 - Add MP4 video to `images/hero-bg.mp4`
 - Video will autoplay on hero section
+- Recommended: 1920x1080px, <5MB
 
-**3. Streaming Links** (lines 121-139)
-- Update `href` in `.streaming-card` elements:
-  ```html
-  <!-- Spotify -->
-  <a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" ...>
-  
-  <!-- Apple Music -->
-  <a href="https://music.apple.com/artist/YOUR_ID" ...>
-  
-  <!-- YouTube Music -->
-  <a href="https://music.youtube.com/channel/YOUR_CHANNEL_ID" ...>
-  
-  <!-- SoundCloud -->
-  <a href="https://soundcloud.com/your-username" ...>
-  ```
+**2. Gallery Photos**
+- Add JPG/PNG files to `images/` folder for gallery
+- 4 photos recommended for gallery grid
+- Recommended: 1200x800px, <300KB each
 
-**4. Merch Store** (line 240)
+**3. Streaming Links** (lines 67-88)
+Update `href` in `.stream-link` elements:
+```html
+<!-- Spotify -->
+<a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" ...>
+
+<!-- Apple Music -->
+<a href="https://music.apple.com/artist/YOUR_ID" ...>
+
+<!-- YouTube Music -->
+<a href="https://music.youtube.com/channel/YOUR_CHANNEL_ID" ...>
+
+<!-- SoundCloud -->
+<a href="https://soundcloud.com/your-username" ...>
+```
+
+**4. Shop Link** (line 58)
 - Update Shopify URL:
-  ```html
-  <a href="https://your-store.myshopify.com" target="_blank" ...>
-  ```
+```html
+<a href="https://your-store.myshopify.com" target="_blank" ...>
+```
 
-**5. Tour Dates** (lines 197-228)
-- Add venue names, dates, cities
-- Update ticket links to ticketing service (Eventbrite, Ticketmaster, etc.)
-
-**6. Social Media Links** (Footer, lines 313-324)
-- Update all social platform URLs
+**5. Social Media Links** (lines 145-150)
+Update all social platform URLs (Instagram, Spotify, YouTube, TikTok, Twitter)
 
 ### C. Optimize Images
 
@@ -193,8 +180,6 @@ npx http-server
 | Image | Dimensions | File Size | Format |
 |-------|-----------|----------|--------|
 | Gallery Photos | 1200x800px | <300KB | JPG |
-| Album Covers | 500x500px | <200KB | JPG |
-| Merch Photos | 600x600px | <250KB | JPG |
 | Hero Video | 1920x1080px | <5MB | MP4 |
 
 **Tools for optimization:**
@@ -204,42 +189,37 @@ npx http-server
 
 ## 🔗 Integration Points (TODO)
 
-These are external services that need to be connected:
-
 ### Critical (High Priority)
-- [ ] **Spotify Artist Profile** - Link to artist page
-- [ ] **Apple Music Artist ID** - Link to Apple Music
-- [ ] **YouTube Channel** - Link to music videos
-- [ ] **Shopify Store** - Merch platform setup
-- [ ] **Contact Email** - Email service for form submissions
+- [ ] Update all **Streaming Links** (Spotify, Apple Music, YouTube, SoundCloud)
+- [ ] Point **Shop Button** to your Shopify store
+- [ ] Add real **Social Media URLs**
+- [ ] Replace **placeholder images** with band photos
 
 ### Important (Medium Priority)
-- [ ] **Analytics** - Google Analytics or Segment integration
-- [ ] **Social Media** - Instagram, TikTok, Twitter accounts
-- [ ] **Ticketing** - Eventbrite or Ticketmaster for tour dates
-- [ ] **Newsletter** - Mailchimp or ConvertKit signup
+- [ ] **Google Analytics** integration
+- [ ] **Contact Form Backend** (Formspree, EmailJS, etc.)
+- [ ] **Email Service** for contact form submissions
+- [ ] Social media account setup
 
 ### Nice-to-Have (Low Priority)
-- [ ] **Blog/News** - Content management system
-- [ ] **Band Bio** - Detailed member profiles
-- [ ] **Video Hosting** - YouTube embeds
-- [ ] **Mailing List** - Newsletter automation
+- [ ] Newsletter signup
+- [ ] Blog/news section
+- [ ] Band member profiles
+- [ ] Advanced analytics tracking
 
 ## 📊 Performance & SEO
 
 ### Currently Optimized For:
 - ✅ Meta descriptions and keywords
 - ✅ Mobile responsiveness (Mobile-First Design)
-- ✅ Fast navigation with smooth scrolling
+- ✅ Fast page load (minimal CSS/JS)
 - ✅ Semantic HTML5
 - ✅ Font Awesome CDN for icons
-- ✅ Lazy loading ready for images
-- ✅ Event tracking hooks for analytics
+- ✅ Clean, focused content hierarchy
 
 ### Recommended Future Improvements:
-- [ ] Lazy load images with native browser support
+- [ ] Lazy load images
 - [ ] WebP image format support
-- [ ] Critical CSS inlining
 - [ ] Service worker for offline support
 - [ ] Structured data (schema.org markup)
 - [ ] Open Graph tags for social sharing
@@ -249,56 +229,36 @@ These are external services that need to be connected:
 | Issue | Status | Notes |
 |-------|--------|-------|
 | Hero video doesn't autoplay on iOS | Known | iOS blocks autoplay; fallback to static image recommended |
-| Contact form needs backend | Pending | Currently shows alert; wire to email service (Formspree, EmailJS, etc.) |
-| Gallery lightbox not implemented | Pending | Currently opens in new tab; modal plugin recommended |
-| Tour dates are static | Pending | Can integrate with Google Calendar or Ticketmaster API |
+| Contact form needs backend | Pending | Currently ready for backend integration (Formspree, EmailJS, etc.) |
 | No dark/light theme toggle | Design Decision | Dark theme chosen for band aesthetic |
 
 ## 📋 TODO List for Future Development
 
 ### Content Updates
-- [ ] Add real band photos (replace placeholders in `images/`)
-- [ ] Prepare hero video or use band footage
-- [ ] Write band bio and about section content
-- [ ] Finalize tour dates and venue information
-- [ ] Upload merch product images
-- [ ] Set up social media accounts
+- [ ] Replace placeholder images with real band photos (`images/` folder)
+- [ ] Add hero video or use band footage
+- [ ] Update all streaming platform links
+- [ ] Set up Shopify store and update shop URL
+- [ ] Create/finalize social media accounts
 
 ### Development Tasks
 - [ ] Implement contact form backend (Formspree, EmailJS, or custom server)
-- [ ] Add image lazy loading
-- [ ] Add gallery lightbox modal plugin
-- [ ] Implement Google Analytics tracking
+- [ ] Add Google Analytics tracking
 - [ ] Add schema.org structured data
-- [ ] Create 404 error page
-- [ ] Add sitemap.xml for SEO
+- [ ] Set up sitemap.xml for SEO
 - [ ] Configure robots.txt
 
 ### Advanced Features
-- [ ] Newsletter signup form with email validation
-- [ ] Music player widget (Spotify embed or custom)
-- [ ] Blog section for news/updates
-- [ ] Band member profiles page
-- [ ] Video gallery with YouTube embeds
+- [ ] Newsletter signup form
+- [ ] Music player widget (Spotify embed)
 - [ ] Event calendar integration
-- [ ] Merchandise inventory sync
-- [ ] Real-time tour date API integration
-- [ ] Fan engagement features (voting, polls, etc.)
+- [ ] Fan engagement features
 
 ### Marketing & Analytics
 - [ ] Set up Google Analytics
 - [ ] Configure Facebook Pixel
 - [ ] Add UTM parameters for social links
-- [ ] Create email signup capture
-- [ ] Set up retargeting campaigns
 - [ ] Monitor conversion funnels
-
-### Operations
-- [ ] Set up GitHub Actions for deployment
-- [ ] Implement CI/CD pipeline
-- [ ] Set up monitoring/alerts
-- [ ] Create deployment documentation
-- [ ] Plan hosting strategy (scale beyond GitHub Pages if needed)
 
 ## 🛠️ Development Notes
 
@@ -311,7 +271,7 @@ These are external services that need to be connected:
 ### Technologies Used
 - **HTML5**: Semantic markup with proper meta tags
 - **CSS3**: Grid, Flexbox, CSS Variables, Animations, Gradients
-- **JavaScript**: Vanilla JS (no frameworks), ~200 lines
+- **JavaScript**: Vanilla JS (no frameworks), ~150 lines
 - **Icons**: Font Awesome 6.4.0 (CDN)
 - **Hosting**: GitHub Pages (free static hosting)
 
@@ -319,22 +279,23 @@ These are external services that need to be connected:
 - Use kebab-case for CSS classes
 - Use camelCase for JavaScript variables
 - Use semantic HTML elements
-- Add comments for complex sections
-- Keep JS file under 250 lines (prefer HTML/CSS for styling)
+- Keep code comments clear and concise
+- Keep JS file minimal (prefer HTML/CSS for styling)
 
 ### Common Edits
 
 **Change button colors:**
 ```css
 .btn-primary {
-    background: linear-gradient(135deg, var(--secondary-color) 0%, #c49563 100%);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 ```
 
 **Adjust spacing:**
 ```css
 section {
-    padding: 5rem 2rem; /* top/bottom, left/right */
+    padding: 5rem 0; /* top/bottom padding */
 }
 ```
 
@@ -349,30 +310,29 @@ body {
 
 ```css
 Desktop:  1200px+ (full width layout)
-Tablet:   768px - 1199px (2-column layouts)
+Tablet:   768px - 1199px (adjusted layouts)
 Mobile:   < 768px (1-column stack, hamburger menu)
 ```
 
 ## 🎯 Next Steps
 
 1. **Replace placeholder images** with real band photos
-2. **Update all external links** (Spotify, Merch, Social Media, Ticketing)
+2. **Update all external links** (Spotify, Merch, Social Media)
 3. **Connect contact form** to email service
 4. **Set up analytics** tracking
-5. **Customize content** (band bio, tour dates, etc.)
-6. **Test on mobile** devices
-7. **Deploy to GitHub Pages** and monitor performance
+5. **Test on mobile** devices
+6. **Deploy and monitor** performance
 
 ## 📞 Support & Maintenance
 
-For future developers or when updating this site:
+For future developers:
 
-1. **Check `main.js`** for analytics hooks and event tracking
-2. **Reference CSS variables** in `styles.css` for consistent theming
-3. **Test responsive design** at 320px, 768px, 1024px widths
-4. **Validate HTML** at https://validator.w3.org/
-5. **Check Lighthouse score** in Chrome DevTools
-6. **Monitor broken links** regularly
+1. **HTML Structure**: Main sections in `index.html` map to CSS sections
+2. **CSS Variables**: All colors defined at top of `styles.css`
+3. **JavaScript**: Event handlers in `main.js` for interactivity
+4. **Responsive Testing**: Check at 320px, 768px, 1024px widths
+5. **Validation**: HTML at https://validator.w3.org/
+6. **Performance**: Check Lighthouse score in Chrome DevTools
 
 ## 📄 License
 
@@ -381,5 +341,5 @@ For future developers or when updating this site:
 ---
 
 **Last Updated:** February 19, 2026
-**Version:** 2.0 (Professional Redesign)
-**Maintained by:** [Your Name/Team]
+**Version:** 2.1 (Streamlined Design)
+**Design Philosophy:** Less clutter, more focus on hero section and core CTAs
