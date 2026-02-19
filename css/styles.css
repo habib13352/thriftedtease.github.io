@@ -1,6 +1,18 @@
 /* ================================
    THRIFTED TEASE - Band Website
    Simplified, clean design
+   ===== SECTIONS =====
+   1. Navbar - Fixed top navigation
+   2. Hero - Primary focus section
+   3. Listen - Streaming platforms
+   4. Media - Photo gallery
+   5. Contact - Email & social links
+   6. Footer - Simple footer
+   
+   RESPONSIVE:
+   - Mobile first design
+   - Breakpoint 768px for tablet+
+   - Breakpoint 480px for mobile
    ================================ */
 
 * {

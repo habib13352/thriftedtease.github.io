@@ -1,18 +1,17 @@
 // ========================================
 // THRIFTED TEASE - Main JavaScript File
-// Professional Band Website Interactivity
+// Simplified band landing page
 // ========================================
 // 
-// This file handles all interactive features:
+// This file handles interactive features:
 // - Mobile menu toggle
-// - Smooth scroll navigation
-// - Tab switching (Photos/Videos)
-// - Contact form handling
-// - Scroll animations
+// - Smooth scroll navigation  
+// - Scroll animations (fade-in effects)
+// - Button hover effects
 // - Analytics event tracking hooks
 //
-// All code is vanilla JavaScript (no jQuery or frameworks)
-// Total: ~200 lines of focused, modular code
+// All code is vanilla JavaScript (no jQuery)
+// Total: ~150 lines of focused, modular code
 //
 // ========================================
 
@@ -59,28 +58,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
-
-/**
- * ===== CONTACT FORM HANDLER =====
- * Currently shows alert; needs backend integration
- * TODO: Connect to email service (Formspree, EmailJS, Firebase, etc.)
- * Targets: #contactForm
- */
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent default form submission
-        
-        const formData = new FormData(this); // Get form data
-        
-        // PLACEHOLDER: Show alert (replace with actual backend call)
-        alert('Thank you for your message! We\'ll get back to you soon.');
-        // TODO: Send formData to backend service
-        // TODO: Show success/error message from server
-        
-        this.reset(); // Clear form fields
-    });
-}
 
 /**
  * ===== SCROLL ANIMATIONS (Fade-in on scroll) =====
