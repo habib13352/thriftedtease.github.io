@@ -44,7 +44,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 
 /**
  * ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
- * Smooth scroll when clicking navigation links (#home, #about, etc.)
+ * Smooth scroll when clicking navigation links (#home, #listen, etc.)
  * Overrides default instant jump behavior
  */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -57,30 +57,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 block: 'start'
             });
         }
-    });
-});
-
-/**
- * ===== TAB SWITCHING (PHOTOS/VIDEOS) =====
- * Switches between Photos and Videos tabs
- * - Tab selector: .tab-btn with data-tab attribute
- * - Tab content divs: #photos, #videos (must match data-tab value)
- * - JavaScript toggles .active class on button and content div
- */
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabContents = document.querySelectorAll('.tab-content');
-
-tabBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-        const tabName = this.getAttribute('data-tab'); // Get tab name from data-tab
-        
-        // Remove active class from all buttons and contents
-        tabBtns.forEach(b => b.classList.remove('active'));
-        tabContents.forEach(content => content.classList.remove('active'));
-        
-        // Add active class to clicked button and corresponding content
-        this.classList.add('active');
-        document.getElementById(tabName).classList.add('active');
     });
 });
 
@@ -154,9 +130,9 @@ document.querySelectorAll('.btn-primary, .btn-secondary, .btn-accent').forEach(b
  * ===== STREAMING PLATFORM LINKS (Analytics hook) =====
  * Track which streaming platform users click
  * TODO: Wire to analytics service (Google Analytics, Mixpanel, etc.)
- * Targets: .streaming-card
+ * Targets: .stream-link
  */
-document.querySelectorAll('.streaming-card').forEach(card => {
+document.querySelectorAll('.stream-link').forEach(card => {
     card.addEventListener('click', function(e) {
         if (!this.href || this.href === '#') {
             e.preventDefault(); // Prevent navigation
@@ -169,23 +145,6 @@ document.querySelectorAll('.streaming-card').forEach(card => {
 });
 
 /**
- * ===== GALLERY IMAGE LIGHTBOX HOOK =====
- * Currently opens image in new tab
- * TODO: Implement modal/lightbox plugin for better UX
- * Consider: lightbox2, GLightbox, Fancybox, or custom modal
- * Targets: .gallery-link
- */
-document.querySelectorAll('.gallery-link').forEach(link => {
-    link.addEventListener('click', function(e) {
-        // Currently just opens in new tab (target="_blank")
-        // Future: Add modal lightbox instead
-        const imgSrc = this.getAttribute('href');
-        console.log('Image clicked:', imgSrc);
-        // TODO: Implement modal gallery here
-    });
-});
-
-/**
  * ===== PAGE LOAD ANIMATIONS & INITIAL SETUP =====
  * Runs when page fully loads (all images, scripts, etc.)
  * Useful for analytics, feature detection, etc.
@@ -193,15 +152,6 @@ document.querySelectorAll('.gallery-link').forEach(link => {
 window.addEventListener('load', function() {
     // Styled console message for debugging
     console.log('%cThrifted Tease - Official Band Website Loaded! 🎵', 'color: #d4a574; font-size: 16px; font-weight: bold;');
-    
-    // Add click handler to scroll indicator
-    const scrollIndicator = document.querySelector('.hero-scroll-indicator');
-    if (scrollIndicator) {
-        scrollIndicator.addEventListener('click', function() {
-            // Scroll to About section when user clicks scroll indicator
-            document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
-        });
-    }
 });
 
 /**
@@ -249,6 +199,17 @@ document.querySelectorAll('.btn').forEach(btn => {
             href: this.href || 'no-link',
             class: this.className
         });
+    });
+});
+
+/**
+ * ===== SOCIAL MEDIA TRACKING =====
+ * Track when users click to follow on social media
+ */
+document.querySelectorAll('.social-icons a').forEach(link => {
+    link.addEventListener('click', function() {
+        const platform = this.getAttribute('title');
+        trackEvent('social_link_click', { platform: platform });
     });
 });
 
