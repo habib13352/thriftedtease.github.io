@@ -1,7 +1,3 @@
-1. Add a Clean Header Section
-
-This gives the repo a professional GitHub landing section.
-
 # Thrifted Tease – Official Band Website
 
 <p align="center">
