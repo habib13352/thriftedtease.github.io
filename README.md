@@ -11,6 +11,7 @@ readme_content = """
 <p align="center">
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 <a href="https://habib13352.github.io/thriftedtease.github.io/">Live Website</a> •
 <a href="https://open.spotify.com/artist/2Bzx8VvEQmCcalgPMMIpay">Spotify</a> •
 <a href="https://www.instagram.com/thriftedtease/">Instagram</a>
@@ -65,6 +66,51 @@ The site is fully responsive and optimized for fast loading.
 ---
 
 # Table of Contents
+=======
+
+![HTML](https://img.shields.io/badge/HTML-5-orange?logo=html5)
+![CSS](https://img.shields.io/badge/CSS-3-blue?logo=css3)
+![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla-yellow?logo=javascript)
+![GitHub Pages](https://img.shields.io/badge/Deployed-GitHub%20Pages-black?logo=github)
+![License](https://img.shields.io/badge/license-All%20Rights%20Reserved-lightgrey)
+
+</p>
+
+<p align="center">
+<a href="https://habib13352.github.io/thriftedtease.github.io/">🌐 Live Website</a> •
+<a href="https://open.spotify.com/artist/2Bzx8VvEQmCcalgPMMIpay">🎵 Spotify</a> •
+<a href="https://www.instagram.com/thriftedtease/">📸 Instagram</a>
+</p>
+
+---
+
+A clean, minimal band website built with **HTML5, CSS3, and vanilla JavaScript**.
+
+The goal of this project is simple:
+
+- Showcase the band
+- Drive traffic to streaming platforms
+- Promote merch
+- Provide booking contact information
+
+The site is fully responsive and optimized for fast loading.
+
+## Live Site
+
+Visit the official website here:
+
+https://habib13352.github.io/thriftedtease.github.io/
+
+## Website Preview
+
+![Thrifted Tease Website](images/site-preview.jpg)
+
+> If the preview image does not appear yet, add a screenshot at `images/site-preview.jpg`.
+
+---
+
+## Table of Contents
+>>>>>>> theirs
 
 - Project Overview
 - Technical Features
@@ -117,7 +163,11 @@ https://habib13352.github.io/thriftedtease.github.io/
 
 ## Project Overview
 
+<<<<<<< ours
 The landing page contains five core sections: **Navigation**, **Hero**, **Listen**, **Media**, and **Contact**.
+=======
+The landing page contains five main sections.
+>>>>>>> theirs
 
 ### Navigation
 
@@ -165,6 +215,7 @@ Each platform card includes an icon and logs an analytics event when clicked.
 <<<<<<< ours
 <<<<<<< ours
 
+<<<<<<< ours
 ---
 =======
 >>>>>>> theirs
@@ -173,10 +224,13 @@ Each platform card includes an icon and logs an analytics event when clicked.
 =======
 >>>>>>> theirs
 
+=======
+>>>>>>> theirs
 ### Media
 
 A gallery grid displaying photos of band members.
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -204,6 +258,10 @@ Images are stored in the `images/` directory:
 Images are stored in the `images/` directory:
 
 >>>>>>> theirs
+=======
+Images are stored in the `images/` directory:
+
+>>>>>>> theirs
 ```text
 images/
 >>>>>>> theirs
@@ -216,6 +274,9 @@ images/
 ### Contact
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 =======
 >>>>>>> theirs
@@ -239,9 +300,15 @@ Platforms include:
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 ---
 
 # Technical Features
+=======
+JavaScript logs clicks on these links for analytics.
+
+## Technical Features
+>>>>>>> theirs
 =======
 JavaScript logs clicks on these links for analytics.
 
@@ -265,7 +332,11 @@ JavaScript logs clicks on these links for analytics.
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 - CSS variables for easy theme changes
+=======
+- CSS variables for easy theme customization
+>>>>>>> theirs
 =======
 - CSS variables for easy theme customization
 >>>>>>> theirs
@@ -277,6 +348,7 @@ JavaScript logs clicks on these links for analytics.
 >>>>>>> theirs
 - Font Awesome icons via CDN
 
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
@@ -296,10 +368,13 @@ images/ – Media assets
 
 README.md – Documentation
 =======
+=======
+>>>>>>> theirs
 ## Project Structure
 
 ```text
 thriftedtease.github.io/
+<<<<<<< ours
 =======
 ## Project Structure
 
@@ -311,6 +386,8 @@ thriftedtease.github.io/
 
 ```text
 thriftedtease.github.io/
+>>>>>>> theirs
+=======
 >>>>>>> theirs
 ├── index.html
 │   Main landing page
@@ -324,7 +401,14 @@ thriftedtease.github.io/
 ├── js/
 │   └── main.js
 │       JavaScript (~196 lines)
+<<<<<<< ours
 │       Menu toggle, smooth scrolling, scroll animations, analytics hooks
+=======
+│       Menu toggle
+│       Smooth scrolling
+│       Scroll animations
+│       Analytics hooks
+>>>>>>> theirs
 │
 ├── images/
 │   ├── hero.mp4
@@ -340,12 +424,15 @@ thriftedtease.github.io/
 ## Colour Scheme & Branding
 <<<<<<< ours
 <<<<<<< ours
+<<<<<<< ours
 >>>>>>> theirs
 
 The site uses a dark theme with gold accents.
 
 <<<<<<< ours
 # Colour Scheme & Branding
+=======
+>>>>>>> theirs
 
 CSS variables control the theme.
 
@@ -366,6 +453,7 @@ The site uses a dark theme with gold accents.
 Example CSS variables:
 >>>>>>> theirs
 
+<<<<<<< ours
 :root {
 <<<<<<< ours
 <<<<<<< ours
@@ -380,11 +468,18 @@ Example CSS variables:
 >>>>>>> theirs
 =======
 >>>>>>> theirs
+=======
+Example CSS variables:
+
+```css
+:root {
+>>>>>>> theirs
   --primary-color: #0a0e27;
   --secondary-color: #d4a574;
   --accent-color: #e8d4c0;
   --text-color: #e0e0e0;
   --highlight: #ff6b6b;
+<<<<<<< ours
 <<<<<<< ours
 <<<<<<< ours
 >>>>>>> theirs
@@ -484,8 +579,13 @@ Current optimizations:
 =======
 }
 ```
+=======
+}
+```
 
-These variables are defined in `css/styles.css`. Edit them to customize the theme.
+These variables are defined in `css/styles.css`.
+
+Edit them to customize the theme.
 
 ## Getting Started
 
@@ -498,19 +598,25 @@ cd thriftedtease.github.io
 
 ### Run locally
 
-Open `index.html` directly in your browser, or start a local server.
+Open `index.html` directly in a browser, or run a local server.
 
-**Python**
+#### Python
 
 ```bash
 python -m http.server 8000
 ```
 
-**Node**
+#### Node
 
 ```bash
 npx http-server
 ```
+
+### View the live site
+
+The site is deployed with GitHub Pages:
+
+https://habib13352.github.io/thriftedtease.github.io/
 
 ## Customization Guide
 
@@ -590,10 +696,117 @@ Compression tools:
 
 ## Extending Functionality
 
+Analytics hooks exist via:
+
+`trackEvent()`
+>>>>>>> theirs
+
+Location: `images/hero.mp4`
+>>>>>>> theirs
+
+<<<<<<< ours
+These variables are defined in `css/styles.css`. Edit them to customize the theme.
+
+<<<<<<< ours
+## Getting Started
+
+### Clone the repository
+
+```bash
+git clone https://github.com/habib13352/thriftedtease.github.io.git
+cd thriftedtease.github.io
+```
+
+### Run locally
+=======
+- Resolution: 1920×1080
+- File size: < 5MB
+- Format: MP4
+
+### Gallery Images
+>>>>>>> theirs
+
+Open `index.html` directly in your browser, or start a local server.
+
+<<<<<<< ours
+**Python**
+=======
+- Google Analytics
+- Mixpanel
+- Segment
+
+For contact forms, consider:
+
+- Formspree
+- EmailJS
+
+## Performance & SEO
+>>>>>>> theirs
+
+```bash
+python -m http.server 8000
+```
+
+<<<<<<< ours
+**Node**
+
+```bash
+npx http-server
+```
+
+## Customization Guide
+
+Edit `index.html` to update:
+
+- Band name
+- Streaming platform links
+- Shopify store link
+- Gallery images
+- Contact information
+
+## Optimizing Assets
+
+### Hero Video
+=======
+- Resolution: 1200×800
+- File size: < 300KB
+
+Compression tools:
+
+- https://tinyjpg.com
+- https://imageoptim.com
+- `ffmpeg`
+
+## Extending Functionality
+
 Analytics hooks exist via `trackEvent()`.
 >>>>>>> theirs
 
 Location: `images/hero.mp4`
+>>>>>>> theirs
+=======
+- Semantic HTML5
+- Mobile-first CSS
+- Minimal dependencies
+- Fast loading assets
+
+Future improvements:
+
+- Lazy loading images
+- WebP image support
+- Schema.org structured data
+- Service workers
+- Open Graph metadata
+
+## Known Issues
+
+| Issue | Status | Notes |
+|---|---|---|
+| Hero video autoplay on iOS | Known | iOS blocks autoplay |
+| Contact form backend missing | Planned | Use Formspree or EmailJS |
+| Light mode toggle | Not implemented | Dark theme chosen intentionally |
+
+## Future Development
 >>>>>>> theirs
 
 <<<<<<< ours
@@ -602,6 +815,7 @@ Location: `images/hero.mp4`
 - Minimal dependencies
 - Fast loading assets
 
+<<<<<<< ours
 <<<<<<< ours
 Future improvements:
 
@@ -663,11 +877,38 @@ Main files:
 - File size: < 300KB
 
 Compression tools:
+=======
+- Google Analytics integration
+- Working contact form
+- Newsletter signup
+- Embedded music player
+- Tour dates integration
+- Schema markup
+- Open Graph metadata
+- PWA features
+
+## Support & Maintenance
+
+### HTML Structure
+
+Sections in `index.html` map to CSS and JavaScript hooks.
+
+### CSS Variables
+
+Theme variables are located in `css/styles.css`.
+
+### JavaScript
+
+All interactivity is handled in `js/main.js`.
+
+### Responsive Testing
+>>>>>>> theirs
 
 - https://tinyjpg.com
 - https://imageoptim.com
 - `ffmpeg`
 
+<<<<<<< ours
 ## Extending Functionality
 
 Analytics hooks exist via `trackEvent()`.
@@ -689,6 +930,11 @@ Future improvements:
 - Open Graph metadata
 
 ## Known Issues
+=======
+- 320px
+- 768px
+- 1200px
+>>>>>>> theirs
 
 | Issue                        | Status          | Notes                            |
 |-----------------------------|-----------------|----------------------------------|
@@ -696,6 +942,7 @@ Future improvements:
 | Contact form backend missing| Planned         | Use Formspree or EmailJS         |
 | Light mode toggle           | Not implemented | Dark theme chosen intentionally  |
 
+<<<<<<< ours
 ## Future Development
 >>>>>>> theirs
 
@@ -972,6 +1219,14 @@ Last Updated: March 11, 2026
 Version: 2.2
 >>>>>>> theirs
 =======
+Last Updated: March 11, 2026  
+Version: 2.2
+>>>>>>> theirs
+=======
+## License
+
+© 2026 Thrifted Tease. All rights reserved.
+
 Last Updated: March 11, 2026  
 Version: 2.2
 >>>>>>> theirs
