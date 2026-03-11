@@ -2,17 +2,14 @@
 // THRIFTED TEASE - Main JavaScript File
 // Simplified band landing page
 // ========================================
-// 
+//
 // This file handles interactive features:
 // - Mobile menu toggle
-// - Smooth scroll navigation  
+// - Smooth scroll navigation
 // - Scroll animations (fade-in effects)
-// - Button hover effects
 // - Analytics event tracking hooks
 //
 // All code is vanilla JavaScript (no jQuery)
-// Total: ~150 lines of focused, modular code
-//
 // ========================================
 
 /**
@@ -25,19 +22,21 @@
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
 
-if (hamburger) {
-    hamburger.addEventListener('click', function() {
-        // Toggle .active class on both button and menu
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', function () {
         navMenu.classList.toggle('active');
         this.classList.toggle('active');
     });
 }
 
-// Close menu when any nav link is clicked
+/**
+ * ===== CLOSE MOBILE MENU WHEN LINK IS CLICKED =====
+ * Prevents menu staying open after navigation on mobile
+ */
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        hamburger.classList.remove('active');
+        if (navMenu) navMenu.classList.remove('active');
+        if (hamburger) hamburger.classList.remove('active');
     });
 });
 
@@ -48,14 +47,17 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
  */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const targetSelector = this.getAttribute('href');
+        const target = document.querySelector(targetSelector);
+
+        if (!target) return;
+
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
     });
 });
 
@@ -63,44 +65,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
  * ===== SCROLL ANIMATIONS (Fade-in on scroll) =====
  * Sections fade in as user scrolls to them
  * Uses Intersection Observer API for performance
- * Animate all section elements as they come into view
+ * Hero section is excluded so it shows immediately on page load
  */
 const observerOptions = {
-    threshold: 0.1, // Trigger when 10% of element is visible
-    rootMargin: '0px 0px -100px 0px' // Offset: trigger 100px before bottom
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver(function(entries) {
+const observer = new IntersectionObserver(function (entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            // Element is in view - make it visible
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target); // Stop watching this element
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
-// Apply fade-in animation to all sections
-document.querySelectorAll('section').forEach(section => {
-    section.style.opacity = '0'; // Start hidden
-    section.style.transform = 'translateY(20px)'; // Start below
+// Apply fade-in animation to all sections except hero
+document.querySelectorAll('section:not(.hero)').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section); // Start watching
-});
-
-/**
- * ===== BUTTON HOVER ANIMATIONS =====
- * Lift buttons up on hover for tactile feedback
- * Applied to all buttons (.btn-primary, .btn-secondary, .btn-accent)
- */
-document.querySelectorAll('.btn-primary, .btn-secondary, .btn-accent').forEach(btn => {
-    btn.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-3px)'; // Lift up
-    });
-    btn.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)'; // Return to normal
-    });
+    observer.observe(section);
 });
 
 /**
@@ -110,14 +97,19 @@ document.querySelectorAll('.btn-primary, .btn-secondary, .btn-accent').forEach(b
  * Targets: .stream-link
  */
 document.querySelectorAll('.stream-link').forEach(card => {
-    card.addEventListener('click', function(e) {
-        if (!this.href || this.href === '#') {
-            e.preventDefault(); // Prevent navigation
-            const platform = this.classList[1]; // Get platform name (spotify, apple, youtube, soundcloud)
-            console.log(`Opening ${platform}...`);
-            // TODO: Send analytics event to tracking service
-            // Example: trackEvent('streaming_platform_click', { platform: platform })
+    card.addEventListener('click', function (e) {
+        const platformClasses = ['spotify', 'apple', 'youtube', 'soundcloud'];
+        const platform = [...this.classList].find(cls => platformClasses.includes(cls));
+
+        if (!this.href || this.getAttribute('href') === '#') {
+            e.preventDefault();
+            console.log(`Opening ${platform || 'streaming platform'}...`);
         }
+
+        trackEvent('streaming_platform_click', {
+            platform: platform || 'unknown',
+            href: this.href || 'no-link'
+        });
     });
 });
 
@@ -126,23 +118,25 @@ document.querySelectorAll('.stream-link').forEach(card => {
  * Runs when page fully loads (all images, scripts, etc.)
  * Useful for analytics, feature detection, etc.
  */
-window.addEventListener('load', function() {
-    // Styled console message for debugging
-    console.log('%cThrifted Tease - Official Band Website Loaded! 🎵', 'color: #d4a574; font-size: 16px; font-weight: bold;');
+window.addEventListener('load', function () {
+    console.log(
+        '%cThrifted Tease - Official Band Website Loaded! 🎵',
+        'color: #d4a574; font-size: 16px; font-weight: bold;'
+    );
 });
 
 /**
  * ===== NAVBAR SHADOW EFFECT ON SCROLL =====
- * Adds shadow to navbar when user scrolls (shows it has depth)
+ * Adds shadow to navbar when user scrolls
  * Improves visual hierarchy as user navigates down
  */
-window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
     if (window.scrollY > 50) {
-        // User scrolled down - add stronger shadow
         navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.5)';
     } else {
-        // User at top - use lighter shadow
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
     }
 });
@@ -151,14 +145,11 @@ window.addEventListener('scroll', function() {
  * ===== ANALYTICS EVENT TRACKING (Integration point) =====
  * Hook function for sending events to analytics services
  * TODO: Integrate with Google Analytics, Segment, Mixpanel, etc.
- * Example services:
- * - Google Analytics: gtag('event', eventName, eventData)
- * - Segment: analytics.track(eventName, eventData)
- * - Mixpanel: mixpanel.track(eventName, eventData)
  */
 function trackEvent(eventName, eventData) {
     console.log(`Event: ${eventName}`, eventData);
-    // TODO: Send to your analytics service:
+
+    // Example future integration:
     // if (window.gtag) {
     //     gtag('event', eventName, eventData);
     // }
@@ -170,9 +161,9 @@ function trackEvent(eventName, eventData) {
  * Targets: All .btn elements
  */
 document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
         trackEvent('button_click', {
-            text: this.textContent,
+            text: this.textContent.trim(),
             href: this.href || 'no-link',
             class: this.className
         });
@@ -184,8 +175,8 @@ document.querySelectorAll('.btn').forEach(btn => {
  * Track when users click to follow on social media
  */
 document.querySelectorAll('.social-icons a').forEach(link => {
-    link.addEventListener('click', function() {
-        const platform = this.getAttribute('title');
+    link.addEventListener('click', function () {
+        const platform = this.getAttribute('title') || 'unknown';
         trackEvent('social_link_click', { platform: platform });
     });
 });
@@ -203,4 +194,4 @@ document.querySelectorAll('.social-icons a').forEach(link => {
  * - Performance optimizations (lazy loading, code splitting)
  * - Progressive Web App (PWA) features
  * - Advanced analytics and heat mapping
- */'
+ */
