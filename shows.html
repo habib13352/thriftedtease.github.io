@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Thrifted Tease | Tour Dates</title>
+    <title>Thrifted Tease | Upcoming Shows</title>
     <style>
-        /* Tour-specific styles */
-        .tour-hero {
+        /* Show-specific styles */
+        .show-hero {
             position: relative;
             height: 50vh;
             display: flex;
@@ -17,7 +17,7 @@
             overflow: hidden;
             text-align: center;
         }
-        .tour-hero::before {
+        .show-hero::before {
             content: "";
             position: absolute;
             top: 0;
@@ -28,7 +28,7 @@
             filter: brightness(0.5);
             z-index: -2;
         }
-        .tour-hero-overlay {
+        .show-hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -37,28 +37,28 @@
             background: linear-gradient(180deg, rgba(10,14,39,0.4) 0%, rgba(10,14,39,0.8) 100%);
             z-index: -1;
         }
-        .tour-hero-content {
+        .show-hero-content {
             color: white;
             z-index: 1;
         }
-        .tour-table {
+        .show-table {
             width: 100%;
             max-width: 800px;
             margin: 0 auto;
             border-collapse: collapse;
             color: var(--text-color);
         }
-        .tour-table th, .tour-table td {
+        .show-table th, .show-table td {
             padding: 1rem;
             text-align: left;
             border-bottom: 1px solid rgba(212,165,116,0.2);
         }
-        .tour-table th {
+        .show-table th {
             color: var(--secondary-color);
             text-transform: uppercase;
             font-weight: 600;
         }
-        .tour-table tr:nth-child(even) {
+        .show-table tr:nth-child(even) {
             background-color: rgba(10,14,39,0.2);
         }
     </style>
@@ -77,29 +77,30 @@
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="media.html">Media</a></li>
-                <li><a href="tour.html" class="active">Tour Dates</a></li>
+                <li><a href="media.html">Media Gallery</a></li>
+                <li><a href="index.html#listen">Stream</a></li>
+                <li><a href="shows.html" class="active">Upcoming Shows</a></li>
                 <li><a href="merch.html">Merch</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero section for tour dates -->
-    <section class="tour-hero">
-        <div class="tour-hero-overlay"></div>
-        <div class="tour-hero-content">
-            <h1 class="hero-title">Tour Dates</h1>
+    <!-- Hero section for upcoming shows -->
+    <section class="show-hero">
+        <div class="show-hero-overlay"></div>
+        <div class="show-hero-content">
+            <h1 class="hero-title">Upcoming Shows</h1>
             <p class="hero-subtitle">Catch us live at a venue near you</p>
         </div>
     </section>
 
-    <!-- Upcoming tour dates list -->
+    <!-- Upcoming shows list -->
     <section class="listen">
         <div class="section-container">
             <h2>Upcoming Shows</h2>
             <p class="section-subtitle">Stay tuned for new dates and locations</p>
-            <table class="tour-table">
+            <table class="show-table">
                 <thead>
                     <tr>
                         <th>Date</th>
