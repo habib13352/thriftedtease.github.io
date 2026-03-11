@@ -1,345 +1,162 @@
-# Thrifted Tease - Professional Band Landing Page
+Thrifted Tease – Official Band Website
 
-**The Official Website for Thrifted Tease** - A clean, focused landing page designed to showcase the band's music, engage fans, and drive visitors to key platforms (streaming, merch, social).
+Thrifted Tease is a Toronto‑based progressive‑pop band. This repository hosts their official landing page built with HTML5, CSS3 and vanilla JavaScript. The site is intentionally minimal: a bold hero section introduces the band, direct buttons drive visitors to stream music, shop merch or get in touch, and a short gallery and contact section round out the page. It is fully responsive and optimised for quick load times.
 
-## 🎵 Project Overview
+Project Overview
 
-This is a streamlined, fully responsive band landing page built with modern web standards. Focus: **Less clutter, more impact.**
+The landing page has five core sections:
 
-**Primary Objectives:**
-1. **Hero Section First** - Immediate visual impact with clear CTAs
-2. **Streaming Links** - Direct paths to all music platforms
-3. **Visual Gallery** - Photos for social media and fan engagement
-4. **Quick Contact** - Email and social links for bookings/inquiries
+Navigation – a sticky nav bar with four links (Home, Listen, Gallery and Contact) collapses into a mobile hamburger menu. JavaScript toggles the menu and closes it after a link is clicked. A subtle shadow appears on scroll to improve contrast.
 
-## 🌟 Current Features (Implemented)
+Hero – a full‑screen hero featuring a background video (images/hero.mp4), the band name, the tagline “Toronto Based. Progressive Pop.”, and a subtitle. Three call‑to‑action buttons lead to the streaming section, the Shopify store and the contact section.
 
-### Navigation & UX
-- ✅ Sticky navigation with 4 core menu items
-- ✅ Responsive hamburger menu for mobile devices
-- ✅ Smooth scroll navigation with anchor links
-- ✅ Professional hover animations throughout
-- ✅ Mobile-first responsive design
+Listen – a section promoting the band’s music. Cards link directly to Spotify, Apple Music, YouTube and SoundCloud with icons. Clicking a platform logs an event for analytics (hooks are provided but not yet connected to a service).
 
-### Hero Section (Primary Focus)
-- ✅ Full-screen hero with video background support
-- ✅ Three key call-to-action buttons:
-  - Stream Now → Streaming platforms section
-  - 🛍️ Shop → Shopify store
-  - 📧 Contact → Contact section
-- ✅ Gradient overlay for text readability
-- ✅ Professional typography and animations
+Media – a gallery grid of four real photos of the band members. Hovering reveals captions and an expand icon. Images live in the images/ directory and are named kevin.JPG, bennett.JPG, hamza.JPG and spencer.JPG.
 
-### Content Sections
-- ✅ **Listen** - Streaming platform cards (Spotify, Apple Music, YouTube, SoundCloud)
-- ✅ **Media** - Photo gallery with hover expand effects
-- ✅ **Contact** - Email info + social media links
-- ✅ **Footer** - Clean, minimal footer
+Contact – displays booking and general email links and social icons for Instagram, Spotify, YouTube, TikTok and Twitter. JavaScript attaches click‑tracking to these social links.
 
-### Technical Features
-- ✅ Mobile-first responsive design (mobile, tablet, desktop)
-- ✅ Smooth animations and transitions
-- ✅ Form handling structure (ready for backend)
-- ✅ Scroll-triggered animations
-- ✅ Event tracking hooks for analytics
-- ✅ SEO metadata (meta tags, keywords)
-- ✅ Font Awesome icons integration
-- ✅ Professional dark theme with gold/cream accents
+A simple footer at the bottom displays the ©2026 copyright.
 
-## 📁 Project Structure
+Technical Features
 
-```
+Mobile‑first responsive design (desktop, tablet and mobile)
+
+Smooth scrolling for anchor links
+
+Scroll‑triggered fade‑in animations using the Intersection Observer API
+
+Analytics hooks for streaming links, buttons and social icons
+
+Modern CSS using variables for colours and transitions
+
+Font Awesome icons via CDN
+
+Project Structure
 thriftedtease.github.io/
-├── index.html              # Main landing page (177 lines)
-│                            # - Clean, focused sections
-│                            # - 5 core sections only
-│                            # - Minimal comments for clarity
+├── index.html              # Main landing page (198 lines) – hero, listen, gallery, contact, footer
 ├── css/
-│   └── styles.css          # Professional stylesheet (~430 lines)
-│                            # - Responsive grid layouts
-│                            # - CSS variables for theming
-│                            # - Mobile-first design
-│                            # - Smooth animations
+│   └── styles.css          # Global styles (~760 lines) with variables, layouts and media queries
 ├── js/
-│   └── main.js             # JavaScript functionality (~150 lines)
-│                            # - Mobile menu toggle
-│                            # - Smooth scrolling
-│                            # - Form handling
-│                            # - Analytics hooks
-├── images/                 # Band photos & media
-│   ├── photo1-placeholder.jpg
-│   ├── photo2-placeholder.jpg
-│   ├── photo3-placeholder.jpg
-│   ├── photo4-placeholder.jpg
-│   └── hero-bg.mp4         # Hero section video
-├── .gitignore              # Git ignore rules
-└── README.md               # This file
-```
+│   └── main.js             # JavaScript (~196 lines) for interactivity (menu, scroll, animations, tracking)
+├── images/                 # Assets
+│   ├── hero.mp4            # Hero background video (autoplay, muted, loop)
+│   ├── kevin.JPG           # Drummer Kevin
+│   ├── bennett.JPG         # Piano player Bennett
+│   ├── hamza.JPG           # Guitarist/vocalist Hamza
+│   └── spencer.JPG         # Bassist Spencer
+├── .gitignore              # Ignore rules
+└── README.md               # This documentation
+Colour Scheme & Branding
 
-## 🎨 Color Scheme & Branding
+The site uses a dark theme with gold and cream accents defined as CSS variables:
 
-The site uses a **professional dark theme** with **gold/cream accents**:
-
-```css
-Primary Color:    #0a0e27 (Deep Navy)
-Secondary Color:  #d4a574 (Gold)
-Accent Color:     #e8d4c0 (Cream)
-Text Color:       #e0e0e0 (Light Gray)
-Highlight:        #ff6b6b (Red/Pink accent)
-```
-
-### Customizing Colors
-Edit CSS variables in `css/styles.css` (lines 14-21):
-
-```css
 :root {
-    --primary-color: #0a0e27;      /* Dark background */
-    --secondary-color: #d4a574;    /* Gold accents */
-    --accent-color: #e8d4c0;       /* Cream text accents */
-    --text-color: #e0e0e0;         /* Main text */
-    --highlight: #ff6b6b;          /* Call-to-action buttons */
+    --primary-color: #0a0e27;      /* Dark navy background */
+    --secondary-color: #d4a574;    /* Gold accent */
+    --accent-color: #e8d4c0;       /* Cream/light accent */
+    --text-color: #e0e0e0;         /* Light grey text */
+    --highlight: #ff6b6b;          /* Red/pink for urgent CTAs */
+    /* ...additional variables... */
 }
-```
 
-## 🚀 Getting Started
+To adjust the look and feel, modify these variables in css/styles.css.
 
-### 1. Clone the Repository
-```bash
+Getting Started
+
+Clone the repository:
+
 git clone https://github.com/habib13352/thriftedtease.github.io.git
 cd thriftedtease.github.io
-```
 
-### 2. Local Development
-Simply open `index.html` in your browser, or use a local server:
-```bash
-# Using Python 3
+Run locally – open index.html in your browser or use a simple HTTP server:
+
+# Python 3
 python -m http.server 8000
-
-# Using Node.js
+# or Node.js
 npx http-server
-```
 
-### 3. View Live
-- GitHub Pages: `https://habib13352.github.io/thriftedtease.github.io/`
+View live – the site is deployed via GitHub Pages at:
 
-## 📝 Customization Guide
+https://habib13352.github.io/thriftedtease.github.io/
 
-### A. Update Band Information
+Customization Guide
+A. Update Band Information
 
-**File: `index.html`**
+The site already contains Thrifted Tease’s real links and images. To customise for another band, edit index.html:
 
-1. **Hero Section** (lines 43-65)
-   - Band name, tagline, subtitle
-   - Three CTAs: Stream, Shop, Contact
+Hero Section – lines 60–78 define the hero content: update the band name, tagline, subtitle and CTA labels or destinations.
 
-2. **Contact Information** (lines 125-150)
-   - Email addresses
-   - Social media URLs
+Shop Link – the second CTA currently points to the Thrifted Tease Shopify store https://thriftedtease.myshopify.com . Change the href attribute if you have a different merch store.
 
-### B. Add Content
+Streaming Links – lines 90–108 list real platform URLs. Replace the href values with your own artist pages.
 
-**1. Hero Video**
-- Add MP4 video to `images/hero-bg.mp4`
-- Video will autoplay on hero section
-- Recommended: 1920x1080px, <5MB
+Gallery Photos – place your own JPG/PNG files in the images/ folder and update the <img src> paths and captions in the gallery section.
 
-**2. Gallery Photos**
-- Add JPG/PNG files to `images/` folder for gallery
-- 4 photos recommended for gallery grid
-- Recommended: 1200x800px, <300KB each
+Contact Details – lines 166–185 show the email addresses and social media links. Update email addresses and social URLs as needed.
 
-**3. Streaming Links** (lines 67-88)
-Update `href` in `.stream-link` elements:
-```html
-<!-- Spotify -->
-<a href="https://open.spotify.com/artist/YOUR_ARTIST_ID" ...>
+B. Optimise Assets
 
-<!-- Apple Music -->
-<a href="https://music.apple.com/artist/YOUR_ID" ...>
+Hero Video: Use an MP4 file (1920×1080, <5 MB) and place it at images/hero.mp4.
 
-<!-- YouTube Music -->
-<a href="https://music.youtube.com/channel/YOUR_CHANNEL_ID" ...>
+Gallery Images: Resize photos to ~1200×800px and compress them (<300 KB) for optimal loading.
 
-<!-- SoundCloud -->
-<a href="https://soundcloud.com/your-username" ...>
-```
+Tools for optimisation include TinyJPG
+, ImageOptim
+ and ffmpeg for video compression.
 
-**4. Shop Link** (line 58)
-- Update Shopify URL:
-```html
-<a href="https://your-store.myshopify.com" target="_blank" ...>
-```
+C. Extend Functionality
 
-**5. Social Media Links** (lines 145-150)
-Update all social platform URLs (Instagram, Spotify, YouTube, TikTok, Twitter)
+The JavaScript includes placeholders for analytics. To integrate Google Analytics, Mixpanel or another service, implement the trackEvent function in js/main.js. A contact form structure is not yet present; adding a backend (e.g., Formspree or EmailJS) is recommended.
 
-### C. Optimize Images
+Performance & SEO
 
-**Recommended Specifications:**
+Semantic HTML5 markup with appropriate meta tags
 
-| Image | Dimensions | File Size | Format |
-|-------|-----------|----------|--------|
-| Gallery Photos | 1200x800px | <300KB | JPG |
-| Hero Video | 1920x1080px | <5MB | MP4 |
+Mobile‑first CSS and responsive breakpoints
 
-**Tools for optimization:**
-- **TinyJPG**: https://tinyjpg.com
-- **ImageOptim**: https://imageoptim.com
-- **FFmpeg** for video compression
+Minimal external dependencies (only Font Awesome via CDN)
 
-## 🔗 Integration Points (TODO)
+Fast load times thanks to compressed images and small JavaScript bundle
 
-### Critical (High Priority)
-- [ ] Update all **Streaming Links** (Spotify, Apple Music, YouTube, SoundCloud)
-- [ ] Point **Shop Button** to your Shopify store
-- [ ] Add real **Social Media URLs**
-- [ ] Replace **placeholder images** with band photos
+Recommended enhancements include lazy loading images, supporting WebP formats, adding structured data (schema.org) and integrating a service worker for offline caching.
 
-### Important (Medium Priority)
-- [ ] **Google Analytics** integration
-- [ ] **Contact Form Backend** (Formspree, EmailJS, etc.)
-- [ ] **Email Service** for contact form submissions
-- [ ] Social media account setup
+Known Issues
+Issue	Status	Notes
+Autoplay video on iOS may not work	Known	iOS blocks autoplay; provide a static poster as fallback
+Contact form requires a backend	Planned	Add Formspree, EmailJS or your own server
+No light/dark theme toggle	Design decision	A dark theme better suits the band’s aesthetic
+Future Development
 
-### Nice-to-Have (Low Priority)
-- [ ] Newsletter signup
-- [ ] Blog/news section
-- [ ] Band member profiles
-- [ ] Advanced analytics tracking
+Integrate analytics (Google Analytics or Mixpanel)
 
-## 📊 Performance & SEO
+Add a working contact form
 
-### Currently Optimized For:
-- ✅ Meta descriptions and keywords
-- ✅ Mobile responsiveness (Mobile-First Design)
-- ✅ Fast page load (minimal CSS/JS)
-- ✅ Semantic HTML5
-- ✅ Font Awesome CDN for icons
-- ✅ Clean, focused content hierarchy
+Introduce a newsletter signup or fan‑club feature
 
-### Recommended Future Improvements:
-- [ ] Lazy load images
-- [ ] WebP image format support
-- [ ] Service worker for offline support
-- [ ] Structured data (schema.org markup)
-- [ ] Open Graph tags for social sharing
+Embed a music player widget or show tour dates dynamically
 
-## 🐛 Known Issues & Limitations
+Add schema.org markup and Open Graph tags for richer previews
 
-| Issue | Status | Notes |
-|-------|--------|-------|
-| Hero video doesn't autoplay on iOS | Known | iOS blocks autoplay; fallback to static image recommended |
-| Contact form needs backend | Pending | Currently ready for backend integration (Formspree, EmailJS, etc.) |
-| No dark/light theme toggle | Design Decision | Dark theme chosen for band aesthetic |
+Optimise further with lazy loading, WebP images and PWA features
 
-## 📋 TODO List for Future Development
+Support & Maintenance
 
-### Content Updates
-- [ ] Replace placeholder images with real band photos (`images/` folder)
-- [ ] Add hero video or use band footage
-- [ ] Update all streaming platform links
-- [ ] Set up Shopify store and update shop URL
-- [ ] Create/finalize social media accounts
+For contributors:
 
-### Development Tasks
-- [ ] Implement contact form backend (Formspree, EmailJS, or custom server)
-- [ ] Add Google Analytics tracking
-- [ ] Add schema.org structured data
-- [ ] Set up sitemap.xml for SEO
-- [ ] Configure robots.txt
+HTML Structure – sections in index.html correspond directly to CSS styles and JavaScript hooks.
 
-### Advanced Features
-- [ ] Newsletter signup form
-- [ ] Music player widget (Spotify embed)
-- [ ] Event calendar integration
-- [ ] Fan engagement features
+CSS Variables – colours and spacing are centralised at the top of styles.css.
 
-### Marketing & Analytics
-- [ ] Set up Google Analytics
-- [ ] Configure Facebook Pixel
-- [ ] Add UTM parameters for social links
-- [ ] Monitor conversion funnels
+JavaScript – event listeners and helper functions live in js/main.js.
 
-## 🛠️ Development Notes
+Responsive Testing – check at widths of 320 px (mobile), 768 px (tablet) and 1200 px (desktop) to ensure layout integrity.
 
-### Browser Support
-- ✅ Chrome/Edge (Latest)
-- ✅ Firefox (Latest)
-- ✅ Safari (Latest)
-- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+Performance Tools – use Chrome DevTools (Lighthouse) to monitor performance and accessibility.
 
-### Technologies Used
-- **HTML5**: Semantic markup with proper meta tags
-- **CSS3**: Grid, Flexbox, CSS Variables, Animations, Gradients
-- **JavaScript**: Vanilla JS (no frameworks), ~150 lines
-- **Icons**: Font Awesome 6.4.0 (CDN)
-- **Hosting**: GitHub Pages (free static hosting)
+License
 
-### Code Style Guidelines
-- Use kebab-case for CSS classes
-- Use camelCase for JavaScript variables
-- Use semantic HTML elements
-- Keep code comments clear and concise
-- Keep JS file minimal (prefer HTML/CSS for styling)
+© 2026 Thrifted Tease. All rights reserved.
 
-### Common Edits
-
-**Change button colors:**
-```css
-.btn-primary {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
-}
-```
-
-**Adjust spacing:**
-```css
-section {
-    padding: 5rem 0; /* top/bottom padding */
-}
-```
-
-**Update fonts:**
-```css
-body {
-    font-family: 'Your Font Name', sans-serif;
-}
-```
-
-## 📱 Responsive Breakpoints
-
-```css
-Desktop:  1200px+ (full width layout)
-Tablet:   768px - 1199px (adjusted layouts)
-Mobile:   < 768px (1-column stack, hamburger menu)
-```
-
-## 🎯 Next Steps
-
-1. **Replace placeholder images** with real band photos
-2. **Update all external links** (Spotify, Merch, Social Media)
-3. **Connect contact form** to email service
-4. **Set up analytics** tracking
-5. **Test on mobile** devices
-6. **Deploy and monitor** performance
-
-## 📞 Support & Maintenance
-
-For future developers:
-
-1. **HTML Structure**: Main sections in `index.html` map to CSS sections
-2. **CSS Variables**: All colors defined at top of `styles.css`
-3. **JavaScript**: Event handlers in `main.js` for interactivity
-4. **Responsive Testing**: Check at 320px, 768px, 1024px widths
-5. **Validation**: HTML at https://validator.w3.org/
-6. **Performance**: Check Lighthouse score in Chrome DevTools
-
-## 📄 License
-
-&copy; 2026 Thrifted Tease. All rights reserved.
-
----
-
-**Last Updated:** February 19, 2026
-**Version:** 2.1 (Streamlined Design)
-**Design Philosophy:** Less clutter, more focus on hero section and core CTAs
+Last Updated: March 11, 2026
+Version: 2.2 (Actual media and links added)
