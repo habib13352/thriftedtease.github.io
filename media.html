@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Reuse the site’s styling and fonts -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Thrifted Tease | Media</title>
+    <style>
+        /* Extra styles specific to the media page */
+        .media-hero {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+        .media-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Use a static image for the gallery hero background */
+            background: url('images/photo4-placeholder.jpg') no-repeat center center/cover;
+            filter: brightness(0.5);
+            z-index: -2;
+        }
+        .media-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(10, 14, 39, 0.45) 0%,
+                    rgba(10, 14, 39, 0.72) 55%,
+                    rgba(10, 14, 39, 0.88) 100%
+                );
+            z-index: -1;
+        }
+        .media-hero-content {
+            color: white;
+            z-index: 1;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation copied from index.html, with links updated for new pages -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1 class="logo">THRIFTED TEASE</h1>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="media.html" class="active">Media</a></li>
+                <li><a href="tour.html">Tour Dates</a></li>
+                <li><a href="merch.html">Merch</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero section for the media page -->
+    <section class="media-hero">
+        <div class="media-hero-overlay"></div>
+        <div class="media-hero-content">
+            <h1 class="hero-title">Media Gallery</h1>
+            <p class="hero-subtitle">Past gigs, studio sessions &amp; behind the scenes</p>
+        </div>
+    </section>
+
+    <!-- Photo & Video Gallery Section -->
+    <section class="media">
+        <div class="section-container">
+            <h2>Photo &amp; Video Highlights</h2>
+            <p class="section-subtitle">Relive our favorite moments</p>
+            <!-- Gallery grid reused from index styles -->
+            <div class="gallery-grid">
+                <!-- Image item -->
+                <div class="gallery-item">
+                    <img src="images/photo1-placeholder.jpg" alt="Live performance photo 1">
+                    <div class="gallery-overlay">
+                        <p>Live Show – Toronto</p>
+                        <a href="images/photo1-placeholder.jpg" target="_blank">
+                            <i class="fas fa-expand"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Image item -->
+                <div class="gallery-item">
+                    <img src="images/photo2-placeholder.jpg" alt="Studio session photo">
+                    <div class="gallery-overlay">
+                        <p>Studio Jam</p>
+                        <a href="images/photo2-placeholder.jpg" target="_blank">
+                            <i class="fas fa-expand"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Video item using iframe (e.g., YouTube embed) -->
+                <div class="gallery-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen title="Performance Video"></iframe>
+                    </div>
+                </div>
+                <!-- Another video or image -->
+                <div class="gallery-item">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" allowfullscreen title="Studio Video"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Thrifted Tease. All rights reserved.</p>
+    </footer>
+
+    <!-- Include existing JavaScript for nav toggle and animations -->
+    <script src="js/main.js"></script>
+</body>
+</html>

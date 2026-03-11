@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Thrifted Tease | Merch</title>
+    <style>
+        /* Merch-specific styles */
+        .merch-hero {
+            position: relative;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            text-align: center;
+        }
+        .merch-hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('images/photo4-placeholder.jpg') no-repeat center center/cover;
+            filter: brightness(0.5);
+            z-index: -2;
+        }
+        .merch-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(10,14,39,0.4) 0%, rgba(10,14,39,0.8) 100%);
+            z-index: -1;
+        }
+        .merch-hero-content {
+            color: white;
+            z-index: 1;
+        }
+        .merch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .merch-item {
+            background-color: rgba(212,165,116,0.05);
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .merch-item:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+        .merch-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .merch-details {
+            padding: 1rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .merch-details h3 {
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            font-size: 1.1rem;
+        }
+        .merch-details p {
+            flex: 1;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+        .merch-details .btn {
+            align-self: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <h1 class="logo">THRIFTED TEASE</h1>
+            </div>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="tour.html">Tour Dates</a></li>
+                <li><a href="merch.html" class="active">Merch</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero for Merch page -->
+    <section class="merch-hero">
+        <div class="merch-hero-overlay"></div>
+        <div class="merch-hero-content">
+            <h1 class="hero-title">Merch</h1>
+            <p class="hero-subtitle">Rep the band with official gear</p>
+        </div>
+    </section>
+
+    <!-- Merch items grid -->
+    <section class="listen">
+        <div class="section-container">
+            <h2>Featured Merchandise</h2>
+            <p class="section-subtitle">Shop our latest drops on Shopify</p>
+            <div class="merch-grid">
+                <!-- Product 1 -->
+                <div class="merch-item">
+                    <img src="images/photo1-placeholder.jpg" alt="T-Shirt">
+                    <div class="merch-details">
+                        <h3>Logo T‑Shirt</h3>
+                        <p>Classic tee featuring the Thrifted Tease logo.</p>
+                        <a href="https://thriftedtease.myshopify.com" target="_blank" class="btn btn-accent">Shop Now</a>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="merch-item">
+                    <img src="images/photo2-placeholder.jpg" alt="Hoodie">
+                    <div class="merch-details">
+                        <h3>Hoodie</h3>
+                        <p>Stay cozy with our premium band hoodie.</p>
+                        <a href="https://thriftedtease.myshopify.com" target="_blank" class="btn btn-accent">Shop Now</a>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="merch-item">
+                    <img src="images/photo3-placeholder.jpg" alt="Vinyl">
+                    <div class="merch-details">
+                        <h3>Vinyl LP</h3>
+                        <p>Limited edition vinyl of our latest album.</p>
+                        <a href="https://thriftedtease.myshopify.com" target="_blank" class="btn btn-accent">Shop Now</a>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="merch-item">
+                    <img src="images/photo4-placeholder.jpg" alt="Poster">
+                    <div class="merch-details">
+                        <h3>Poster</h3>
+                        <p>High-quality poster featuring exclusive artwork.</p>
+                        <a href="https://thriftedtease.myshopify.com" target="_blank" class="btn btn-accent">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Thrifted Tease. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
