@@ -3,71 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Reuse the site’s styling and fonts -->
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Thrifted Tease media archive with rehearsal, live show, and studio session highlights.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
     <title>Thrifted Tease | Media</title>
-    <style>
-        /* Extra styles specific to the media page */
-        .media-hero {
-            position: relative;
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-        }
-        .media-hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /* Use a static image for the gallery hero background */
-            background: url('images/photo4-placeholder.jpg') no-repeat center center/cover;
-            filter: brightness(0.5);
-            z-index: -2;
-        }
-        .media-hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(10, 14, 39, 0.45) 0%,
-                    rgba(10, 14, 39, 0.72) 55%,
-                    rgba(10, 14, 39, 0.88) 100%
-                );
-            z-index: -1;
-        }
-        .media-hero-content {
-            color: white;
-            z-index: 1;
-        }
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation copied from index.html, with links updated for new pages -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
@@ -89,64 +30,222 @@
         </div>
     </nav>
 
-    <!-- Hero section for the media page -->
     <section class="media-hero">
         <div class="media-hero-overlay"></div>
-        <div class="media-hero-content">
+        <div class="media-hero-content section-container">
+            <p class="media-kicker">Archive</p>
             <h1 class="hero-title">Media Gallery</h1>
-            <p class="hero-subtitle">Past gigs, studio sessions &amp; behind the scenes</p>
+            <p class="hero-subtitle">A long-scroll mix of rehearsal rooms, stage lights, and studio hours.</p>
         </div>
     </section>
 
-    <!-- Photo & Video Gallery Section -->
-    <section class="media">
+    <section class="media media-archive">
         <div class="section-container">
-            <h2>Photo &amp; Video Highlights</h2>
-            <p class="section-subtitle">Relive our favorite moments</p>
-            <!-- Gallery grid reused from index styles -->
-            <div class="gallery-grid">
-                <!-- Image item -->
-                <div class="gallery-item">
-                    <img src="images/photo1-placeholder.jpg" alt="Live performance photo 1">
-                    <div class="gallery-overlay">
-                        <p>Live Show – Toronto</p>
-                        <a href="images/photo1-placeholder.jpg" target="_blank">
-                            <i class="fas fa-expand"></i>
-                        </a>
+            <div class="media-page-intro">
+                <h2>Captured Moments</h2>
+                <p class="section-subtitle">Built to grow one event section at a time without changing the page structure.</p>
+            </div>
+
+            <div class="media-event-list">
+                <article class="media-event">
+                    <div class="media-event-header">
+                        <div>
+                            <h3 class="media-event-title">Basement Rehearsal Lock-In</h3>
+                            <p class="media-event-meta">East End Jam Space &middot; January 2026 &middot; Arrangement rehearsal</p>
+                        </div>
                     </div>
-                </div>
-                <!-- Image item -->
-                <div class="gallery-item">
-                    <img src="images/photo2-placeholder.jpg" alt="Studio session photo">
-                    <div class="gallery-overlay">
-                        <p>Studio Jam</p>
-                        <a href="images/photo2-placeholder.jpg" target="_blank">
-                            <i class="fas fa-expand"></i>
-                        </a>
+                    <div class="media-event-grid">
+                        <article class="media-card media-card--image media-card--feature">
+                            <a class="media-thumb-link" href="images/kevin.JPG" target="_blank" data-lightbox-group="basement-lock-in" data-media-index="1" aria-label="Open Kevin rehearsal photo">
+                                <img src="images/kevin.JPG" alt="Kevin behind the kit during a rehearsal session">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Rhythm Section Run-Through</h4>
+                                <p>Drum takes and transitions dialed in before the set order locked.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--video">
+                            <div class="media-video-frame">
+                                <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=1&amp;rel=0" title="Thrifted Tease YouTube uploads playlist" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="media-card-caption">
+                                <h4>Rehearsal Cut</h4>
+                                <p>Embedded from the band YouTube archive for a live-in-the-room counterpart.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/hamza.JPG" target="_blank" data-lightbox-group="basement-lock-in" data-media-index="2" aria-label="Open Hamza rehearsal photo">
+                                <img src="images/hamza.JPG" alt="Hamza performing during a rehearsal moment">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Lead Line Check</h4>
+                                <p>Quick capture from a pass focused on tightening melodic handoffs.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/spencer.JPG" target="_blank" data-lightbox-group="basement-lock-in" data-media-index="3" aria-label="Open Spencer rehearsal photo">
+                                <img src="images/spencer.JPG" alt="Spencer during a rehearsal run in the practice room">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Guitar Tone Pass</h4>
+                                <p>A quieter frame from the setup stretch before the room opened up.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/bennett.JPG" target="_blank" data-lightbox-group="basement-lock-in" data-media-index="4" aria-label="Open Bennett rehearsal photo">
+                                <img src="images/bennett.JPG" alt="Bennett working through parts during rehearsal">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Keys Arrangement Notes</h4>
+                                <p>Added as a fourth still so the section reads more like a full event roll.</p>
+                            </div>
+                        </article>
                     </div>
-                </div>
-                <!-- Video item using iframe (e.g., YouTube embed) -->
-                <div class="gallery-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen title="Performance Video"></iframe>
+                </article>
+
+                <article class="media-event">
+                    <div class="media-event-header">
+                        <div>
+                            <h3 class="media-event-title">Club Night Set</h3>
+                            <p class="media-event-meta">Toronto &middot; February 2026 &middot; Late set under warm lights</p>
+                        </div>
                     </div>
-                </div>
-                <!-- Another video or image -->
-                <div class="gallery-item">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/oHg5SJYRHA0" allowfullscreen title="Studio Video"></iframe>
+                    <div class="media-event-grid">
+                        <article class="media-card media-card--video media-card--feature">
+                            <div class="media-video-frame">
+                                <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=2&amp;rel=0" title="Thrifted Tease live performance playlist embed" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="media-card-caption">
+                                <h4>Live Set Playback</h4>
+                                <p>A full-width anchor card so video sits naturally beside stills in the same grid.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/spencer.JPG" target="_blank" data-lightbox-group="club-night-set" data-media-index="1" aria-label="Open Spencer live photo">
+                                <img src="images/spencer.JPG" alt="Spencer captured under stage-style lighting">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Stage Left Frame</h4>
+                                <p>A clean portrait-style still that adds breathing room between motion clips.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/bennett.JPG" target="_blank" data-lightbox-group="club-night-set" data-media-index="2" aria-label="Open Bennett live photo">
+                                <img src="images/bennett.JPG" alt="Bennett at the keys during a performance">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Keys in the Wash</h4>
+                                <p>Balanced with the video card so each section reads like a complete event gallery.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/kevin.JPG" target="_blank" data-lightbox-group="club-night-set" data-media-index="3" aria-label="Open Kevin live photo">
+                                <img src="images/kevin.JPG" alt="Kevin playing drums during a live set">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Backline Energy</h4>
+                                <p>A tighter performance crop to deepen the stage-night coverage.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/hamza.JPG" target="_blank" data-lightbox-group="club-night-set" data-media-index="4" aria-label="Open Hamza live photo">
+                                <img src="images/hamza.JPG" alt="Hamza during a live club performance">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Front-of-Stage Moment</h4>
+                                <p>Another still added to complete the four-photo and one-video mix.</p>
+                            </div>
+                        </article>
                     </div>
-                </div>
+                </article>
+
+                <article class="media-event">
+                    <div class="media-event-header">
+                        <div>
+                            <h3 class="media-event-title">Late-Night Studio Session</h3>
+                            <p class="media-event-meta">Tracking Room &middot; March 2026 &middot; Vocal and arrangement passes</p>
+                        </div>
+                    </div>
+                    <div class="media-event-grid">
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/bennett.JPG" target="_blank" data-lightbox-group="studio-session" data-media-index="1" aria-label="Open Bennett studio photo">
+                                <img src="images/bennett.JPG" alt="Bennett during a studio-oriented session at the piano">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Arrangement Desk</h4>
+                                <p>Used here as the still-image entry point for the session narrative.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image media-card--feature">
+                            <a class="media-thumb-link" href="images/hamza.JPG" target="_blank" data-lightbox-group="studio-session" data-media-index="2" aria-label="Open Hamza studio photo">
+                                <img src="images/hamza.JPG" alt="Hamza framed during a focused studio take">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Take in Progress</h4>
+                                <p>Feature-sized image card to keep the final section visually weighted and expandable.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--video">
+                            <div class="media-video-frame">
+                                <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=3&amp;rel=0" title="Thrifted Tease studio session playlist embed" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                            <div class="media-card-caption">
+                                <h4>Session Playback</h4>
+                                <p>Responsive embed card matched to the image treatment for a clean mixed-media finish.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/kevin.JPG" target="_blank" data-lightbox-group="studio-session" data-media-index="3" aria-label="Open Kevin studio photo">
+                                <img src="images/kevin.JPG" alt="Kevin captured during a studio tracking session">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Percussion Overdubs</h4>
+                                <p>An added still that gives the studio section a fuller session-document feel.</p>
+                            </div>
+                        </article>
+
+                        <article class="media-card media-card--image">
+                            <a class="media-thumb-link" href="images/spencer.JPG" target="_blank" data-lightbox-group="studio-session" data-media-index="4" aria-label="Open Spencer studio photo">
+                                <img src="images/spencer.JPG" alt="Spencer during a focused late-night studio setup">
+                                <span class="media-card-badge">Photo</span>
+                            </a>
+                            <div class="media-card-caption">
+                                <h4>Last Pass Before Print</h4>
+                                <p>Rounded out with a fourth image so each block now carries the same media count.</p>
+                            </div>
+                        </article>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Thrifted Tease. All rights reserved.</p>
     </footer>
 
-    <!-- Include existing JavaScript for nav toggle and animations -->
     <script src="js/main.js"></script>
 </body>
 </html>

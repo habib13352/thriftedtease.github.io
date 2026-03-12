@@ -82,8 +82,8 @@ const observer = new IntersectionObserver(function (entries) {
     });
 }, observerOptions);
 
-// Apply fade-in animation to all sections except hero
-document.querySelectorAll('section:not(.hero)').forEach(section => {
+// Apply fade-in animation to content sections, but leave hero sections visible on load.
+document.querySelectorAll('section:not(.hero):not(.media-hero)').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
     section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

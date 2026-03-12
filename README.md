@@ -1,7 +1,7 @@
-# Thrifted Tease – Official Band Website
+# Thrifted Tease - Official Band Website
 
 <p align="center">
-Official landing page for the Toronto-based progressive pop band <strong>Thrifted Tease</strong>.
+Official website for the Toronto-based progressive pop band <strong>Thrifted Tease</strong>.
 </p>
 
 <p align="center">
@@ -15,196 +15,157 @@ Official landing page for the Toronto-based progressive pop band <strong>Thrifte
 </p>
 
 <p align="center">
-<a href="https://habib13352.github.io/thriftedtease.github.io/">🌐 Live Website</a> •
-<a href="https://open.spotify.com/artist/2Bzx8VvEQmCcalgPMMIpay">🎵 Spotify</a> •
-<a href="https://www.instagram.com/thriftedtease/">📸 Instagram</a>
+<a href="https://habib13352.github.io/thriftedtease.github.io/">Live Website</a> •
+<a href="https://open.spotify.com/artist/2Bzx8VvEQmCcalgPMMIpay">Spotify</a> •
+<a href="https://www.instagram.com/thriftedtease/">Instagram</a>
 </p>
 
 ---
 
-A clean, minimal band website built with **HTML5, CSS3, and vanilla JavaScript**.
+A static band website built with **HTML5, CSS3, and vanilla JavaScript**.
 
-The goal of this project is simple:
+The current site is centered around four public-facing pages:
 
-- Showcase the band
-- Drive traffic to streaming platforms
-- Promote merch
-- Provide booking contact information
+- `index.html` for the main landing experience
+- `media.html` for the long-scroll media archive
+- `shows.html` for upcoming live dates
+- `merch.html` for merchandise promotion
 
-The site is fully responsive and optimized for fast loading.
+The design system is shared through `css/styles.css`, with page-specific enhancements layered on top where needed.
 
 ## Live Site
 
-Visit the official website here:
-
 https://habib13352.github.io/thriftedtease.github.io/
-
-## Website Preview
-
-![Thrifted Tease Website](images/site-preview.jpg)
-
-> If the preview image does not appear yet, add a screenshot at `images/site-preview.jpg`.
 
 ---
 
 ## Table of Contents
 
 - [Project Overview](#project-overview)
+- [Current Website Pages](#current-website-pages)
 - [Technical Features](#technical-features)
 - [Project Structure](#project-structure)
-- [Colour Scheme & Branding](#colour-scheme--branding)
+- [Colour Scheme and Branding](#colour-scheme-and-branding)
 - [Getting Started](#getting-started)
 - [Customization Guide](#customization-guide)
-- [Optimizing Assets](#optimizing-assets)
+- [Assets](#assets)
 - [Extending Functionality](#extending-functionality)
-- [Performance & SEO](#performance--seo)
 - [Known Issues](#known-issues)
 - [Future Development](#future-development)
-- [Support & Maintenance](#support--maintenance)
 - [License](#license)
 
 ---
 
 ## Project Overview
 
-The landing page contains five main sections.
+This repo currently contains a responsive band website with a shared fixed navigation, dark navy and gold branding, and lightweight vanilla JavaScript interactions.
 
-### Navigation
+The site goals are:
 
-A sticky navigation bar with four links:
+- showcase the band visually
+- drive traffic to streaming platforms
+- promote merch
+- surface show information
+- provide contact and social links
 
-- Home
-- Listen
-- Gallery
-- Contact
+## Current Website Pages
 
-The navigation collapses into a **mobile hamburger menu**.
+### `index.html`
 
-JavaScript handles:
+The main landing page includes:
 
-- Menu toggling
-- Closing the menu after navigation
-- Adding a subtle shadow when scrolling
+- fixed navigation with mobile hamburger menu
+- full-screen hero with background video (`images/hero.mp4`)
+- streaming platform links for Spotify, Apple Music, YouTube, and SoundCloud
+- a simple media preview grid using local band images
+- contact and social links
 
-### Hero
+### `media.html`
 
-A full-screen hero section featuring:
+The media page is no longer a placeholder gallery.
 
-- Background video (`images/hero.mp4`)
-- Band name
-- Tagline: **Toronto Based. Progressive Pop.**
-- Subtitle
+It now includes:
 
-Three call-to-action buttons lead to:
+- a dedicated media hero using a real local band image
+- a long-scroll archive layout
+- three starter event sections
+- mixed media grids inside each event section
+- five media items per section
+- four clickable image cards and one responsive YouTube embed per section
+- lightbox-friendly image markup using `data-lightbox-group` and `data-media-index`
 
-- Streaming platforms
-- Shopify merch store
-- Contact section
+This page is authored directly in HTML and is intended to be extended by duplicating a full `media-event` block.
 
-### Listen
+### `shows.html`
 
-Promotes the band's music with direct links to:
+The shows page includes:
 
-- Spotify
-- Apple Music
-- YouTube
-- SoundCloud
+- a dedicated hero section
+- a styled table of upcoming dates
+- CTA buttons for ticket links
 
-Each platform card includes an icon and logs an **analytics event** when clicked.
+Note: the show entries are currently static sample entries and the hero still uses a placeholder background image.
 
-### Media
+### `merch.html`
 
-A gallery grid displaying photos of band members.
+The merch page includes:
 
-Images are stored in the `images/` directory:
+- a dedicated hero section
+- a product card grid
+- links out to the Shopify store
 
-```text
-images/
-├── kevin.JPG
-├── bennett.JPG
-├── hamza.JPG
-└── spencer.JPG
-```
-
-### Contact
-
-Displays:
-
-- Booking email
-- General contact email
-- Social media links
-
-Platforms include:
-
-- Instagram
-- Spotify
-- YouTube
-- TikTok
-- Twitter
-
-JavaScript logs clicks on these links for analytics.
+Note: the merch page still uses placeholder product imagery and sample item copy.
 
 ## Technical Features
 
-- Mobile-first responsive design
-- Smooth scrolling navigation
-- Scroll-triggered animations
-- Analytics hooks for links and buttons
-- CSS variables for easy theme customization
-- Font Awesome icons via CDN
-- Minimal dependencies
+- fully static site with no build step
+- shared design system in `css/styles.css`
+- responsive layout across desktop and mobile breakpoints
+- mobile navigation toggle in `js/main.js`
+- smooth scrolling for in-page anchor links
+- scroll-triggered section fade-in effects
+- analytics hook stubs for buttons, streaming links, and social links
+- responsive YouTube embeds on the media page
 
 ## Project Structure
 
 ```text
 thriftedtease.github.io/
-├── index.html
-│   Main landing page
-│   Sections: hero, listen, gallery, contact, footer
-│
-├── css/
-│   └── styles.css
-│       Global styles (~760 lines)
-│       Variables, layout, animations, responsive rules
-│
-├── js/
-│   └── main.js
-│       JavaScript (~196 lines)
-│       Menu toggle
-│       Smooth scrolling
-│       Scroll animations
-│       Analytics hooks
-│
-├── images/
-│   ├── hero.mp4
-│   ├── kevin.JPG
-│   ├── bennett.JPG
-│   ├── hamza.JPG
-│   └── spencer.JPG
-│
-├── .gitignore
-└── README.md
+|-- index.html
+|-- media.html
+|-- shows.html
+|-- merch.html
+|-- css/
+|   `-- styles.css
+|-- js/
+|   `-- main.js
+|-- images/
+|   |-- hero.mp4
+|   |-- hero.MOV
+|   |-- kevin.JPG
+|   |-- bennett.JPG
+|   |-- hamza.JPG
+|   `-- spencer.JPG
+`-- README.md
 ```
 
-## Colour Scheme & Branding
+## Colour Scheme and Branding
 
-The site uses a **dark theme with gold accents**.
+The site uses a dark performance-oriented palette with gold accents.
 
-Example CSS variables:
+Core CSS variables:
 
 ```css
 :root {
-  --primary-color: #0a0e27;
-  --secondary-color: #d4a574;
-  --accent-color: #e8d4c0;
-  --text-color: #e0e0e0;
-  --highlight: #ff6b6b;
+    --primary-color: #0a0e27;
+    --secondary-color: #d4a574;
+    --accent-color: #e8d4c0;
+    --text-color: #e0e0e0;
+    --dark-bg: #1a1f3a;
 }
 ```
 
-These variables are defined in `css/styles.css`.
-
-Edit them to customize the theme.
+These variables live in `css/styles.css` and drive the main visual identity across pages.
 
 ## Getting Started
 
@@ -217,7 +178,7 @@ cd thriftedtease.github.io
 
 ### Run locally
 
-Open `index.html` directly in a browser, or run a local server.
+Because the site is static, you can either open `index.html` directly in a browser or use a lightweight local server.
 
 #### Python
 
@@ -231,129 +192,92 @@ python -m http.server 8000
 npx http-server
 ```
 
-### View the live site
+Then open:
 
-The site is deployed with GitHub Pages:
-
-https://habib13352.github.io/thriftedtease.github.io/
+```text
+http://localhost:8000
+```
 
 ## Customization Guide
 
-Edit `index.html` to update:
+### Content updates
 
-- Band name
-- Streaming platform links
-- Shopify store link
-- Gallery images
-- Contact information
+Edit these files directly:
 
-## Optimizing Assets
+- `index.html` for landing page copy, streaming links, and contact details
+- `media.html` for event sections, media captions, image links, and YouTube embeds
+- `shows.html` for upcoming dates and ticket URLs
+- `merch.html` for item names, descriptions, imagery, and store links
 
-### Hero Video
+### Styling
 
-Location: `images/hero.mp4`
+- use `css/styles.css` for shared site styling
+- keep page-specific additions aligned with the existing navy and gold system
+- preserve shared classes used by `js/main.js` such as `navbar`, `hamburger`, and `nav-menu`
 
-Recommended:
+### Media page pattern
 
-- Resolution: 1920×1080
-- File size: < 5MB
-- Format: MP4
+To add another media event section:
 
-### Gallery Images
+1. Duplicate one existing `.media-event` block in `media.html`
+2. Update the title and metadata line
+3. Replace the four image cards and one video embed
+4. Keep `data-lightbox-group` consistent within that event section
 
-Recommended:
+## Assets
 
-- Resolution: 1200×800
-- File size: < 300KB
+### Current local image assets
 
-Compression tools:
+The repo currently includes these local band images:
 
-- https://tinyjpg.com
-- https://imageoptim.com
-- `ffmpeg`
+- `images/kevin.JPG`
+- `images/bennett.JPG`
+- `images/hamza.JPG`
+- `images/spencer.JPG`
+
+### Current video assets
+
+- `images/hero.mp4`
+- `images/hero.MOV`
+
+### Asset notes
+
+- `index.html` uses the MP4 hero video
+- `media.html` uses local JPG images plus embedded YouTube content
+- `shows.html` and `merch.html` still reference placeholder imagery in their page-specific inline styles and cards
 
 ## Extending Functionality
 
-Analytics hooks exist via:
+Existing hooks and structure make the following straightforward to add later:
 
-`trackEvent()`
-
-This can be connected to:
-
-- Google Analytics
-- Mixpanel
-- Segment
-
-For contact forms, consider:
-
-- Formspree
-- EmailJS
-
-## Performance & SEO
-
-Current optimizations:
-
-- Semantic HTML5
-- Mobile-first CSS
-- Minimal dependencies
-- Fast loading assets
-
-Future improvements:
-
-- Lazy loading images
-- WebP image support
-- Schema.org structured data
-- Service workers
-- Open Graph metadata
+- real lightbox behavior for media image cards
+- analytics integration through `trackEvent()`
+- CMS or JSON-backed show and media data
+- real merch catalog integration
+- improved SEO metadata across subpages
 
 ## Known Issues
 
 | Issue | Status | Notes |
 |---|---|---|
-| Hero video autoplay on iOS | Known | iOS blocks autoplay |
-| Contact form backend missing | Planned | Use Formspree or EmailJS |
-| Light mode toggle | Not implemented | Dark theme chosen intentionally |
+| Media lightbox next/prev behavior | Scaffolded only | Image cards are structured for it, but functionality is not implemented |
+| Shows page background image | Placeholder | `shows.html` still uses a placeholder hero image |
+| Merch imagery and product copy | Placeholder | `merch.html` still uses sample merch content |
+| Hero video autoplay on some mobile browsers | Known | Browser autoplay restrictions may apply |
 
 ## Future Development
 
-Potential improvements:
+Potential next steps:
 
-- Google Analytics integration
-- Working contact form
-- Newsletter signup
-- Embedded music player
-- Tour dates integration
-- Schema markup
-- Open Graph metadata
-- PWA features
-
-## Support & Maintenance
-
-### HTML Structure
-
-Sections in `index.html` map to CSS and JavaScript hooks.
-
-### CSS Variables
-
-Theme variables are located in `css/styles.css`.
-
-### JavaScript
-
-All interactivity is handled in `js/main.js`.
-
-### Responsive Testing
-
-Test layouts at:
-
-- 320px
-- 768px
-- 1200px
-
-Use Chrome DevTools Lighthouse for performance testing.
+- replace placeholder visuals on `shows.html` and `merch.html`
+- connect analytics to a real provider
+- add a functioning image lightbox for `media.html`
+- add Open Graph and richer per-page meta tags
+- optimize local images and add modern formats where appropriate
 
 ## License
 
-© 2026 Thrifted Tease. All rights reserved.
+Copyright 2026 Thrifted Tease. All rights reserved.
 
-Last Updated: March 11, 2026  
-Version: 2.2
+Last Updated: March 12, 2026  
+Version: 2.3
