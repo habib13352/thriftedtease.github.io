@@ -3,68 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upcoming Thrifted Tease shows around Toronto and the GTA, with clear venue details and live date info.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Thrifted Tease | Upcoming Shows</title>
-    <style>
-        /* Show-specific styles */
-        .show-hero {
-            position: relative;
-            height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            text-align: center;
-        }
-        .show-hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('images/photo3-placeholder.jpg') no-repeat center center/cover;
-            filter: brightness(0.5);
-            z-index: -2;
-        }
-        .show-hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(180deg, rgba(10,14,39,0.4) 0%, rgba(10,14,39,0.8) 100%);
-            z-index: -1;
-        }
-        .show-hero-content {
-            color: white;
-            z-index: 1;
-        }
-        .show-table {
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            border-collapse: collapse;
-            color: var(--text-color);
-        }
-        .show-table th, .show-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(212,165,116,0.2);
-        }
-        .show-table th {
-            color: var(--secondary-color);
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-        .show-table tr:nth-child(even) {
-            background-color: rgba(10,14,39,0.2);
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
@@ -86,66 +30,106 @@
         </div>
     </nav>
 
-    <!-- Hero section for upcoming shows -->
-    <section class="show-hero">
-        <div class="show-hero-overlay"></div>
-        <div class="show-hero-content">
+    <section class="shows-hero">
+        <div class="shows-hero-overlay"></div>
+        <div class="shows-hero-content section-container">
+            <p class="shows-kicker">Live Dates</p>
             <h1 class="hero-title">Upcoming Shows</h1>
-            <p class="hero-subtitle">Catch us live at a venue near you</p>
+            <p class="hero-subtitle">A cleaner live-date page built for the way a local Toronto band actually books: a small run of nearby shows, clearly laid out.</p>
         </div>
     </section>
 
-    <!-- Upcoming shows list -->
-    <section class="listen">
+    <section class="shows-listing">
         <div class="section-container">
-            <h2>Upcoming Shows</h2>
-            <p class="section-subtitle">Stay tuned for new dates and locations</p>
-            <table class="show-table">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>City</th>
-                        <th>Venue</th>
-                        <th>Tickets</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>April 10, 2026</td>
-                        <td>Toronto, ON</td>
-                        <td>The Phoenix Concert Theatre</td>
-                        <td><a href="#" class="btn btn-accent">Buy</a></td>
-                    </tr>
-                    <tr>
-                        <td>May 5, 2026</td>
-                        <td>Montreal, QC</td>
-                        <td>Le National</td>
-                        <td><a href="#" class="btn btn-accent">Buy</a></td>
-                    </tr>
-                    <tr>
-                        <td>May 20, 2026</td>
-                        <td>Vancouver, BC</td>
-                        <td>Commodore Ballroom</td>
-                        <td><a href="#" class="btn btn-accent">Buy</a></td>
-                    </tr>
-                    <tr>
-                        <td>June 15, 2026</td>
-                        <td>New York, NY</td>
-                        <td>Bowery Ballroom</td>
-                        <td><a href="#" class="btn btn-accent">Buy</a></td>
-                    </tr>
-                    <!-- Additional dates can be added here -->
-                </tbody>
-            </table>
+            <div class="shows-page-intro">
+                <h2>Next Up</h2>
+                <p class="section-subtitle">Dates stay focused on Toronto and the GTA, with the venue and city easy to read at a glance.</p>
+            </div>
+
+            <div class="show-list">
+                <article class="show-card">
+                    <div class="show-date" aria-label="Friday April 10 2026">
+                        <span class="show-date-month">Apr</span>
+                        <span class="show-date-day">10</span>
+                    </div>
+                    <div class="show-details">
+                        <p class="show-meta">Friday, April 10, 2026 &middot; Toronto, ON</p>
+                        <h3>The Horseshoe Tavern</h3>
+                        <p>Downtown Toronto night with a compact room, a local bill, and an easy entry point for first-time listeners.</p>
+                    </div>
+                    <div class="show-actions">
+                        <a href="mailto:booking@thriftedtease.com?subject=RSVP%20for%20April%2010%20Show" class="btn btn-primary">RSVP / Ticket Info</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=The+Horseshoe+Tavern+Toronto" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Venue Info</a>
+                    </div>
+                </article>
+
+                <article class="show-card">
+                    <div class="show-date" aria-label="Thursday May 7 2026">
+                        <span class="show-date-month">May</span>
+                        <span class="show-date-day">07</span>
+                    </div>
+                    <div class="show-details">
+                        <p class="show-meta">Thursday, May 7, 2026 &middot; Oshawa, ON</p>
+                        <h3>Biltmore Theatre</h3>
+                        <p>East-GTA stop with room for a later set and a bit more stage depth than the usual downtown run.</p>
+                    </div>
+                    <div class="show-actions">
+                        <a href="mailto:booking@thriftedtease.com?subject=RSVP%20for%20May%207%20Show" class="btn btn-primary">RSVP / Ticket Info</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Biltmore+Theatre+Oshawa" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Venue Info</a>
+                    </div>
+                </article>
+
+                <article class="show-card">
+                    <div class="show-date" aria-label="Saturday June 13 2026">
+                        <span class="show-date-month">Jun</span>
+                        <span class="show-date-day">13</span>
+                    </div>
+                    <div class="show-details">
+                        <p class="show-meta">Saturday, June 13, 2026 &middot; Mississauga, ON</p>
+                        <h3>Studio.89</h3>
+                        <p>West-end GTA date that keeps the live calendar local and clear without pretending the band is on a national tour.</p>
+                    </div>
+                    <div class="show-actions">
+                        <a href="mailto:booking@thriftedtease.com?subject=RSVP%20for%20June%2013%20Show" class="btn btn-primary">RSVP / Ticket Info</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Studio.89+Mississauga" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Venue Info</a>
+                    </div>
+                </article>
+
+                <article class="show-card">
+                    <div class="show-date" aria-label="Friday July 24 2026">
+                        <span class="show-date-month">Jul</span>
+                        <span class="show-date-day">24</span>
+                    </div>
+                    <div class="show-details">
+                        <p class="show-meta">Friday, July 24, 2026 &middot; Brampton, ON</p>
+                        <h3>The Rose Patio Series</h3>
+                        <p>An outdoor GTA date that adds a slightly bigger summer-night feel while keeping the run local and easy to follow.</p>
+                    </div>
+                    <div class="show-actions">
+                        <a href="mailto:booking@thriftedtease.com?subject=RSVP%20for%20July%2024%20Show" class="btn btn-primary">RSVP / Ticket Info</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=The+Rose+Theatre+Brampton" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Venue Info</a>
+                    </div>
+                </article>
+            </div>
+
+            <!--
+            Use this block when there are temporarily no active dates.
+            <div class="shows-empty-state">
+                <h3>No live dates posted right now</h3>
+                <p>We are still booking around Toronto and the GTA. Follow along or email booking@thriftedtease.com for the next announcement.</p>
+                <div class="show-actions">
+                    <a href="https://www.instagram.com/thriftedtease/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Follow For Updates</a>
+                    <a href="mailto:booking@thriftedtease.com" class="btn btn-accent">Contact Booking</a>
+                </div>
+            </div>
+            -->
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <p>&copy; 2026 Thrifted Tease. All rights reserved.</p>
     </footer>
 
-    <!-- Existing JS for nav and smooth scrolling -->
     <script src="js/main.js"></script>
 </body>
 </html>
