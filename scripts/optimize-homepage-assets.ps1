@@ -1,5 +1,3 @@
-Add-Type -AssemblyName System.Drawing
-
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
@@ -10,38 +8,50 @@ $mediaOutputDir = Join-Path $repoRoot 'images\optimized\media'
 New-Item -ItemType Directory -Path $homepageOutputDir -Force | Out-Null
 New-Item -ItemType Directory -Path $mediaOutputDir -Force | Out-Null
 
-function Get-JpegCodec {
-    $codec = [System.Drawing.Imaging.ImageCodecInfo]::GetImageEncoders() |
-        Where-Object { $_.MimeType -eq 'image/jpeg' } |
-        Select-Object -First 1
+$ffmpeg = (Get-Command ffmpeg -ErrorAction Stop).Source
 
-    if (-not $codec) {
-        throw 'JPEG encoder not available.'
-    }
-
-    return $codec
-}
-
-function Save-Jpeg {
+function Get-JpegQScale {
     param(
-        [Parameter(Mandatory = $true)]
-        [System.Drawing.Image]$Image,
-        [Parameter(Mandatory = $true)]
-        [string]$Path,
         [Parameter(Mandatory = $true)]
         [int]$Quality
     )
 
-    $codec = Get-JpegCodec
-    $encoder = [System.Drawing.Imaging.Encoder]::Quality
-    $encoderParameters = New-Object System.Drawing.Imaging.EncoderParameters(1)
-    $encoderParameters.Param[0] = New-Object System.Drawing.Imaging.EncoderParameter($encoder, [long]$Quality)
-
-    try {
-        $Image.Save($Path, $codec, $encoderParameters)
+    if ($Quality -ge 80) {
+        return 2
     }
-    finally {
-        $encoderParameters.Dispose()
+
+    if ($Quality -ge 72) {
+        return 4
+    }
+
+    return 6
+}
+
+function Invoke-FfmpegStill {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$SourcePath,
+        [Parameter(Mandatory = $true)]
+        [string]$DestinationPath,
+        [Parameter(Mandatory = $true)]
+        [string]$Filter,
+        [Parameter(Mandatory = $true)]
+        [int]$Quality
+    )
+
+    $destinationDir = Split-Path -Parent $DestinationPath
+    if ($destinationDir) {
+        New-Item -ItemType Directory -Path $destinationDir -Force | Out-Null
+    }
+
+    $qScale = Get-JpegQScale -Quality $Quality
+
+    $filterComplex = "[0:v]$Filter[v]"
+
+    & $ffmpeg -y -hide_banner -loglevel error -i $SourcePath -filter_complex $filterComplex -map "[v]" -frames:v 1 -q:v $qScale $DestinationPath
+
+    if ($LASTEXITCODE -ne 0) {
+        throw "ffmpeg failed while processing '$SourcePath'."
     }
 }
 
@@ -59,32 +69,8 @@ function New-FitImage {
         [int]$Quality
     )
 
-    $source = [System.Drawing.Image]::FromFile($SourcePath)
-
-    try {
-        $ratio = [Math]::Min($MaxWidth / $source.Width, $MaxHeight / $source.Height)
-        $targetWidth = [Math]::Max([int][Math]::Round($source.Width * $ratio), 1)
-        $targetHeight = [Math]::Max([int][Math]::Round($source.Height * $ratio), 1)
-
-        $bitmap = New-Object System.Drawing.Bitmap($targetWidth, $targetHeight)
-        $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
-
-        try {
-            $graphics.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
-            $graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
-            $graphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
-            $graphics.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
-            $graphics.DrawImage($source, 0, 0, $targetWidth, $targetHeight)
-            Save-Jpeg -Image $bitmap -Path $DestinationPath -Quality $Quality
-        }
-        finally {
-            $graphics.Dispose()
-            $bitmap.Dispose()
-        }
-    }
-    finally {
-        $source.Dispose()
-    }
+    $filter = "scale=$MaxWidth`:$MaxHeight`:force_original_aspect_ratio=decrease"
+    Invoke-FfmpegStill -SourcePath $SourcePath -DestinationPath $DestinationPath -Filter $filter -Quality $Quality
 }
 
 function New-FillImage {
@@ -101,51 +87,36 @@ function New-FillImage {
         [int]$Quality
     )
 
-    $source = [System.Drawing.Image]::FromFile($SourcePath)
-
-    try {
-        $sourceRatio = $source.Width / $source.Height
-        $targetRatio = $Width / $Height
-
-        if ($sourceRatio -gt $targetRatio) {
-            $cropHeight = $source.Height
-            $cropWidth = [int][Math]::Round($cropHeight * $targetRatio)
-            $cropX = [int][Math]::Round(($source.Width - $cropWidth) / 2)
-            $cropY = 0
-        }
-        else {
-            $cropWidth = $source.Width
-            $cropHeight = [int][Math]::Round($cropWidth / $targetRatio)
-            $cropX = 0
-            $cropY = [int][Math]::Round(($source.Height - $cropHeight) / 2)
-        }
-
-        $bitmap = New-Object System.Drawing.Bitmap($Width, $Height)
-        $graphics = [System.Drawing.Graphics]::FromImage($bitmap)
-
-        try {
-            $graphics.CompositingQuality = [System.Drawing.Drawing2D.CompositingQuality]::HighQuality
-            $graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
-            $graphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::HighQuality
-            $graphics.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
-
-            $destinationRect = New-Object System.Drawing.Rectangle(0, 0, $Width, $Height)
-            $sourceRect = New-Object System.Drawing.Rectangle($cropX, $cropY, $cropWidth, $cropHeight)
-            $graphics.DrawImage($source, $destinationRect, $sourceRect, [System.Drawing.GraphicsUnit]::Pixel)
-
-            Save-Jpeg -Image $bitmap -Path $DestinationPath -Quality $Quality
-        }
-        finally {
-            $graphics.Dispose()
-            $bitmap.Dispose()
-        }
-    }
-    finally {
-        $source.Dispose()
-    }
+    $filter = "scale=$Width`:$Height`:force_original_aspect_ratio=increase,crop=$Width`:$Height"
+    Invoke-FfmpegStill -SourcePath $SourcePath -DestinationPath $DestinationPath -Filter $filter -Quality $Quality
 }
 
-$assets = @(
+function New-OptimizedAsset {
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$SourcePath,
+        [Parameter(Mandatory = $true)]
+        [string]$DestinationPath,
+        [Parameter(Mandatory = $true)]
+        [ValidateSet('fill', 'fit')]
+        [string]$Mode,
+        [Parameter(Mandatory = $true)]
+        [int]$Width,
+        [Parameter(Mandatory = $true)]
+        [int]$Height,
+        [Parameter(Mandatory = $true)]
+        [int]$Quality
+    )
+
+    if ($Mode -eq 'fill') {
+        New-FillImage -SourcePath $SourcePath -DestinationPath $DestinationPath -Width $Width -Height $Height -Quality $Quality
+        return
+    }
+
+    New-FitImage -SourcePath $SourcePath -DestinationPath $DestinationPath -MaxWidth $Width -MaxHeight $Height -Quality $Quality
+}
+
+$homepageAssets = @(
     @{
         Source = Join-Path $repoRoot 'images\spencer.JPG'
         Destination = Join-Path $homepageOutputDir 'hero-home.jpg'
@@ -219,89 +190,124 @@ $assets = @(
         Quality = 80
     }
     @{
-        Source = Join-Path $repoRoot 'images\spencer.JPG'
+        Source = Join-Path $repoRoot 'images\band_pics\band_15.jpg'
         Destination = Join-Path $mediaOutputDir 'hero-media.jpg'
         Mode = 'fill'
         Width = 1600
         Height = 960
         Quality = 70
     }
+)
+
+$mediaEvents = @(
     @{
-        Source = Join-Path $repoRoot 'images\kevin.JPG'
-        Destination = Join-Path $mediaOutputDir 'kevin-card.jpg'
-        Mode = 'fill'
-        Width = 960
-        Height = 600
-        Quality = 72
+        Slug = 'cameron-house'
+        SourceDir = Join-Path $repoRoot 'images\cameron_house'
+        Files = @(
+            'spence_ch_1.JPG',
+            'kevin_ch_1.JPG',
+            'hamza_ch_1.JPG',
+            'dyl_ch_1.JPG',
+            'bennett_ch_1.JPG',
+            'spen-ben_ch_1.JPG',
+            'spence_ch_2.JPG',
+            'kevin_ch_2.JPG',
+            'bennett_ch_2.JPG',
+            'spence_ch_3.JPG'
+        )
     }
     @{
-        Source = Join-Path $repoRoot 'images\bennett.JPG'
-        Destination = Join-Path $mediaOutputDir 'bennett-card.jpg'
-        Mode = 'fill'
-        Width = 960
-        Height = 600
-        Quality = 72
+        Slug = 'el-mocambo'
+        SourceDir = Join-Path $repoRoot 'images\el_mocambo'
+        Files = @(
+            'tuning_el_1.HEIC',
+            'tuning_el_2.HEIC',
+            'Jan 16th Poster.png'
+        )
     }
     @{
-        Source = Join-Path $repoRoot 'images\hamza.JPG'
-        Destination = Join-Path $mediaOutputDir 'hamza-card.jpg'
-        Mode = 'fill'
-        Width = 960
-        Height = 600
-        Quality = 72
+        Slug = 'painted-lady'
+        SourceDir = Join-Path $repoRoot 'images\painted_lady'
+        Files = @(
+            'spence_pl_1.JPG',
+            'kevin_pl_1.JPG',
+            'hamza_pl_1.JPG',
+            'dyl_pl_1.JPG',
+            'bennett_pl_1.JPG',
+            'spence_pl_2.JPG',
+            'kevin_pl_2.JPG',
+            'hamza_pl_2.JPG',
+            'bennett_pl_2.JPG',
+            'spence_pl_3.JPG'
+        )
     }
     @{
-        Source = Join-Path $repoRoot 'images\spencer.JPG'
-        Destination = Join-Path $mediaOutputDir 'spencer-card.jpg'
-        Mode = 'fill'
-        Width = 960
-        Height = 600
-        Quality = 72
+        Slug = 'the-handlebar'
+        SourceDir = Join-Path $repoRoot 'images\the_handlebar'
+        Files = @(
+            'band_hb_1.HEIC',
+            'bennett_hb_1.HEIC',
+            'spence_hb_1.HEIC'
+        )
     }
     @{
-        Source = Join-Path $repoRoot 'images\kevin.JPG'
-        Destination = Join-Path $mediaOutputDir 'kevin-full.jpg'
-        Mode = 'fit'
-        Width = 1800
-        Height = 1800
-        Quality = 80
+        Slug = 'the-pilot'
+        SourceDir = Join-Path $repoRoot 'images\the_pilot'
+        Files = @(
+            'spence_tp_1.JPG',
+            'kevin_tp_1.JPG',
+            'hamza_tp_1.JPG',
+            'dyl_tp_1.JPG',
+            'bennett_tp_1.JPG',
+            'spence_tp_2.JPG',
+            'kevin_tp_2.JPG',
+            'dyl_tp_2.JPG',
+            'bennett_tp_2.JPG',
+            'spence_tp_3.JPG'
+        )
     }
     @{
-        Source = Join-Path $repoRoot 'images\bennett.JPG'
-        Destination = Join-Path $mediaOutputDir 'bennett-full.jpg'
-        Mode = 'fit'
-        Width = 1800
-        Height = 1800
-        Quality = 80
-    }
-    @{
-        Source = Join-Path $repoRoot 'images\hamza.JPG'
-        Destination = Join-Path $mediaOutputDir 'hamza-full.jpg'
-        Mode = 'fit'
-        Width = 1800
-        Height = 1800
-        Quality = 80
-    }
-    @{
-        Source = Join-Path $repoRoot 'images\spencer.JPG'
-        Destination = Join-Path $mediaOutputDir 'spencer-full.jpg'
-        Mode = 'fit'
-        Width = 1800
-        Height = 1800
-        Quality = 80
+        Slug = 'band-pics'
+        SourceDir = Join-Path $repoRoot 'images\band_pics'
+        Files = @(
+            'band_15.jpg',
+            'band_14.jpg',
+            'band_13.jpg',
+            'band_12.jpg',
+            'band_11.jpg',
+            'spence_band_17.jpg',
+            'spence_band_16.jpg',
+            'kevin_band_13.jpg',
+            'hamza_band_8.jpg',
+            'bennett_band_13.jpg'
+        )
     }
 )
 
-foreach ($asset in $assets) {
-    if ($asset.Mode -eq 'fill') {
-        New-FillImage -SourcePath $asset.Source -DestinationPath $asset.Destination -Width $asset.Width -Height $asset.Height -Quality $asset.Quality
-    }
-    else {
-        New-FitImage -SourcePath $asset.Source -DestinationPath $asset.Destination -MaxWidth $asset.Width -MaxHeight $asset.Height -Quality $asset.Quality
+foreach ($asset in $homepageAssets) {
+    New-OptimizedAsset -SourcePath $asset.Source -DestinationPath $asset.Destination -Mode $asset.Mode -Width $asset.Width -Height $asset.Height -Quality $asset.Quality
+}
+
+foreach ($event in $mediaEvents) {
+    $eventOutputDir = Join-Path $mediaOutputDir $event.Slug
+
+    New-Item -ItemType Directory -Path $eventOutputDir -Force | Out-Null
+
+    for ($index = 0; $index -lt $event.Files.Count; $index++) {
+        $sourceFile = $event.Files[$index]
+        $sourcePath = Join-Path $event.SourceDir $sourceFile
+        $sequence = '{0:D2}' -f ($index + 1)
+
+        if (-not (Test-Path $sourcePath)) {
+            throw "Missing source image '$sourcePath'."
+        }
+
+        New-OptimizedAsset -SourcePath $sourcePath -DestinationPath (Join-Path $eventOutputDir "$sequence-card.jpg") -Mode 'fill' -Width 960 -Height 600 -Quality 72
+        New-OptimizedAsset -SourcePath $sourcePath -DestinationPath (Join-Path $eventOutputDir "$sequence-full.jpg") -Mode 'fit' -Width 1800 -Height 1800 -Quality 80
     }
 }
 
 Get-ChildItem $repoRoot\images\optimized -Recurse -File |
-    Sort-Object Name |
+    Sort-Object FullName |
     Select-Object FullName, @{ Name = 'SizeKB'; Expression = { [Math]::Round($_.Length / 1KB, 1) } } |
     Format-Table -AutoSize

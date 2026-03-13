@@ -23,9 +23,10 @@ Homepage-ready assets now live in `images/optimized/homepage/`.
 
 Media-page assets now live in `images/optimized/media/`.
 
-- `*-card.jpg` is the displayed media-card thumbnail
-- `*-full.jpg` is the larger image opened from the media page
 - `hero-media.jpg` is the optimized media-page hero background
+- each venue gallery now has its own folder such as `images/optimized/media/cameron-house/`
+- `NN-card.jpg` is the displayed media-card thumbnail inside a venue folder
+- `NN-full.jpg` is the larger image opened from the media page
 
 Keep original source photos and source video outside the deploy path when possible. Commit only web-ready derivatives.
 
@@ -46,7 +47,7 @@ Run this from the repo root when homepage or media-page source images change:
 powershell -ExecutionPolicy Bypass -File .\scripts\optimize-homepage-assets.ps1
 ```
 
-This script creates resized JPG derivatives for the homepage and `media.html` so those pages do not ship source-resolution images.
+This script creates resized JPG derivatives for the homepage and `media.html` so those pages do not ship source-resolution images. It now uses `ffmpeg`, which lets the media archive process JPG, PNG, and HEIC source folders into venue-specific output directories.
 
 The desktop hero video is managed separately with `ffmpeg`:
 

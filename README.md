@@ -88,10 +88,10 @@ It now includes:
 
 - a dedicated media hero using a real local band image
 - a long-scroll archive layout
-- three starter event sections
+- venue-based event sections for Cameron House, El Mocambo, Painted Lady, The Handlebar, The Pilot, and band portraits
 - mixed media grids inside each event section
-- five media items per section
-- four clickable image cards and one responsive YouTube embed per section
+- optimized venue-specific image folders under `images/optimized/media/`
+- responsive YouTube embeds paired with each section
 - lightbox-friendly image markup using `data-lightbox-group` and `data-media-index`
 
 This page is authored directly in HTML and is intended to be extended by duplicating a full `media-event` block.
@@ -247,8 +247,8 @@ To add another media event section:
 
 1. Duplicate one existing `.media-event` block in `media.html`
 2. Update the title and metadata line
-3. Replace the four image cards and one video embed
-4. Keep `data-lightbox-group` consistent within that event section
+3. Point the image cards at the matching venue folder inside `images/optimized/media/<section-slug>/`
+4. Replace or add the section's YouTube embed and keep `data-lightbox-group` consistent within that event section
 
 ## Assets
 
@@ -266,8 +266,8 @@ The homepage now uses optimized derivatives in:
 The media page now uses optimized derivatives in:
 
 - `images/optimized/media/hero-media.jpg`
-- `images/optimized/media/*-card.jpg`
-- `images/optimized/media/*-full.jpg`
+- `images/optimized/media/<section-slug>/NN-card.jpg`
+- `images/optimized/media/<section-slug>/NN-full.jpg`
 
 ### Current source image assets
 
