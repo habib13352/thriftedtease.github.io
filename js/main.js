@@ -7,6 +7,7 @@
 // - Mobile menu toggle
 // - Smooth scroll navigation
 // - Scroll animations (fade-in effects)
+// - Desktop-only hero video enhancement
 // - Analytics event tracking hooks
 //
 // All code is vanilla JavaScript (no jQuery)
@@ -14,13 +15,12 @@
 
 /**
  * ===== MOBILE MENU TOGGLE =====
- * Handles hamburger menu for mobile devices
- * - Click hamburger to open/close menu
- * - Click menu link to close menu
- * - Targets: #hamburger button, #navMenu list
+ * Handles hamburger menu for mobile devices.
  */
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
+const hero = document.querySelector('.hero');
+const heroVideo = document.getElementById('heroVideo');
 
 if (hamburger && navMenu) {
     hamburger.addEventListener('click', function () {
@@ -31,7 +31,7 @@ if (hamburger && navMenu) {
 
 /**
  * ===== CLOSE MOBILE MENU WHEN LINK IS CLICKED =====
- * Prevents menu staying open after navigation on mobile
+ * Prevents menu staying open after navigation on mobile.
  */
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
@@ -42,8 +42,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 
 /**
  * ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
- * Smooth scroll when clicking navigation links (#home, #listen, etc.)
- * Overrides default instant jump behavior
+ * Smooth scroll when clicking navigation links (#home, #listen, etc.).
  */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -63,9 +62,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 /**
  * ===== SCROLL ANIMATIONS (Fade-in on scroll) =====
- * Sections fade in as user scrolls to them
- * Uses Intersection Observer API for performance
- * Hero section is excluded so it shows immediately on page load
+ * Uses Intersection Observer API for performance.
  */
 const observerOptions = {
     threshold: 0.1,
@@ -82,7 +79,6 @@ const observer = new IntersectionObserver(function (entries) {
     });
 }, observerOptions);
 
-// Apply fade-in animation to content sections, but leave hero sections visible on load.
 document.querySelectorAll('section:not(.hero):not(.media-hero):not(.merch-hero):not(.shows-hero)').forEach(section => {
     section.style.opacity = '0';
     section.style.transform = 'translateY(20px)';
@@ -92,9 +88,7 @@ document.querySelectorAll('section:not(.hero):not(.media-hero):not(.merch-hero):
 
 /**
  * ===== STREAMING PLATFORM LINKS (Analytics hook) =====
- * Track which streaming platform users click
- * TODO: Wire to analytics service (Google Analytics, Mixpanel, etc.)
- * Targets: .stream-link
+ * Track which streaming platform users click.
  */
 document.querySelectorAll('.stream-link').forEach(card => {
     card.addEventListener('click', function (e) {
@@ -115,20 +109,20 @@ document.querySelectorAll('.stream-link').forEach(card => {
 
 /**
  * ===== PAGE LOAD ANIMATIONS & INITIAL SETUP =====
- * Runs when page fully loads (all images, scripts, etc.)
- * Useful for analytics, feature detection, etc.
+ * Runs when page fully loads.
  */
 window.addEventListener('load', function () {
     console.log(
-        '%cThrifted Tease - Official Band Website Loaded! 🎵',
+        '%cThrifted Tease - Official Band Website Loaded!',
         'color: #d4a574; font-size: 16px; font-weight: bold;'
     );
+
+    initializeDesktopHeroVideo();
 });
 
 /**
  * ===== NAVBAR SHADOW EFFECT ON SCROLL =====
- * Adds shadow to navbar when user scrolls
- * Improves visual hierarchy as user navigates down
+ * Adds shadow to navbar when user scrolls.
  */
 window.addEventListener('scroll', function () {
     const navbar = document.querySelector('.navbar');
@@ -142,9 +136,91 @@ window.addEventListener('scroll', function () {
 });
 
 /**
+ * ===== DESKTOP HERO VIDEO =====
+ * Loads the video only after first paint on desktop-capable devices.
+ */
+function initializeDesktopHeroVideo() {
+    if (!hero || !heroVideo) return;
+    if (!shouldLoadDesktopHeroVideo()) {
+        console.log('[hero-video] Skipped desktop hero video enhancement.');
+        return;
+    }
+
+    const setupVideo = () => {
+        const videoSource = heroVideo.dataset.src;
+        if (!videoSource || heroVideo.dataset.loaded === 'true') return;
+
+        console.log(`[hero-video] Loading deferred video: ${videoSource}`);
+        heroVideo.dataset.loaded = 'true';
+        heroVideo.src = videoSource;
+
+        const onCanPlay = () => {
+            console.log('[hero-video] Video ready and visible.');
+            hero.classList.add('hero--video-ready');
+            hero.classList.remove('hero--video-failed');
+        };
+
+        const onError = () => {
+            console.log('[hero-video] Video failed to load or autoplay. Keeping static hero.');
+            hero.classList.remove('hero--video-ready');
+            hero.classList.add('hero--video-failed');
+        };
+
+        heroVideo.addEventListener('canplay', onCanPlay, { once: true });
+        heroVideo.addEventListener('error', onError, { once: true });
+
+        heroVideo.load();
+        heroVideo.play().catch(() => {
+            onError();
+        });
+    };
+
+    if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(setupVideo, { timeout: 2000 });
+        return;
+    }
+
+    window.setTimeout(setupVideo, 250);
+}
+
+function shouldLoadDesktopHeroVideo() {
+    if (!heroVideo || !heroVideo.dataset.src) {
+        console.log('[hero-video] Missing video element or source path.');
+        return false;
+    }
+
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        console.log('[hero-video] Skipping because viewport is mobile/tablet width.');
+        return false;
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        console.log('[hero-video] Skipping because prefers-reduced-motion is enabled.');
+        return false;
+    }
+
+    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+
+    if (connection) {
+        if (connection.saveData) {
+            console.log('[hero-video] Skipping because save-data is enabled.');
+            return false;
+        }
+
+        const constrainedTypes = ['slow-2g', '2g', '3g'];
+        if (connection.effectiveType && constrainedTypes.includes(connection.effectiveType)) {
+            console.log(`[hero-video] Skipping because network is constrained: ${connection.effectiveType}.`);
+            return false;
+        }
+    }
+
+    console.log('[hero-video] Desktop enhancement allowed.');
+    return true;
+}
+
+/**
  * ===== ANALYTICS EVENT TRACKING (Integration point) =====
- * Hook function for sending events to analytics services
- * TODO: Integrate with Google Analytics, Segment, Mixpanel, etc.
+ * Hook function for sending events to analytics services.
  */
 function trackEvent(eventName, eventData) {
     console.log(`Event: ${eventName}`, eventData);
@@ -157,8 +233,7 @@ function trackEvent(eventName, eventData) {
 
 /**
  * ===== TRACK ALL BUTTON CLICKS (For analytics) =====
- * Logs when users click buttons - helpful for conversion tracking
- * Targets: All .btn elements
+ * Logs when users click buttons.
  */
 document.querySelectorAll('.btn').forEach(btn => {
     btn.addEventListener('click', function () {
@@ -172,7 +247,7 @@ document.querySelectorAll('.btn').forEach(btn => {
 
 /**
  * ===== SOCIAL MEDIA TRACKING =====
- * Track when users click to follow on social media
+ * Track when users click to follow on social media.
  */
 document.querySelectorAll('.social-icons a').forEach(link => {
     link.addEventListener('click', function () {
@@ -180,18 +255,3 @@ document.querySelectorAll('.social-icons a').forEach(link => {
         trackEvent('social_link_click', { platform: platform });
     });
 });
-
-/**
- * ===== FUTURE ENHANCEMENTS (TODO) =====
- * These features are noted for future development:
- * - Newsletter signup form with email validation
- * - Music player widget (Spotify embed or custom)
- * - Real-time tour dates from API/CMS
- * - Blog/News integration
- * - Fan engagement features (voting, polls)
- * - Email campaign integration
- * - Advanced social media integration
- * - Performance optimizations (lazy loading, code splitting)
- * - Progressive Web App (PWA) features
- * - Advanced analytics and heat mapping
- */

@@ -75,9 +75,9 @@ The site goals are:
 The main landing page includes:
 
 - fixed navigation with mobile hamburger menu
-- full-screen hero with background video (`images/hero.mp4`)
+- full-screen hero with a static optimized background image
 - streaming platform links for Spotify, Apple Music, YouTube, and SoundCloud
-- a simple media preview grid using local band images
+- a simple media preview grid using optimized homepage derivatives
 - contact and social links
 
 ### `media.html`
@@ -135,6 +135,10 @@ thriftedtease.github.io/
 |-- media.html
 |-- shows.html
 |-- merch.html
+|-- docs/
+|   `-- homepage-performance.md
+|-- scripts/
+|   `-- optimize-homepage-assets.ps1
 |-- css/
 |   `-- styles.css
 |-- js/
@@ -145,6 +149,28 @@ thriftedtease.github.io/
 |   |-- kevin.JPG
 |   |-- bennett.JPG
 |   |-- hamza.JPG
+|   |-- optimized/
+|   |   |-- homepage/
+|   |   |   |-- hero-home.jpg
+|   |   |   |-- hero-desktop.mp4
+|   |   |   |-- kevin-thumb.jpg
+|   |   |   |-- kevin-full.jpg
+|   |   |   |-- bennett-thumb.jpg
+|   |   |   |-- bennett-full.jpg
+|   |   |   |-- hamza-thumb.jpg
+|   |   |   |-- hamza-full.jpg
+|   |   |   |-- spencer-thumb.jpg
+|   |   |   `-- spencer-full.jpg
+|   |   `-- media/
+|   |       |-- hero-media.jpg
+|   |       |-- kevin-card.jpg
+|   |       |-- kevin-full.jpg
+|   |       |-- bennett-card.jpg
+|   |       |-- bennett-full.jpg
+|   |       |-- hamza-card.jpg
+|   |       |-- hamza-full.jpg
+|   |       |-- spencer-card.jpg
+|   |       `-- spencer-full.jpg
 |   `-- spencer.JPG
 `-- README.md
 ```
@@ -226,7 +252,24 @@ To add another media event section:
 
 ## Assets
 
-### Current local image assets
+### Homepage web assets
+
+The homepage now uses optimized derivatives in:
+
+- `images/optimized/homepage/hero-home.jpg`
+- `images/optimized/homepage/hero-desktop.mp4`
+- `images/optimized/homepage/*-thumb.jpg`
+- `images/optimized/homepage/*-full.jpg`
+
+### Media page web assets
+
+The media page now uses optimized derivatives in:
+
+- `images/optimized/media/hero-media.jpg`
+- `images/optimized/media/*-card.jpg`
+- `images/optimized/media/*-full.jpg`
+
+### Current source image assets
 
 The repo currently includes these local band images:
 
@@ -242,9 +285,33 @@ The repo currently includes these local band images:
 
 ### Asset notes
 
-- `index.html` uses the MP4 hero video
-- `media.html` uses local JPG images plus embedded YouTube content
+- `index.html` uses optimized JPG derivatives instead of the original full-size photos
+- `media.html` uses optimized JPG derivatives plus embedded YouTube content
 - `shows.html` and `merch.html` still reference placeholder imagery in their page-specific inline styles and cards
+
+### Hero video policy
+
+- the homepage remains image-first for first paint
+- `images/optimized/homepage/hero-desktop.mp4` is the desktop-only enhancement path
+- `images/hero.mp4` remains the editable source asset, not required initial content
+- the homepage video is deferred until after first render and skipped on phones or constrained devices
+
+### Homepage optimization workflow
+
+When homepage or media-page source images change, regenerate the web-ready derivatives:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\optimize-homepage-assets.ps1
+```
+
+For performance notes and the current asset baselines, see `docs/homepage-performance.md`.
+
+The desktop hero video currently loads from `images/optimized/homepage/hero-desktop.mp4`.
+Keep it out of the critical path and refresh it with `ffmpeg` when the source video changes, for example:
+
+```powershell
+ffmpeg -y -i images\hero.mp4 -an -c:v libx264 -preset slow -crf 30 -vf scale=1080:-2 -pix_fmt yuv420p -movflags +faststart images\optimized\homepage\hero-desktop.mp4
+```
 
 ## Extending Functionality
 
@@ -263,7 +330,7 @@ Existing hooks and structure make the following straightforward to add later:
 | Media lightbox next/prev behavior | Scaffolded only | Image cards are structured for it, but functionality is not implemented |
 | Shows page background image | Placeholder | `shows.html` still uses a placeholder hero image |
 | Merch imagery and product copy | Placeholder | `merch.html` still uses sample merch content |
-| Hero video autoplay on some mobile browsers | Known | Browser autoplay restrictions may apply |
+| Large media archive folders still need optimization | Known | Homepage and `media.html` are optimized, but the archive source folders still contain large originals |
 
 ## Future Development
 

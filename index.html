@@ -31,6 +31,7 @@
     <meta name="description" content="Thrifted Tease - Official Band Landing. Stream music, view photos, and connect with us.">
     <meta name="keywords" content="Thrifted Tease, band, music, indie, streaming">
     <title>Thrifted Tease | Official Band</title>
+    <link rel="preload" as="image" href="images/optimized/homepage/hero-home.jpg">
     <!-- Font Awesome 6.4.0 CDN - Provides all social media and UI icons automatically -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main stylesheet - contains all colors, layouts, animations, and responsive breakpoints -->
@@ -60,10 +61,18 @@
 
     <!-- ===== HERO SECTION ===== Main focus with 3 CTAs -->
     <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="images/hero.mp4" type="video/mp4">
+        <video
+            class="hero-video"
+            id="heroVideo"
+            muted
+            loop
+            playsinline
+            preload="none"
+            poster="images/optimized/homepage/hero-home.jpg"
+            aria-hidden="true"
+            data-src="images/optimized/homepage/hero-desktop.mp4">
         </video>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">THRIFTED TEASE</h1>
             <p class="hero-tagline">Toronto Based. Progressive Pop.</p>
@@ -116,37 +125,37 @@
             
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="images/kevin.JPG" alt="Drummer boy Kevin">
+                    <img src="images/optimized/homepage/kevin-thumb.jpg" alt="Kevin behind the drum kit during rehearsal" loading="lazy" decoding="async" width="800" height="800">
                     <div class="gallery-overlay">
                         <p>This is Kevin</p>
-                        <a href="images/kevin.JPG" target="_blank">
+                        <a href="images/optimized/homepage/kevin-full.jpg" target="_blank">
                                 <i class="fas fa-expand"></i>
                         </a>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/bennett.JPG" alt="Piano + Bennett = Biano">
+                    <img src="images/optimized/homepage/bennett-thumb.jpg" alt="Bennett at the keys during a rehearsal session" loading="lazy" decoding="async" width="800" height="800">
                     <div class="gallery-overlay">
                         <p>This is Bennett</p>
-                        <a href="images/bennett.JPG" target="_blank">
+                        <a href="images/optimized/homepage/bennett-full.jpg" target="_blank">
                             <i class="fas fa-expand"></i>
                         </a>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/hamza.JPG" alt="This is the brown guy (Hamza)">
+                    <img src="images/optimized/homepage/hamza-thumb.jpg" alt="Hamza performing during a rehearsal run-through" loading="lazy" decoding="async" width="800" height="800">
                     <div class="gallery-overlay">
                         <p>This is Hamza</p>
-                        <a href="images/hamza.JPG" target="_blank">
+                        <a href="images/optimized/homepage/hamza-full.jpg" target="_blank">
                             <i class="fas fa-expand"></i>
                         </a>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="images/spencer.JPG" alt="We call him Spence">
+                    <img src="images/optimized/homepage/spencer-thumb.jpg" alt="Spencer during a guitar-focused rehearsal moment" loading="lazy" decoding="async" width="800" height="800">
                     <div class="gallery-overlay">
                         <p>This is Spencer</p>
-                        <a href="images/spencer.JPG" target="_blank">
+                        <a href="images/optimized/homepage/spencer-full.jpg" target="_blank">
                             <i class="fas fa-expand"></i>
                         </a>
                     </div>
