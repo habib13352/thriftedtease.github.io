@@ -4,9 +4,11 @@ $ErrorActionPreference = 'Stop'
 $repoRoot = Split-Path -Parent $PSScriptRoot
 $homepageOutputDir = Join-Path $repoRoot 'images\optimized\homepage'
 $mediaOutputDir = Join-Path $repoRoot 'images\optimized\media'
+$pageOutputDir = Join-Path $repoRoot 'images\optimized\pages'
 
 New-Item -ItemType Directory -Path $homepageOutputDir -Force | Out-Null
 New-Item -ItemType Directory -Path $mediaOutputDir -Force | Out-Null
+New-Item -ItemType Directory -Path $pageOutputDir -Force | Out-Null
 
 $ffmpeg = (Get-Command ffmpeg -ErrorAction Stop).Source
 
@@ -197,6 +199,22 @@ $homepageAssets = @(
         Height = 960
         Quality = 70
     }
+    @{
+        Source = Join-Path $repoRoot 'images\the_pilot\spence_tp_1.JPG'
+        Destination = Join-Path $pageOutputDir 'hero-shows.jpg'
+        Mode = 'fill'
+        Width = 1600
+        Height = 960
+        Quality = 70
+    }
+    @{
+        Source = Join-Path $repoRoot 'images\band_pics\spennet_1.jpg'
+        Destination = Join-Path $pageOutputDir 'hero-merch.jpg'
+        Mode = 'fill'
+        Width = 1600
+        Height = 960
+        Quality = 70
+    }
 )
 
 $mediaEvents = @(
@@ -280,6 +298,20 @@ $mediaEvents = @(
             'kevin_band_13.jpg',
             'hamza_band_8.jpg',
             'bennett_band_13.jpg'
+        )
+    }
+    @{
+        Slug = 'recording-bts'
+        SourceDir = Join-Path $repoRoot 'images\rtw_photos'
+        Files = @(
+            'band_rtw_1.JPG',
+            'mic_rtw_1.JPG',
+            'keys_rtw_1.JPG',
+            'kevin_rtw_1.JPG',
+            'hamza_rtw_1.JPG',
+            'spence_rtw_1.JPG',
+            'bennett_rtw_1.JPG',
+            'gtr_rtw_1.JPG'
         )
     }
 )
