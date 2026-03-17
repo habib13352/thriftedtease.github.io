@@ -69,22 +69,41 @@ const observerOptions = {
     rootMargin: '0px 0px -100px 0px'
 };
 
-const observer = new IntersectionObserver(function (entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
+const animatedSections = document.querySelectorAll('section:not(.hero):not(.media-hero):not(.media-archive):not(.merch-hero):not(.shows-hero)');
 
-document.querySelectorAll('section:not(.hero):not(.media-hero):not(.merch-hero):not(.shows-hero)').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(section);
-});
+function revealSection(section) {
+    section.style.opacity = '1';
+    section.style.transform = 'translateY(0)';
+}
+
+if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                revealSection(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    animatedSections.forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+
+    window.setTimeout(() => {
+        animatedSections.forEach(section => {
+            if (section.style.opacity === '0') {
+                revealSection(section);
+                observer.unobserve(section);
+            }
+        });
+    }, 1200);
+} else {
+    animatedSections.forEach(revealSection);
+}
 
 /**
  * ===== STREAMING PLATFORM LINKS (Analytics hook) =====
