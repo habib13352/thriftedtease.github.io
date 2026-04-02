@@ -745,6 +745,33 @@ section {
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.show-card--featured {
+    position: relative;
+    grid-template-columns: 120px minmax(0, 1fr) auto;
+    min-height: 360px;
+    border-color: rgba(212, 165, 116, 0.32);
+    background:
+        radial-gradient(circle at top left, rgba(212, 165, 116, 0.1), transparent 34%),
+        linear-gradient(100deg, rgba(8, 11, 28, 0.6) 0%, rgba(8, 11, 28, 0.32) 48%, rgba(8, 11, 28, 0.55) 100%),
+        url("../images/optimized/shows/spring-cleaning-handlebar-poster.jpg") center center / contain no-repeat,
+        linear-gradient(180deg, rgba(18, 23, 46, 0.98) 0%, rgba(10, 14, 39, 0.98) 100%);
+}
+
+.show-card--featured::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        linear-gradient(180deg, rgba(10, 14, 39, 0.08) 0%, rgba(10, 14, 39, 0.12) 42%, rgba(10, 14, 39, 0.3) 100%);
+    z-index: 0;
+}
+
+.show-card--featured > * {
+    position: relative;
+    z-index: 1;
+}
+
 .show-card:hover {
     transform: translateY(-4px);
     border-color: rgba(212, 165, 116, 0.36);
@@ -781,6 +808,19 @@ section {
     font-weight: 900;
 }
 
+.show-card--featured .show-date {
+    align-self: start;
+    min-height: 0;
+    width: fit-content;
+    min-width: 88px;
+    padding: 0.75rem 0.7rem;
+    background:
+        linear-gradient(180deg, rgba(212, 165, 116, 0.14) 0%, rgba(255, 255, 255, 0.04) 100%),
+        rgba(10, 14, 39, 0.42);
+    border-color: rgba(212, 165, 116, 0.24);
+    backdrop-filter: blur(6px);
+}
+
 .show-details {
     min-width: 0;
 }
@@ -808,6 +848,42 @@ section {
     flex-direction: column;
     align-items: flex-end;
     gap: 0.85rem;
+}
+
+.show-card--featured .show-details,
+.show-card--featured .show-actions {
+    align-self: end;
+}
+
+.show-card--featured .show-details {
+    max-width: 32rem;
+}
+
+.show-card--featured .show-details h3 {
+    font-size: 2rem;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.42);
+}
+
+.show-card--featured .show-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: fit-content;
+    margin-bottom: 0.8rem;
+    padding: 0.45rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(10, 14, 39, 0.38);
+    color: rgba(255, 247, 234, 0.94);
+    border: 1px solid rgba(212, 165, 116, 0.18);
+    backdrop-filter: blur(6px);
+}
+
+.show-card--featured .show-actions {
+    padding: 0.75rem;
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(10, 14, 39, 0.5) 0%, rgba(10, 14, 39, 0.34) 100%);
+    border: 1px solid rgba(212, 165, 116, 0.14);
+    backdrop-filter: blur(8px);
 }
 
 .show-actions .btn {
@@ -1410,6 +1486,12 @@ section {
         grid-template-columns: 96px 1fr;
     }
 
+    .show-card--featured {
+        grid-template-columns: 96px 1fr;
+        min-height: 0;
+        background-position: center top;
+    }
+
     .show-actions {
         grid-column: 1 / -1;
         flex-direction: row;
@@ -1522,9 +1604,21 @@ section {
         border-radius: 20px;
     }
 
+    .show-card--featured {
+        grid-template-columns: 1fr;
+        min-height: 0;
+        background-position: center top;
+        background-size: contain, auto, contain, auto;
+    }
+
     .show-date {
         min-height: 96px;
         width: 100%;
+    }
+
+    .show-card--featured .show-date {
+        width: fit-content;
+        min-width: 96px;
     }
 
     .show-date-day {
