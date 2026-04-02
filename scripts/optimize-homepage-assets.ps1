@@ -320,14 +320,14 @@ foreach ($asset in $homepageAssets) {
     New-OptimizedAsset -SourcePath $asset.Source -DestinationPath $asset.Destination -Mode $asset.Mode -Width $asset.Width -Height $asset.Height -Quality $asset.Quality
 }
 
-foreach ($event in $mediaEvents) {
-    $eventOutputDir = Join-Path $mediaOutputDir $event.Slug
+foreach ($mediaEvent in $mediaEvents) {
+    $eventOutputDir = Join-Path $mediaOutputDir $mediaEvent.Slug
 
     New-Item -ItemType Directory -Path $eventOutputDir -Force | Out-Null
 
-    for ($index = 0; $index -lt $event.Files.Count; $index++) {
-        $sourceFile = $event.Files[$index]
-        $sourcePath = Join-Path $event.SourceDir $sourceFile
+    for ($index = 0; $index -lt $mediaEvent.Files.Count; $index++) {
+        $sourceFile = $mediaEvent.Files[$index]
+        $sourcePath = Join-Path $mediaEvent.SourceDir $sourceFile
         $sequence = '{0:D2}' -f ($index + 1)
 
         if (-not (Test-Path $sourcePath)) {
