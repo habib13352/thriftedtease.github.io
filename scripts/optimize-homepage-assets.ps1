@@ -263,9 +263,9 @@ $mediaEvents = @(
         Slug = 'the-handlebar'
         SourceDir = Join-Path $repoRoot 'images\the_handlebar'
         Files = @(
-            'band_hb_1.HEIC',
-            'bennett_hb_1.HEIC',
-            'spence_hb_1.HEIC'
+            'band_hb_1.JPG',
+            'bennett_hb_1.JPG',
+            'spence_hb_1.JPG'
         )
     }
     @{
