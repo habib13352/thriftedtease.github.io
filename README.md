@@ -58,7 +58,7 @@ https://habib13352.github.io/thriftedtease.github.io/
 
 ## Project Overview
 
-This repo currently contains a responsive band website with a shared fixed navigation, dark navy and gold branding, and lightweight vanilla JavaScript interactions.
+This repo currently contains a responsive band website with a shared fixed navigation, a darker navy and rust visual system, and lightweight vanilla JavaScript interactions.
 
 The site goals are:
 
@@ -177,16 +177,16 @@ thriftedtease.github.io/
 
 ## Colour Scheme and Branding
 
-The site uses a dark performance-oriented palette with gold accents.
+The site uses a darker thrifted palette with navy grounding, rust/clay accents, and warm parchment neutrals.
 
 Core CSS variables:
 
 ```css
 :root {
     --primary-color: #0a0e27;
-    --secondary-color: #d4a574;
-    --accent-color: #e8d4c0;
-    --text-color: #e0e0e0;
+    --secondary-color: #b56d4b;
+    --accent-color: #d8c8b2;
+    --text-color: #e7e0d3;
     --dark-bg: #1a1f3a;
 }
 ```
@@ -238,7 +238,7 @@ Edit these files directly:
 ### Styling
 
 - use `css/styles.css` for shared site styling
-- keep page-specific additions aligned with the existing navy and gold system
+- keep page-specific additions aligned with the shared navy, rust, and parchment system
 - preserve shared classes used by `js/main.js` such as `navbar`, `hamburger`, and `nav-menu`
 
 ### Media page pattern

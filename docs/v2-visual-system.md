@@ -7,7 +7,7 @@ This document turns the V2 visual direction into practical design guidance for l
 The existing system is coherent, but it currently reads as generic premium styling before it reads as Thrifted Tease.
 
 The main causes are:
-- navy and gold dominance
+- navy and gold dominance in the earlier palette
 - safe system fonts
 - repeated rounded CTAs
 - repeated card modules with similar spacing and hierarchy

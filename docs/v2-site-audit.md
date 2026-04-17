@@ -109,7 +109,7 @@ Implication for V2:
 - Reusable cards, hero patterns, and buttons already exist.
 
 ### Weaknesses
-- The dark navy and gold system reads as "polished premium" before it reads as "Thrifted Tease."
+- The pre-refresh navy and gold system read as "polished premium" before it read as "Thrifted Tease."
 - The typography is functional and safe.
 - Rounded-pill CTAs and repeated card treatments flatten page personality.
 - The overall rhythm is consistent, but often too consistent.
@@ -129,7 +129,7 @@ Implication for V2:
 
 ## Change In V2
 - Replace generic homepage positioning with identity-led copy
-- Move away from the current navy-and-gold premium-template feel
+- Move away from the old navy-and-gold premium-template feel
 - Introduce more expressive typography and stronger editorial rhythm
 - Reduce repeated UI patterns that make pages feel interchangeable
 - Turn shows and merch into proof of a living band world instead of well-styled utility pages

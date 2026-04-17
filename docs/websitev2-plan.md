@@ -31,7 +31,7 @@ UI/UX strengths:
 
 Design and brand weaknesses:
 - The current look feels like a polished band template rather than a distinct world.
-- The navy and gold palette reads as generic premium styling instead of something ownable to Thrifted Tease.
+- The earlier navy and gold palette read as generic premium styling instead of something ownable to Thrifted Tease.
 - Typography is functional but not expressive enough to carry a memorable identity.
 - The homepage communicates what the site is, but not why the band feels special.
 - Several sections still sound like website copy rather than artist copy.
@@ -92,7 +92,7 @@ They should not lead to imitation, tribute aesthetics, or obvious visual borrowi
 
 ## Visual Identity Direction
 ### Color Philosophy
-The current navy-and-gold system is serviceable, but too close to a generic premium template. V2 should move toward a palette that feels more collected, organic, and ownable.
+The original navy-and-gold system was serviceable, but too close to a generic premium template. V2 should move toward a palette that feels more collected, organic, and ownable.
 
 The palette should feel like:
 - faded but intentional
@@ -410,7 +410,7 @@ These decisions are intentionally fixed unless the brand direction changes in a 
 - Thrifted Tease brand lane is a blend of vintage, art-pop, and indie-rock.
 - The strongest framing is thrift-store glamour with live-room credibility.
 - Patagonia is a reference for disciplined, ownable color confidence, not literal visual styling.
-- The current navy-and-gold system is usable, but too template-like to be the final brand language.
+- The original navy-and-gold system was usable, but too template-like to be the final brand language.
 - The media page is currently the most authentic brand asset and should strongly influence v2.
 - V2 should sound like the band, not like a website template or a product brief.
 
