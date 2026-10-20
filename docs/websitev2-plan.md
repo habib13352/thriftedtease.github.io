@@ -1,5 +1,7 @@
 # Thrifted Tease Website V2 Plan
 
+> Launch planning update: [Dev2 launch plan](dev2-launch-plan.md) controls current launch scope, sequencing, and the 1–3 hour weekly budget. This document remains the broader creative brief. Square-hosted checkout supersedes older Shopify references below.
+
 ## Purpose
 This document is the source of truth for the next iteration of the Thrifted Tease website. It is intended to guide branding, design, copy, UX, and implementation decisions so that future work moves in one coherent direction.
 

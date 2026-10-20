@@ -1,5 +1,7 @@
 # Thrifted Tease V2 Strict Development Roadmap
 
+> Launch planning update: use [Dev2 launch plan](dev2-launch-plan.md) for the current 1–3 hour weekly budget, required Square merch, and launch gates. This older roadmap describes the fuller redesign backlog; its sprint sequence and approval gates do not block the smaller launch release.
+
 ## Purpose
 
 This roadmap turns the V2 redesign, media cleanup, and Square merch integration into small, gated sprints. Complete one sprint at a time and do not move forward until its approval gate is satisfied.
