@@ -36,7 +36,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="preload" as="image" href="images/optimized/homepage/hero-home.jpg">
+    <!-- Load the same static artwork used by .hero::before in css/styles.css. -->
+    <link rel="preload" as="image" href="images/optimized/homepage/hero-album-top.jpg">
     <!-- Font Awesome 6.4.0 CDN - Provides all social media and UI icons automatically -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main stylesheet - contains all colors, layouts, animations, and responsive breakpoints -->
@@ -66,6 +67,14 @@
 
     <!-- ===== HERO SECTION ===== Main focus with 3 CTAs -->
     <section id="home" class="hero">
+        <!-- RESTORE HERO VIDEO (step 1 of 2):
+             Remove the comment delimiters around the video block below, set
+             data-src to your finished MP4, and keep poster as the static fallback.
+             Then uncomment initializeDesktopHeroVideo() at the matching restore
+             note in js/main.js. CSS and loading safeguards are already retained.
+             For now the HTML comment prevents the browser creating a video.
+        -->
+        <!--
         <video
             class="hero-video"
             id="heroVideo"
@@ -73,10 +82,11 @@
             loop
             playsinline
             preload="none"
-            poster="images/optimized/homepage/hero-home.jpg"
+            poster="images/optimized/homepage/hero-album-top.jpg"
             aria-hidden="true"
             data-src="images/optimized/homepage/hero-desktop.mp4">
         </video>
+        -->
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">THRIFTED TEASE</h1>

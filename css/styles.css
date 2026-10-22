@@ -1,23 +1,31 @@
 /* ============================================
-   THRIFTED TEASE - Clean & Refactored CSS
-   ============================================
+   THRIFTED TEASE - Shared stylesheet
+   Used by index.html, media.html, shows.html, and merch.html.
 
-   STRUCTURE:
-   1. CSS Variables (easy color changes)
-   2. Global Reset & Base Styles
-   3. Typography
-   4. Navbar
-   5. Hero Section
-   6. Buttons
-   7. Sections (Listen, Media, Contact)
-   8. Footer
-   9. Animations
-   10. Responsive Design
+   READING GUIDE (sections appear in this order):
+   Theme variables -> reset/base -> typography -> navigation -> home hero ->
+   buttons -> shared sections/listening -> media archive -> shows -> merch ->
+   home photo gallery -> contact/social links -> responsive overrides.
 
-   To change colors: Update :root variables only
+   Start with the component's main rules, then check the media queries at the
+   bottom. A media query only replaces the properties it declares; the rest
+   still come from the main rules. At equal specificity, later rules win.
+   A selector with more classes (e.g. .hero-ctas .btn) is more specific than
+   .btn, so it can override that rule even when .btn appears later.
+
+   rem units follow the root font size (normally 16px); vw is 1% of viewport
+   width. Colors mostly use :root variables, but image overlays and some
+   component accents also have literal colors to tune locally.
+
+   Maintenance note: the HTML uses .footer, and .hero-content names a
+   fadeInUp animation, but this file currently defines neither .footer nor
+   @keyframes fadeInUp. Scroll reveals are implemented in js/main.js.
    ============================================ */
 
 /* ========== 1. CSS VARIABLES ========== */
+/* Custom properties are reusable values: var(--secondary-color) reads the value
+   below. Changing one here affects every selector that references it. The
+   transition timing curve controls how quickly hover changes start and finish. */
 :root {
     /* Primary Colors */
     --primary-color: #0a0e27;      /* Deep navy base */
@@ -41,6 +49,8 @@
 }
 
 /* ========== 2. GLOBAL RESET & BASE STYLES ========== */
+/* The universal selector resets browser spacing. border-box includes padding
+   and borders inside declared widths, making responsive layouts easier to size. */
 * {
     margin: 0;
     padding: 0;
@@ -51,6 +61,8 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Typography and color inherit into most children. Unitless line-height scales
+   with each element's font size; links and headings override colors below. */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-color);
@@ -87,6 +99,8 @@ h2 {
     font-weight: 300;
 }
 
+/* A reusable content wrapper: max-width caps long lines, auto side margins
+   center it, and padding keeps content away from the viewport edges. */
 .section-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -94,6 +108,9 @@ h2 {
 }
 
 /* ========== 4. NAVBAR ========== */
+/* Fixed positioning removes the nav from normal document flow. Hero top margins
+   reserve space for it. z-index keeps it above page content; backdrop-filter
+   blurs what is behind its translucent background. JS also changes its shadow. */
 .navbar {
     position: fixed;
     top: 0;
@@ -107,6 +124,8 @@ h2 {
     transition: var(--transition);
 }
 
+/* Flexbox lays out the brand and menu in a row. space-between pushes them to
+   opposite ends; align-items centers them on the cross (vertical) axis. */
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -136,6 +155,9 @@ h2 {
     align-items: center;
 }
 
+/* The transparent border reserves space so the hover underline does not shift
+   the layout. :hover is pointer state; .active here is a class on a link,
+   distinct from the .active class JS puts on the entire mobile menu. */
 .nav-menu a {
     color: var(--text-color);
     font-size: 0.95rem;
@@ -175,6 +197,8 @@ h2 {
     border-radius: 2px;
 }
 
+/* JS toggles .active on the button. nth-child selects individual bars, rotating
+   the first/third and hiding the middle to form a close icon. */
 .hamburger.active span:nth-child(1) {
     transform: rotate(45deg) translateY(10px);
 }
@@ -188,6 +212,9 @@ h2 {
 }
 
 /* ========== 5. HERO SECTION ========== */
+/* HOME HERO ONLY. min-height fills the small viewport height (svh) minus the
+   nav offset but permits growth on short screens. Flexbox centers the content;
+   position: relative anchors the absolutely positioned decorative layers. */
 .hero {
     position: relative;
     min-height: calc(100svh - 70px);
@@ -197,23 +224,38 @@ h2 {
     text-align: center;
     overflow: hidden;
     margin-top: 70px;
+    background-color: var(--primary-color);
 }
 
+/* The ::before pseudo-element is a decorative box without extra HTML.
+   This one has a 3:1 aspect ratio matching the album's top-third crop.
+   Width 100% with background-size 100% auto preserves the entire strip on
+   phones too. The first background layer is painted on top: its gradient
+   blends the artwork into the hero's navy base at the bottom.
+   Regenerate hero-album-top.jpg with scripts/optimize-homepage-assets.ps1;
+   keep index.html's image preload and video poster pointed at the same asset. */
 .hero::before {
     content: "";
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 3 / 1;
     background:
         linear-gradient(
             180deg,
-            rgba(10, 14, 39, 0.28) 0%,
-            rgba(10, 14, 39, 0.56) 52%,
-            rgba(10, 14, 39, 0.84) 100%
+            rgba(10, 14, 39, 0.04) 0%,
+            rgba(10, 14, 39, 0.18) 35%,
+            var(--primary-color) 100%
         ),
-        url("../images/optimized/homepage/hero-home.jpg") center 32% / cover no-repeat;
+        url("../images/optimized/homepage/hero-album-top.jpg") top center / 100% auto no-repeat;
     z-index: 0;
 }
 
+/* RESTORE HERO VIDEO: these styles are retained while the HTML video and its
+   JS initialization call are commented out. See both matching restore notes.
+   Layer order is artwork (0), video (1), tint (2), content (3).
+   object-fit: cover fills the frame by cropping edges, unlike the static strip. */
 .hero-video {
     position: absolute;
     top: 0;
@@ -228,6 +270,8 @@ h2 {
     transition: opacity 0.8s ease;
 }
 
+/* JS adds/removes these state classes when media is ready or fails. Opacity
+   fades between states without moving the layout; the static art stays below. */
 .hero.hero--video-ready .hero-video {
     opacity: 1;
 }
@@ -236,6 +280,9 @@ h2 {
     opacity: 0;
 }
 
+/* A light tint above both artwork and any future video keeps the hero cohesive.
+   Tune the alpha values (the last rgba number) for darkness, not the image.
+   The strip's own gradient handles its bottom fade independently of hero height. */
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -245,13 +292,15 @@ h2 {
     background:
         linear-gradient(
             180deg,
-            rgba(10, 14, 39, 0.5) 0%,
-            rgba(10, 14, 39, 0.8) 55%,
-            rgba(10, 14, 39, 0.94) 100%
+            rgba(10, 14, 39, 0.12) 0%,
+            rgba(10, 14, 39, 0.2) 55%,
+            rgba(10, 14, 39, 0.3) 100%
         );
     z-index: 2;
 }
 
+/* The content sits above every decorative layer. Full width plus max-width
+   gives it room on desktop; the side padding is also the phone gutter. */
 .hero-content {
     position: relative;
     z-index: 3;
@@ -262,6 +311,10 @@ h2 {
     padding: 0 1.5rem;
 }
 
+/* clamp(minimum, preferred, maximum) gives fluid type without many breakpoints.
+   The title grows with viewport width but stays between 40px and 96px at the
+   default root size. Letter spacing has its own limits. Normal whitespace
+   lets the band name wrap between words. Supporting text uses smaller clamps. */
 .hero-title {
     font-size: clamp(2.5rem, 7vw, 6rem);
     margin-bottom: 1rem;
@@ -290,6 +343,9 @@ h2 {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* CTA means call to action. flex-wrap lets the button row break when needed;
+   the 480px query switches to a full-width vertical stack. gap spaces children
+   without adding margins to the outer edges of the group. */
 .hero-ctas {
     display: flex;
     gap: 1rem;
@@ -297,12 +353,17 @@ h2 {
     flex-wrap: wrap;
 }
 
-.hero-ctas .btn {
+.hero-ctas /* Shared button appearance, including links styled as buttons. inline-flex
+   aligns icon and text. Add a variant class alongside .btn in HTML to choose
+   a fill/outline. Transforms on hover move visually without reflowing siblings. */
+.btn {
     font-size: clamp(1rem, 1.25vw, 1.125rem);
     padding: 1rem 1.75rem;
     box-shadow: 0 5px 14px rgba(0, 0, 0, 0.28);
 }
 
+/* 1em follows the button's font size. This selector is more specific than the
+   shared .btn i rule, so hero icons scale with their labels. */
 .hero-ctas .btn i {
     font-size: 1em;
 }
@@ -375,6 +436,9 @@ h2 {
 }
 
 /* ========== 7. SECTIONS ========== */
+/* Shared vertical spacing for all section elements. More specific page rules
+   override it. scroll-margin-top reserves room above anchor targets when
+   scrolling so the fixed nav is less likely to cover the section heading. */
 section {
     padding: 5rem 0;
     scroll-margin-top: 90px;
@@ -394,6 +458,9 @@ section {
 
 /* ========== LISTEN SECTION ========== */
 
+/* Streaming cards use CSS Grid for equal columns. Change gap for spacing;
+   tablet and phone queries reduce column count. HTML href values, not CSS,
+   determine where platform links go. */
 .streaming-platforms {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -426,6 +493,9 @@ section {
 
 /* ===== PLATFORM COLORS ===== */
 
+/* Platform-specific classes choose hover colors. The common icon rule below
+   makes icons white on hover; add a platform class to both HTML and styles
+   when adding another service. */
 .stream-link.spotify:hover {
     background-color: #1DB954;
     border-color: #1DB954;
@@ -468,6 +538,10 @@ section {
 
 /* ========== MEDIA SECTION ========== */
 
+/* MEDIA PAGE. The hero uses its own image, crop position, and layers; changes
+   to .hero above do not style it. vh is viewport height. Negative z-index
+   layers here participate in ancestor stacking contexts, so changing parent
+   positioning or isolation can affect their visibility. */
 .media-hero {
     position: relative;
     min-height: 72vh;
@@ -513,6 +587,9 @@ section {
     font-weight: 700;
 }
 
+/* Gradients can be stacked: the first one is closest to the viewer. Radial
+   gradients add a local glow, while linear gradients shade a whole section.
+   Intro rules limit text width; event containers group each venue's cards. */
 .media-archive {
     background:
         radial-gradient(circle at top, rgba(181, 109, 75, 0.06), transparent 24%),
@@ -554,6 +631,10 @@ section {
     font-size: 0.98rem;
 }
 
+/* Three equal tracks: 1fr shares available space and minmax(0, 1fr) lets long
+   content shrink within a track. Featured cards span two tracks. dense can
+   backfill holes visually without changing DOM or keyboard navigation order;
+   keep HTML in a sensible reading order. Mobile resets featured spans. */
 .media-event-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -572,6 +653,9 @@ section {
     grid-column: span 2;
 }
 
+/* aspect-ratio reserves image space before loading. overflow hides the zoomed
+   image edges. :focus-visible gives keyboard users the same visual response
+   as hover. Badge positioning is relative to this thumbnail box. */
 .media-thumb-link {
     position: relative;
     display: block;
@@ -620,6 +704,8 @@ section {
     font-weight: 700;
 }
 
+/* Embedded videos use the same reserved shape as photos. The iframe fills its
+   parent; its src and provider permissions are configured in media.html. */
 .media-video-frame {
     position: relative;
     aspect-ratio: 16 / 10;
@@ -633,6 +719,8 @@ section {
     display: block;
 }
 
+/* Caption spacing and typography live outside the image frame. Edit the HTML
+   for descriptions; adjust these rules for their visual hierarchy. */
 .media-card-caption {
     padding: 1rem 1rem 1.15rem;
 }
@@ -650,6 +738,9 @@ section {
 
 /* ========== SHOWS PAGE ========== */
 
+/* SHOWS PAGE. A real img element supplies the photo, with gradients and a
+   decorative glow layered above it. object-position changes the focal point
+   of a cover-cropped image; it does not stretch the image. */
 .shows-hero {
     position: relative;
     min-height: 72vh;
@@ -720,6 +811,8 @@ section {
     font-weight: 700;
 }
 
+/* Upcoming events are HTML cards arranged in a vertical flex list. This CSS
+   does not fetch dates or hide past shows; update event content in shows.html. */
 .shows-listing {
     background:
         radial-gradient(circle at top right, rgba(181, 109, 75, 0.06), transparent 24%),
@@ -737,6 +830,9 @@ section {
     gap: 1.4rem;
 }
 
+/* The desktop grid allocates a fixed date column, flexible details, and an
+   auto-sized action column. minmax(0, 1fr) avoids long text forcing overflow.
+   Tablet/phone overrides reorganize these columns later in this file. */
 .show-card {
     display: grid;
     grid-template-columns: 120px minmax(0, 1fr) auto;
@@ -750,6 +846,10 @@ section {
     transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Modifier classes add special treatments to the base .show-card. Featured
+   backgrounds use contain to show the full poster; the remaining area is
+   filled by gradients. The monarch modifier swaps the artwork. Keep layer
+   order consistent because mobile background-size values map to each layer. */
 .show-card--featured {
     position: relative;
     grid-template-columns: 120px minmax(0, 1fr) auto;
@@ -780,6 +880,8 @@ section {
     z-index: 0;
 }
 
+/* The > selector targets direct children only. Positioning them above the
+   featured card's ::before overlay keeps text and buttons readable/clickable. */
 .show-card--featured > * {
     position: relative;
     z-index: 1;
@@ -791,6 +893,8 @@ section {
     box-shadow: 0 18px 36px rgba(0, 0, 0, 0.3);
 }
 
+/* Date badges stack month/day with flex-direction: column. The featured
+   variant below uses a smaller fit-content badge aligned to the card's top. */
 .show-date {
     min-height: 120px;
     border-radius: 16px;
@@ -834,6 +938,8 @@ section {
     backdrop-filter: none;
 }
 
+/* min-width: 0 allows this grid child to shrink. ch limits description width
+   in approximate character units; it is useful for readable line lengths. */
 .show-details {
     min-width: 0;
 }
@@ -856,6 +962,8 @@ section {
     max-width: 60ch;
 }
 
+/* Actions form a vertical group on desktop. Featured text/actions align to the
+   bottom of the poster card, while their translucent panels improve contrast. */
 .show-actions {
     display: flex;
     flex-direction: column;
@@ -903,6 +1011,8 @@ section {
     min-width: 210px;
 }
 
+/* Optional empty-state presentation. It appears only when its markup is in
+   shows.html; these selectors do not decide whether any events exist. */
 .shows-empty-state {
     padding: 2rem;
     border-radius: 20px;
@@ -926,6 +1036,8 @@ section {
 
 /* ========== MERCH PAGE ========== */
 
+/* MERCH PAGE. This hero has independent artwork and gradient layers. Keep
+   its selectors separate from the home hero when adjusting crops or heights. */
 .merch-hero {
     position: relative;
     min-height: 72vh;
@@ -995,6 +1107,9 @@ section {
     margin-bottom: 3.25rem;
 }
 
+/* Three equal product columns on desktop, one on tablet/phone. Cards clip
+   their contents to rounded corners; hover transforms add lift without moving
+   nearby cards. Product links and copy are maintained in merch.html. */
 .merch-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1016,6 +1131,9 @@ section {
     box-shadow: 0 18px 36px rgba(0, 0, 0, 0.32);
 }
 
+/* The 4:5 media box reserves a consistent product area. Its ::after gradient
+   shades the backdrop; the mock shirt and label have z-index: 1 above it.
+   Color modifier classes select the dark or light presentation. */
 .merch-card-media {
     position: relative;
     aspect-ratio: 4 / 5;
@@ -1046,6 +1164,9 @@ section {
         linear-gradient(160deg, #efe3cf 0%, #d2c0a8 100%);
 }
 
+/* These shirts are CSS mockups, not product photographs. The main box draws
+   the torso; ::before and ::after draw sleeves using inherited backgrounds.
+   min() caps width at 260px while allowing it to shrink inside a card. */
 .merch-shirt-mockup {
     position: relative;
     z-index: 1;
@@ -1094,6 +1215,9 @@ section {
     border-radius: 24px 24px 18px 18px;
 }
 
+/* Print variants control lettering size and treatment. A transparent fill plus
+   -webkit-text-stroke produces outlined text. The separate note is centered
+   with left: 50% plus translateX(-50%), accounting for its own width. */
 .merch-shirt-print {
     position: relative;
     z-index: 1;
@@ -1135,6 +1259,9 @@ section {
     font-weight: 700;
 }
 
+/* Flex column spacing separates product metadata, title, description, actions.
+   margin-top: auto on actions absorbs available space in the body; it does
+   not by itself guarantee equal-height bodies across every card. */
 .merch-card-body {
     padding: 1.3rem 1.3rem 1.5rem;
     display: flex;
@@ -1165,6 +1292,8 @@ section {
     padding-top: 0.2rem;
 }
 
+/* The store callout uses a horizontal flex layout with text and a link. Tablet
+   rules stack the content and phone rules expand the link to full width. */
 .merch-store-cta {
     margin-top: 2.5rem;
     padding: 1.4rem 1.6rem;
@@ -1182,6 +1311,9 @@ section {
     font-size: 1rem;
 }
 
+/* HOME PHOTO GALLERY. auto-fit creates as many minimum-250px columns as fit;
+   1fr distributes leftover space. The 480px query explicitly uses one column.
+   Square image frames use cover cropping and hide image zoom overflow. */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1211,6 +1343,9 @@ section {
 }
 
 /* ===== Updated gallery overlay ===== */
+/* The overlay is present but transparent until hover. Opacity changes paint,
+   not layout or focusability. The expand link opens the image via its HTML
+   href; it is not a JavaScript lightbox. Caption motion is a separate transition. */
 .gallery-overlay {
     position: absolute;
     top: 0;
@@ -1281,6 +1416,9 @@ section {
     margin-bottom: 2rem;
 }
 
+/* CONTACT. Grid creates two columns where space permits; tablet rules force
+   one. The later .contact background above overrides the earlier solid color
+   because the selectors have equal specificity. */
 .contact-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1317,6 +1455,9 @@ section {
 
 /* ===== RIGHT COLUMN ===== */
 
+/* This relative top offset moves the social block visually without reserving
+   new layout space. It is reset to zero at tablet widths; adjust both rules
+   together if changing the desktop alignment. */
 .contact-socials {
     text-align: center;
     position: relative;
@@ -1357,6 +1498,9 @@ section {
 }
 
 /* Instagram */
+/* An attribute selector matches part of a link's href to choose its brand
+   color. Changing a service URL can affect which rule matches. The common
+   styles above control circular size, wrapping, and hover movement. */
 .social-icons a[href*="instagram"]:hover {
     background-color: #E1306C;
     color: white;
@@ -1391,7 +1535,12 @@ section {
     border-color: #1DA1F2;
 }
 
-/* ========== 10. RESPONSIVE DESIGN ========== */
+/* ========== RESPONSIVE OVERRIDES ========== */
+/* RESPONSIVE: these rules apply at 768 CSS pixels and below, not by device name.
+   The base rules still apply for properties not overridden. CSS hides the
+   optional video here; JS also avoids requesting it at this width when enabled.
+   The menu's .active state is toggled by js/main.js. Its max-height animates
+   expansion, while overflow clips contents (padding remains even when closed). */
 @media (max-width: 768px) {
     .hero-video {
         display: none;
@@ -1430,7 +1579,6 @@ section {
     .hero {
         min-height: calc(100svh - 70px);
         padding: 3rem 0;
-        background-position: center 24%;
     }
 
     .media-hero {
@@ -1524,12 +1672,15 @@ section {
     }
 }
 
+/* PHONE OVERRIDES: both media-query blocks match at this width; these later
+   declarations win where specificity is equal. Buttons/cards become vertical,
+   gallery/platform grids become single-column, and social targets shrink.
+   Home hero gutters remain in .hero-content, separate from .section-container. */
 @media (max-width: 480px) {
     .hero {
         margin-top: 60px;
         min-height: calc(100svh - 60px);
         padding: 2.5rem 0;
-        background-position: center 22%;
     }
 
     .media-hero {

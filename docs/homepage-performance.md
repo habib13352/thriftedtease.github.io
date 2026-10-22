@@ -18,8 +18,9 @@ Homepage-ready assets now live in `images/optimized/homepage/`.
 
 - `*-thumb.jpg` is the displayed gallery thumbnail
 - `*-full.jpg` is the larger image opened from the expand action
-- `hero-home.jpg` is the static hero background used for first paint
-- `hero-desktop.mp4` is the deferred desktop-only hero video asset
+- `hero-album-top.jpg` is the 1560 x 520 static strip cropped from the album art's top third; CSS blends it into navy
+- `hero-home.jpg` is the previous Spencer fallback, retained but no longer requested by the home hero
+- `hero-desktop.mp4` is the retained desktop video asset, currently disabled
 
 Media-page assets now live in `images/optimized/media/`.
 
@@ -32,14 +33,26 @@ Keep original source photos and source video outside the deploy path when possib
 
 ## Hero video policy
 
-The homepage remains image-first.
+The homepage is currently static. The video element and its initialization call
+are commented out, so no MP4 is requested. Search for `RESTORE HERO VIDEO` in
+`index.html` and `js/main.js` for the two restoration steps.
 
 - `images/hero.mp4` stays in the repo as an optional future enhancement
-- the first render should continue using `hero-home.jpg`
-- the desktop page can attach `images/optimized/homepage/hero-desktop.mp4` only after first paint
+- the first render uses `hero-album-top.jpg`
+- once restored, the desktop page can attach `images/optimized/homepage/hero-desktop.mp4` only after page load
 - mobile and constrained users should remain image-only
 
 ## Regeneration workflow
+
+To regenerate only the hero crop while preserving other derivatives:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\optimize-homepage-assets.ps1 -HeroOnly
+```
+
+The source is `images/Two_Weeks_Notice_albumart/Thrifted Tease_Two Weeks Notice Album Cover.png`.
+The script crops the full width and top third, then exports a 3:1 JPG. Keep the
+source unchanged; adjust the gradient in `.hero::before` to tune the blend.
 
 Run this from the repo root when homepage or media-page source images change:
 

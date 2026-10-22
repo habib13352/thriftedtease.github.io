@@ -1,3 +1,8 @@
+param(
+    # Regenerate just the home hero without touching gallery/page derivatives.
+    [switch]$HeroOnly
+)
+
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
@@ -118,15 +123,19 @@ function New-OptimizedAsset {
     New-FitImage -SourcePath $SourcePath -DestinationPath $DestinationPath -MaxWidth $Width -MaxHeight $Height -Quality $Quality
 }
 
+# Crop the full width and top third (x=0, y=0) before resizing to a 3:1 strip.
+# This is a derived asset: preserve the original PNG. The CSS displays the whole
+# strip at proportional height and supplies the navy fade, not the image file.
+$heroSource = Join-Path $repoRoot 'images\Two_Weeks_Notice_albumart\Thrifted Tease_Two Weeks Notice Album Cover.png'
+$heroDestination = Join-Path $homepageOutputDir 'hero-album-top.jpg'
+Invoke-FfmpegStill -SourcePath $heroSource -DestinationPath $heroDestination -Filter 'crop=iw:ih/3:0:0,scale=1560:520' -Quality 80
+
+if ($HeroOnly) {
+    Get-Item -LiteralPath $heroDestination
+    return
+}
+
 $homepageAssets = @(
-    @{
-        Source = Join-Path $repoRoot 'images\spencer.JPG'
-        Destination = Join-Path $homepageOutputDir 'hero-home.jpg'
-        Mode = 'fill'
-        Width = 1600
-        Height = 900
-        Quality = 70
-    }
     @{
         Source = Join-Path $repoRoot 'images\kevin.JPG'
         Destination = Join-Path $homepageOutputDir 'kevin-thumb.jpg'
