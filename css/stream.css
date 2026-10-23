@@ -1,0 +1,31 @@
+.focused-stream { background: var(--ink); padding-block: 64px; }
+.focused-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 48px; max-width: 1200px; align-items: center; }
+.focused-cover { width: 100%; max-width: 520px; height: auto; }
+.focused-heading h1 { font-size: clamp(3.5rem,6vw,6rem); }
+#album-players { scroll-margin-top: 90px; }
+.player-tabs:not([hidden]) { display: flex; gap: 24px; border-bottom: 1px solid var(--border-dark); margin-bottom: 20px; }
+.player-tabs button { background: none; color: var(--muted-light); font: inherit; padding: 12px 0; border: 0; border-bottom: 2px solid transparent; cursor: pointer; }
+.player-tabs button[aria-selected=true] { color: var(--paper); border-bottom-color: var(--door-red); }
+.focused-panel iframe { display: block; width: 100%; height: 500px; border: 0; border-radius: 12px; background: var(--surface-dark); }
+.focused-panel > a { display: inline-block; padding-block: 16px; color: var(--paper); text-decoration: underline; }
+.focused-panel[role=tabpanel] > h2 { display: none; }
+.focused-panel[role=tabpanel] .player-mount { height: 500px; }
+.focused-platforms { display: flex; flex-wrap: wrap; gap: 16px; border-top: 1px solid var(--border-dark); padding-top: 24px; margin-top: 16px; font-size: .85rem; }
+.focused-platforms { align-items: center; }
+.focused-platforms span { color: var(--muted-light); }
+/* Remove this comment wrapper to restore platform buttons.
+.focused-platforms a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 16px; background: var(--action-red); border: 1px solid var(--action-red); color: var(--paper-light); text-decoration: none; font-size: .85rem; font-weight: 700; transition: background-color .2s ease, border-color .2s ease; }
+.focused-platforms a:hover { background: var(--action-hover); border-color: var(--action-hover); }
+*/
+.focused-platforms a { color: var(--paper); text-decoration: underline; }
+.focused-stream :focus-visible { outline: 2px solid var(--accent-light); outline-offset: 4px; }
+@media(max-width:850px) { .focused-grid { grid-template-columns: 1fr; gap: 32px; } .focused-cover { max-width: 280px; margin: auto; } .focused-stream { padding-block: 40px; } }
+@media(prefers-reduced-motion:no-preference) { .focused-cover,.focused-heading { animation: stream-arrival .6s ease-out; } }
+@keyframes stream-arrival { from { opacity: .2; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+.stream-youtube { background: var(--ink); padding: 0 24px 80px; }
+.stream-youtube-inner { max-width: 900px; margin: auto; border-top: 1px solid var(--border-dark); padding-top: 40px; }
+.stream-youtube h2 { font: 700 .75rem/1.5 var(--font-body); text-transform: uppercase; letter-spacing: .18em; color: var(--paper); margin-bottom: 24px; }
+.stream-youtube-player { width: 100%; aspect-ratio: 16 / 9; min-height: 200px; background: var(--surface-dark); border-radius: 12px; overflow: hidden; }
+.stream-youtube-player iframe { display: block; width: 100%; height: 100%; min-height: 200px; border: 0; }
+.stream-youtube-inner > a { display: inline-block; padding-block: 20px; color: var(--paper); text-decoration: underline; text-underline-offset: 4px; }
+.stream-youtube a:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 4px; }

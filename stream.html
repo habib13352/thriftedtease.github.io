@@ -17,6 +17,7 @@
     <!-- Main stylesheet - contains all colors, layouts, animations, and responsive breakpoints -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/identity.css">
+<link rel="stylesheet" href="css/stream.css">
 </head>
 <body class="page-stream">
 <nav class="navbar">
@@ -39,53 +40,21 @@
             </ul>
         </div>
     </nav>
-    <main>
-        <section class="stream-intro" aria-labelledby="stream-title">
-            <div class="section-container stream-intro-grid">
-                <img class="stream-cover" src="images/door/album.webp" width="800" height="800" alt="Two Weeks Notice album cover" fetchpriority="high">
-                <div>
-                    <span class="eyebrow">Thrifted Tease / Listen</span>
-                    <h1 id="stream-title">Two Weeks<br>Notice</h1>
-                    <p>A different world is waiting. Find your way into the record on your favourite platform.</p>
-                    <a class="btn btn-primary album-cta" href="#album-players">Listen to the album &darr;</a>
-                </div>
-            </div>
-        </section>
-        <section class="paper-surface" id="album-players" aria-labelledby="players-title">
-            <div class="section-container">
-                <span class="eyebrow">Pick your player</span>
-                <h2 id="players-title">Press play.</h2>
-                <div class="stream-players">
-                    <article class="player-panel">
-                        <h3>Spotify</h3>
-                        <iframe src="https://open.spotify.com/embed/album/4H9qIaUgfiSg7yycOVRrJH?utm_source=generator&amp;theme=0" title="Two Weeks Notice by Thrifted Tease on Spotify" width="100%" height="500" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        <a href="https://open.spotify.com/album/4H9qIaUgfiSg7yycOVRrJH" target="_blank" rel="noopener noreferrer">Open in Spotify &nearr;</a>
-                    </article>
-                    <article class="player-panel">
-                        <h3>Apple Music</h3>
-                        <iframe src="https://embed.music.apple.com/ca/album/two-weeks-notice/1847751617" title="Two Weeks Notice by Thrifted Tease on Apple Music" width="100%" height="500" loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
-                        <a href="https://music.apple.com/ca/album/two-weeks-notice/1847751617" target="_blank" rel="noopener noreferrer">Open in Apple Music &nearr;</a>
-                    </article>
-                </div>
-                <div class="other-platforms">
-                    <h3>Find us elsewhere</h3>
-                    <div class="platform-links">
-                        <a class="btn btn-accent" href="https://soundcloud.com/thriftedtease" target="_blank" rel="noopener noreferrer">SoundCloud &nearr;</a>
-                        <a class="btn btn-accent" href="https://www.youtube.com/channel/UCr0SN3FVP-U01tANF-V4nBA" target="_blank" rel="noopener noreferrer">YouTube &nearr;</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section class="youtube-section" aria-labelledby="youtube-title">
-            <div class="section-container">
-                <span class="eyebrow">Thrifted Tease on YouTube</span>
-                <h2 id="youtube-title">Another way in.</h2>
-                <p>Listen to our music on YouTube, and explore more from the band.</p>
-                <a class="btn btn-primary" href="https://www.youtube.com/channel/UCr0SN3FVP-U01tANF-V4nBA" target="_blank" rel="noopener noreferrer">Visit our YouTube channel &nearr;</a>
-            </div>
-        </section>
-    </main>
+<main><section class="stream-intro focused-stream"><div class="section-container focused-grid"><img class="focused-cover" src="images/door/album.webp" width="800" height="800" alt="Two Weeks Notice album cover" fetchpriority="high"><div><header class="focused-heading"><span class="eyebrow">Thrifted Tease / Listen</span><h1 id="stream-title">Two Weeks<br>Notice</h1></header><div id="album-players"><div class="player-tabs" role="tablist" aria-label="Listening platform" hidden><button id="platform-tab-0" type="button" role="tab" aria-controls="platform-panel-0" aria-selected="true" tabindex="0">Spotify</button><button id="platform-tab-1" type="button" role="tab" aria-controls="platform-panel-1" aria-selected="false" tabindex="-1">Apple Music</button></div><div class="focused-panel" id="platform-panel-0"><h2>Spotify</h2><template><iframe src="https://open.spotify.com/embed/album/4H9qIaUgfiSg7yycOVRrJH?utm_source=generator&amp;theme=0" title="Two Weeks Notice by Thrifted Tease on Spotify" width="100%" height="500" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></template><noscript><iframe src="https://open.spotify.com/embed/album/4H9qIaUgfiSg7yycOVRrJH?utm_source=generator&amp;theme=0" title="Two Weeks Notice by Thrifted Tease on Spotify" width="100%" height="500" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></noscript><div class="player-mount"></div><a href="https://open.spotify.com/album/4H9qIaUgfiSg7yycOVRrJH" target="_blank" rel="noopener noreferrer">Open in Spotify &nearr;</a></div><div class="focused-panel" id="platform-panel-1"><h2>Apple Music</h2><template><iframe src="https://embed.music.apple.com/ca/album/two-weeks-notice/1847751617" title="Two Weeks Notice by Thrifted Tease on Apple Music" width="100%" height="500" loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></template><noscript><iframe src="https://embed.music.apple.com/ca/album/two-weeks-notice/1847751617" title="Two Weeks Notice by Thrifted Tease on Apple Music" width="100%" height="500" loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe></noscript><div class="player-mount"></div><a href="https://music.apple.com/ca/album/two-weeks-notice/1847751617" target="_blank" rel="noopener noreferrer">Open in Apple Music &nearr;</a></div></div><!-- Remove this comment wrapper to restore Also available on.
+<div class="focused-platforms"><span>Also available on</span><a href="https://soundcloud.com/thriftedtease" target="_blank" rel="noopener noreferrer">SoundCloud ?</a><a href="https://www.youtube.com/channel/UCr0SN3FVP-U01tANF-V4nBA" target="_blank" rel="noopener noreferrer">YouTube ?</a></div>
+--></div></div></section>
+<section class="stream-youtube" aria-labelledby="stream-youtube-title">
+    <div class="stream-youtube-inner">
+        <h2 id="stream-youtube-title">Watch / Listen on YouTube</h2>
+        <div class="stream-youtube-player">
+            <iframe src="https://www.youtube.com/embed/FJyYazo2MYc?list=OLAK5uy_n5dUcOox-E0gKIWp_2AS5zV0j65J21Rhw&amp;autoplay=0&amp;playsinline=1" title="Thrifted Tease ? Two Weeks Notice YouTube playlist" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <a href="https://www.youtube.com/watch?v=FJyYazo2MYc&amp;list=OLAK5uy_n5dUcOox-E0gKIWp_2AS5zV0j65J21Rhw" target="_blank" rel="noopener noreferrer">Open playlist on YouTube &nearr;</a>
+    </div>
+</section>
+</main>
     <footer class="footer"><p>&copy; 2026 Thrifted Tease. All rights reserved.</p></footer>
     <script src="js/main.js"></script>
+<script src="js/stream.js"></script>
 </body>
 </html>

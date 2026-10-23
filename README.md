@@ -91,13 +91,13 @@ The media page is no longer a placeholder gallery.
 
 It now includes:
 
-- a dedicated media hero using a real local band image
+- a compact Photos & Films introduction with album-inspired typography
 - a long-scroll archive layout
 - venue-based event sections for Cameron House, El Mocambo, Painted Lady, The Handlebar, The Pilot, and band portraits
 - mixed media grids inside each event section
 - optimized venue-specific image folders under `images/optimized/media/`
 - responsive YouTube embeds paired with each section
-- lightbox-friendly image markup using `data-lightbox-group` and `data-media-index`
+- a grouped photo viewer with previous/next controls, arrow keys, Escape, and focus restoration
 
 This page is authored directly in HTML and is intended to be extended by duplicating a full `media-event` block.
 
@@ -322,7 +322,7 @@ ffmpeg -y -i images\hero.mp4 -an -c:v libx264 -preset slow -crf 30 -vf scale=108
 
 Existing hooks and structure make the following straightforward to add later:
 
-- real lightbox behavior for media image cards
+- additional curated videos for media chapters
 - analytics integration through `trackEvent()`
 - CMS or JSON-backed show and media data
 - real merch catalog integration
@@ -332,7 +332,7 @@ Existing hooks and structure make the following straightforward to add later:
 
 | Issue | Status | Notes |
 |---|---|---|
-| Media lightbox next/prev behavior | Scaffolded only | Image cards are structured for it, but functionality is not implemented |
+| Media photo viewer | Implemented | Grouped navigation, keyboard controls, modal focus, and original-image fallback |
 | Shows page background image | Placeholder | `shows.html` still uses a placeholder hero image |
 | Merch imagery and product copy | Placeholder | `merch.html` still uses sample merch content |
 | Large media archive folders still need optimization | Known | Homepage and `media.html` are optimized, but the archive source folders still contain large originals |
@@ -343,7 +343,7 @@ Potential next steps:
 
 - replace placeholder visuals on `shows.html` and `merch.html`
 - connect analytics to a real provider
-- add a functioning image lightbox for `media.html`
+- curate permanent video IDs for the media archive's existing playlist embeds
 - add Open Graph and richer per-page meta tags
 - optimize local images and add modern formats where appropriate
 

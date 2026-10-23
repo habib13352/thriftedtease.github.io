@@ -9,9 +9,8 @@
     1. Navigation - 4 core menu items
     2. Hero - Scroll through the doorway
     3. Listen - Album feature and streaming platforms
-    4. Media - Photo gallery
-    5. Contact - Email & social links
-    6. Footer - Simple footer
+    4. Contact - Email & social links
+    5. Footer - Simple footer
     
     CUSTOMIZATION NEEDED:
     1. Update streaming platform links
@@ -98,93 +97,40 @@
     <section id="listen" class="door-album" aria-labelledby="album-heading" tabindex="-1">
         <div class="section-container door-album-inner">
             <img class="door-record" src="images/door/album.webp" width="800" height="800" alt="Two Weeks Notice album cover" loading="lazy" decoding="async">
-            <div>
-                <span class="door-eyebrow">Thrifted Tease / The record</span>
+            <div class="home-album-details">
+                <span class="door-eyebrow">Thrifted Tease</span>
                 <h2 id="album-heading">Two Weeks<br>Notice</h2>
-                <p>Step into the world of <em>Two Weeks Notice.</em><br>Find Thrifted Tease on your favourite platform.</p>
-                <a class="btn btn-primary album-cta" href="stream.html">Listen to the album &nearr;</a>
-            </div>
-        </div>
-    </section>
-
-    <div class="landscape-divider" aria-hidden="true">
-        <picture><source media="(max-width: 700px)" srcset="images/identity/divider-mobile.webp">
-            <img src="images/identity/divider-desktop.webp" width="1600" height="534" alt="" loading="lazy" decoding="async">
-        </picture>
-    </div>
-
-    <!-- ===== MEDIA SECTION ===== Photo gallery -->
-    <section id="media" class="media paper-surface">
-        <div class="section-container">
-            <h2>Photos & Videos</h2>
-            
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <img src="images/optimized/homepage/kevin-thumb.jpg" alt="Kevin behind the drum kit during rehearsal" loading="lazy" decoding="async" width="800" height="800">
-                    <div class="gallery-overlay">
-                        <p>This is Kevin</p>
-                        <a href="images/optimized/homepage/kevin-full.jpg" target="_blank">
-                                <i class="fas fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/optimized/homepage/bennett-thumb.jpg" alt="Bennett at the keys during a rehearsal session" loading="lazy" decoding="async" width="800" height="800">
-                    <div class="gallery-overlay">
-                        <p>This is Bennett</p>
-                        <a href="images/optimized/homepage/bennett-full.jpg" target="_blank">
-                            <i class="fas fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/optimized/homepage/hamza-thumb.jpg" alt="Hamza performing during a rehearsal run-through" loading="lazy" decoding="async" width="800" height="800">
-                    <div class="gallery-overlay">
-                        <p>This is Hamza</p>
-                        <a href="images/optimized/homepage/hamza-full.jpg" target="_blank">
-                            <i class="fas fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="images/optimized/homepage/spencer-thumb.jpg" alt="Spencer during a guitar-focused rehearsal moment" loading="lazy" decoding="async" width="800" height="800">
-                    <div class="gallery-overlay">
-                        <p>This is Spencer</p>
-                        <a href="images/optimized/homepage/spencer-full.jpg" target="_blank">
-                            <i class="fas fa-expand"></i>
-                        </a>
-                    </div>
-                </div>
+                <iframe class="home-album-player" src="https://open.spotify.com/embed/album/4H9qIaUgfiSg7yycOVRrJH?utm_source=generator&amp;theme=0" title="Listen to Two Weeks Notice by Thrifted Tease on Spotify" width="100%" height="352" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <a class="home-album-options" href="stream.html">All listening options &nearr;</a>
             </div>
         </div>
     </section>
 
      <!-- ===== CONTACT SECTION ===== -->
-    <section id="contact" class="contact contact-landscape">
-        <picture class="contact-landscape-image" aria-hidden="true">
-            <source media="(max-width: 700px)" srcset="images/identity/panorama-mobile.webp">
-            <img src="images/identity/panorama-desktop.webp" width="1440" height="960" alt="" loading="lazy" decoding="async">
-        </picture>
-        <div class="section-container">
-            <h2>Get In Touch</h2>
+    <section id="contact" class="contact contact-portrait">
+        <div class="section-container contact-panel">
+            <div class="contact-copy">
+                <h2>Get In Touch</h2>
             
-            <div class="contact-content">
-                <div class="contact-info">
-                    <p><strong>Email:</strong> <a href="mailto:contact@thriftedtease.com">contact@thriftedtease.com</a></p>
-                    <p><strong>Booking:</strong> <a href="mailto:booking@thriftedtease.com">booking@thriftedtease.com</a></p>
-                </div>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p><strong>Email:</strong> <a href="mailto:contact@thriftedtease.com">contact@thriftedtease.com</a></p>
+                        <p><strong>Booking:</strong> <a href="mailto:booking@thriftedtease.com">booking@thriftedtease.com</a></p>
+                    </div>
                 
-                <div class="contact-socials">
-                    <h4>Follow Us</h4>
-                    <div class="social-icons">
-                        <a href="https://www.instagram.com/thriftedtease/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://open.spotify.com/artist/2Bzx8VvEQmCcalgPMMIpay" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
-                        <a href="https://www.youtube.com/channel/UCr0SN3FVP-U01tANF-V4nBA" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://tiktok.com/@thriftedtease" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://twitter.com/thriftedtease" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <div class="contact-socials">
+                        <h4>Follow Us</h4>
+                        <div class="social-icons">
+                            <a href="https://www.instagram.com/thriftedtease/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://open.spotify.com/artist/2Bzx8VvEQmCcalgPMMIpay" target="_blank" title="Spotify"><i class="fab fa-spotify"></i></a>
+                            <a href="https://www.youtube.com/channel/UCr0SN3FVP-U01tANF-V4nBA" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://tiktok.com/@thriftedtease" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://twitter.com/thriftedtease" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <img class="contact-figure" src="images/door/figure.webp" width="258" height="756" alt="" aria-hidden="true" loading="lazy" decoding="async">
         </div>
     </section>
 
@@ -195,5 +141,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/door-hero.js"></script>
+    <script src="js/home-album.js"></script>
 </body>
 </html>

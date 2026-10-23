@@ -2,7 +2,7 @@
 
 The current layered doorway hero and asset sizes are documented in [Through the Door](door-entrance.md). The video and static-hero baselines below are historical; the homepage no longer initializes the hero video.
 
-The shared identity adds a 1,106-byte paper texture. The homepage's lazy-loaded panorama and divider total 202,444 bytes on desktop or 55,046 bytes on phones; responsive pictures avoid downloading the desktop versions on phones. These assets add no new hero imagery. Third-party album players load only on the dedicated streaming page. See [identity and streaming notes](identity-and-streaming.md).
+The shared identity includes a 1,106-byte paper texture. The homepage now omits the gallery and divider; its lazy-loaded contact panorama is 116,466 bytes on desktop or 39,850 bytes on phones. Responsive pictures avoid downloading the desktop version on phones. These assets add no new hero imagery. A lazy-loaded Spotify album player appears in the homepage album reveal; the dedicated streaming page also offers Apple Music. Provider-controlled resources add network cost as the player approaches the viewport. See [identity and streaming notes](identity-and-streaming.md).
 
 ## Baseline
 

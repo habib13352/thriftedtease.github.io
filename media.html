@@ -9,10 +9,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="preload" as="image" href="images/optimized/media/hero-media.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/identity.css">
+    <link rel="stylesheet" href="css/media-archive.css">
     <title>Thrifted Tease | Media</title>
 </head>
 <body class="page-media">
@@ -28,7 +28,7 @@
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="media.html" class="active">Media Gallery</a></li>
+                <li><a href="media.html" class="active" aria-current="page">Media Gallery</a></li>
                 <li><a href="stream.html">Stream</a></li>
                 <li><a href="shows.html">Upcoming Shows</a></li>
                 <li><a href="merch.html">Merch</a></li>
@@ -37,270 +37,290 @@
         </div>
     </nav>
 
+    <main>
     <section class="media-hero">
-        <div class="media-hero-overlay"></div>
         <div class="media-hero-content section-container">
-            <p class="media-kicker">Archive</p>
-            <h1 class="hero-title">Media Gallery</h1>
-            <p class="hero-subtitle">Real venue folders, real band photos, and a cleaner record of where the band has played.</p>
+            <p class="media-kicker">Thrifted Tease / The archive</p>
+            <h1 class="hero-title">Photos &amp; Films</h1>
+            <p class="hero-subtitle">On stage, off stage, and somewhere in between.</p>
         </div>
     </section>
 
+    <div class="archive-layout">
+    <nav class="archive-nav" aria-label="Gallery navigation">
+        <div class="archive-nav-inner">
+            <span class="archive-jump-label">Jump to</span>
+            <button class="archive-toggle" type="button" aria-expanded="false" aria-controls="archive-gallery-links">Galleries <span aria-hidden="true">+</span></button>
+            <div class="archive-jump-links" id="archive-gallery-links">
+                <a class="archive-jump-link" href="#cameron-house">Cameron House</a>
+                <a class="archive-jump-link" href="#el-mocambo">El Mocambo</a>
+                <a class="archive-jump-link" href="#painted-lady">Painted Lady</a>
+                <a class="archive-jump-link" href="#the-handlebar">The Handlebar</a>
+                <a class="archive-jump-link" href="#the-pilot">The Pilot</a>
+                <a class="archive-jump-link" href="#band-pics">Band Pics</a>
+                <a class="archive-jump-link" href="#thrifted-beach">Thrifted Beach</a>
+                <a class="archive-jump-link" href="#recording-bts">Recording (BTS)</a>
+                <a class="archive-jump-link" href="#sneaky-dees">Sneaky Dees</a>
+            </div>
+        </div>
+    </nav>
+
     <section class="media media-archive">
         <div class="section-container">
-            <div class="media-page-intro">
-                <h2>Show Archive</h2>
-                <p class="section-subtitle">The gallery now tracks actual shows and band sessions instead of generic placeholders.</p>
-            </div>
-
             <div class="media-event-list">
-                <article class="media-event">
+                <article class="media-event" id="cameron-house" tabindex="-1">
                     <div class="media-event-header">
                         <div>
                             <h3 class="media-event-title">Cameron House</h3>
-                            <p class="media-event-meta">Toronto live archive &middot; full-band coverage &middot; 8-photo venue gallery</p>
+                            <p class="media-event-meta">Toronto / Live</p>
                         </div>
                     </div>
                     <div class="media-event-grid">
                         <article class="media-card media-card--image media-card--feature">
                             <a class="media-thumb-link" href="images/optimized/media/cameron-house/01-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="1" aria-label="Open Spencer at Cameron House">
                                 <img src="images/optimized/media/cameron-house/01-card.jpg" alt="Spencer performing at Cameron House" loading="lazy" decoding="async" width="960" height="600">
-                                <span class="media-card-badge">Photo</span>
+
                             </a>
-                            <div class="media-card-caption"><h4>Spencer Opens The Set</h4><p>A lead frame from the Cameron House folder.</p></div>
+                            <div class="media-card-caption"><h4>Spencer Opens The Set</h4></div>
                         </article>
-                        <article class="media-card media-card--video">
+
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/02-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="2" aria-label="Open Kevin at Cameron House"><img src="images/optimized/media/cameron-house/02-card.jpg" alt="Kevin playing drums at Cameron House" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Kevin On Drums</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/03-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="3" aria-label="Open Hamza at Cameron House"><img src="images/optimized/media/cameron-house/03-card.jpg" alt="Hamza performing at Cameron House" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Hamza On Stage</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/04-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="4" aria-label="Open Dylan at Cameron House"><img src="images/optimized/media/cameron-house/04-card.jpg" alt="Dylan at Cameron House" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Dylan In The Pocket</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/05-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="5" aria-label="Open Bennett at Cameron House"><img src="images/optimized/media/cameron-house/05-card.jpg" alt="Bennett at Cameron House" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Bennett At The Keys</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/06-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="6" aria-label="Open Spencer and Bennett at Cameron House"><img src="images/optimized/media/cameron-house/06-card.jpg" alt="Spencer and Bennett performing together at Cameron House" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Shared Spotlight</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/07-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="7" aria-label="Open second Spencer photo at Cameron House"><img src="images/optimized/media/cameron-house/07-card.jpg" alt="Second Spencer live photo at Cameron House" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Second Pass</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/08-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="8" aria-label="Open second Kevin photo at Cameron House"><img src="images/optimized/media/cameron-house/08-card.jpg" alt="Second Kevin live photo at Cameron House" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Drum Detail</h4></div></article>
+                    <article class="media-card media-card--video">
                             <div class="media-video-frame">
                                 <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=1&amp;rel=0" title="Thrifted Tease Cameron House video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
-                            <div class="media-card-caption"><h4>Live Clip</h4><p>Embedded alongside the stills.</p></div>
+                            <div class="media-card-caption"><h4>Live Clip</h4></div>
                         </article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/02-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="2" aria-label="Open Kevin at Cameron House"><img src="images/optimized/media/cameron-house/02-card.jpg" alt="Kevin playing drums at Cameron House" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Kevin On Drums</h4><p>Backline energy from the room.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/03-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="3" aria-label="Open Hamza at Cameron House"><img src="images/optimized/media/cameron-house/03-card.jpg" alt="Hamza performing at Cameron House" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Hamza On Stage</h4><p>A tighter stage-side frame.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/04-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="4" aria-label="Open Dylan at Cameron House"><img src="images/optimized/media/cameron-house/04-card.jpg" alt="Dylan at Cameron House" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Dylan In The Pocket</h4><p>A clean single-player moment.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/05-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="5" aria-label="Open Bennett at Cameron House"><img src="images/optimized/media/cameron-house/05-card.jpg" alt="Bennett at Cameron House" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Bennett At The Keys</h4><p>Dedicated keys coverage for the set.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/06-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="6" aria-label="Open Spencer and Bennett at Cameron House"><img src="images/optimized/media/cameron-house/06-card.jpg" alt="Spencer and Bennett performing together at Cameron House" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Shared Spotlight</h4><p>A duo frame from the same night.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/07-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="7" aria-label="Open second Spencer photo at Cameron House"><img src="images/optimized/media/cameron-house/07-card.jpg" alt="Second Spencer live photo at Cameron House" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Second Pass</h4><p>A wider live frame from the room.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/cameron-house/08-full.jpg" target="_blank" data-lightbox-group="cameron-house" data-media-index="8" aria-label="Open second Kevin photo at Cameron House"><img src="images/optimized/media/cameron-house/08-card.jpg" alt="Second Kevin live photo at Cameron House" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Drum Detail</h4><p>A closer cut from the set.</p></div></article>
                     </div>
                 </article>
 
-                <article class="media-event">
+                <article class="media-event" id="el-mocambo" tabindex="-1">
                     <div class="media-event-header">
                         <div>
                             <h3 class="media-event-title">El Mocambo</h3>
-                            <p class="media-event-meta">January 16 archive &middot; video-only for now &middot; JPG stills can be added later</p>
+                            <p class="media-event-meta">January 16 / Live video</p>
                         </div>
                     </div>
                     <div class="media-event-grid">
-                        <article class="media-card media-card--video media-card--feature">
+
+                    <article class="media-card media-card--video media-card--feature">
                             <div class="media-video-frame">
                                 <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=2&amp;rel=0" title="Thrifted Tease El Mocambo video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
-                            <div class="media-card-caption"><h4>Performance Clip</h4><p>This section stays live as a video-only archive until matching JPG stills are ready.</p></div>
+                            <div class="media-card-caption"><h4>Performance Clip</h4></div>
                         </article>
                     </div>
                 </article>
 
-                <article class="media-event">
+                <article class="media-event" id="painted-lady" tabindex="-1">
                     <div class="media-event-header">
                         <div>
                             <h3 class="media-event-title">Painted Lady</h3>
-                            <p class="media-event-meta">Toronto stage archive &middot; deep photo folder &middot; 8-photo venue gallery</p>
+                            <p class="media-event-meta">Toronto / Live</p>
                         </div>
                     </div>
                     <div class="media-event-grid">
                         <article class="media-card media-card--image media-card--feature">
                             <a class="media-thumb-link" href="images/optimized/media/painted-lady/01-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="1" aria-label="Open Spencer at Painted Lady">
                                 <img src="images/optimized/media/painted-lady/01-card.jpg" alt="Spencer performing at Painted Lady" loading="lazy" decoding="async" width="960" height="600">
-                                <span class="media-card-badge">Photo</span>
+
                             </a>
-                            <div class="media-card-caption"><h4>Painted Lady Opener</h4><p>A featured lead frame from the folder.</p></div>
+                            <div class="media-card-caption"><h4>Painted Lady Opener</h4></div>
                         </article>
-                        <article class="media-card media-card--video">
+
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/02-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="2" aria-label="Open Kevin at Painted Lady"><img src="images/optimized/media/painted-lady/02-card.jpg" alt="Kevin playing drums at Painted Lady" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Kevin Drives The Set</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/03-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="3" aria-label="Open Hamza at Painted Lady"><img src="images/optimized/media/painted-lady/03-card.jpg" alt="Hamza on stage at Painted Lady" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Hamza Front And Center</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/04-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="4" aria-label="Open Dylan at Painted Lady"><img src="images/optimized/media/painted-lady/04-card.jpg" alt="Dylan at Painted Lady" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Dylan Locks In</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/05-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="5" aria-label="Open Bennett at Painted Lady"><img src="images/optimized/media/painted-lady/05-card.jpg" alt="Bennett at Painted Lady" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Bennett At Painted Lady</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/06-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="6" aria-label="Open second Spencer photo at Painted Lady"><img src="images/optimized/media/painted-lady/06-card.jpg" alt="Second Spencer live photo at Painted Lady" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Second Guitar Frame</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/07-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="7" aria-label="Open second Kevin photo at Painted Lady"><img src="images/optimized/media/painted-lady/07-card.jpg" alt="Second Kevin live photo at Painted Lady" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Rhythm Section Return</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/08-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="8" aria-label="Open second Hamza photo at Painted Lady"><img src="images/optimized/media/painted-lady/08-card.jpg" alt="Second Hamza live photo at Painted Lady" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Frontline Detail</h4></div></article>
+                    <article class="media-card media-card--video">
                             <div class="media-video-frame">
                                 <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=3&amp;rel=0" title="Thrifted Tease Painted Lady video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
-                            <div class="media-card-caption"><h4>Live Playback</h4><p>A video card paired with the still gallery.</p></div>
+                            <div class="media-card-caption"><h4>Live Playback</h4></div>
                         </article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/02-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="2" aria-label="Open Kevin at Painted Lady"><img src="images/optimized/media/painted-lady/02-card.jpg" alt="Kevin playing drums at Painted Lady" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Kevin Drives The Set</h4><p>Rhythm section coverage from the room.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/03-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="3" aria-label="Open Hamza at Painted Lady"><img src="images/optimized/media/painted-lady/03-card.jpg" alt="Hamza on stage at Painted Lady" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Hamza Front And Center</h4><p>A clean lead shot from the show.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/04-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="4" aria-label="Open Dylan at Painted Lady"><img src="images/optimized/media/painted-lady/04-card.jpg" alt="Dylan at Painted Lady" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Dylan Locks In</h4><p>A lower-light stage moment.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/05-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="5" aria-label="Open Bennett at Painted Lady"><img src="images/optimized/media/painted-lady/05-card.jpg" alt="Bennett at Painted Lady" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Bennett At Painted Lady</h4><p>Keys coverage for the venue set.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/06-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="6" aria-label="Open second Spencer photo at Painted Lady"><img src="images/optimized/media/painted-lady/06-card.jpg" alt="Second Spencer live photo at Painted Lady" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Second Guitar Frame</h4><p>Another angle from the same night.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/07-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="7" aria-label="Open second Kevin photo at Painted Lady"><img src="images/optimized/media/painted-lady/07-card.jpg" alt="Second Kevin live photo at Painted Lady" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Rhythm Section Return</h4><p>A second drum-side frame.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/painted-lady/08-full.jpg" target="_blank" data-lightbox-group="painted-lady" data-media-index="8" aria-label="Open second Hamza photo at Painted Lady"><img src="images/optimized/media/painted-lady/08-card.jpg" alt="Second Hamza live photo at Painted Lady" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Frontline Detail</h4><p>Another strong lead moment.</p></div></article>
                     </div>
                 </article>
 
-                <article class="media-event">
+                <article class="media-event" id="the-handlebar" tabindex="-1">
                     <div class="media-event-header">
                         <div>
                             <h3 class="media-event-title">The Handlebar</h3>
-                            <p class="media-event-meta">Compact venue archive &middot; performance clip plus 3-photo gallery &middot; newly added stills</p>
+                            <p class="media-event-meta">Live / Photos &amp; film</p>
                         </div>
                     </div>
                     <div class="media-event-grid">
                         <article class="media-card media-card--image media-card--feature">
                             <a class="media-thumb-link" href="images/optimized/media/the-handlebar/01-full.jpg" target="_blank" data-lightbox-group="the-handlebar" data-media-index="1" aria-label="Open full band photo at The Handlebar">
                                 <img src="images/optimized/media/the-handlebar/01-card.jpg" alt="Full band performing at The Handlebar" loading="lazy" decoding="async" width="960" height="600">
-                                <span class="media-card-badge">Photo</span>
+
                             </a>
-                            <div class="media-card-caption"><h4>Full Band In Frame</h4><p>A wide live still from the Handlebar set.</p></div>
+                            <div class="media-card-caption"><h4>Full Band In Frame</h4></div>
                         </article>
-                        <article class="media-card media-card--video">
+
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-handlebar/02-full.jpg" target="_blank" data-lightbox-group="the-handlebar" data-media-index="2" aria-label="Open Bennett at The Handlebar"><img src="images/optimized/media/the-handlebar/02-card.jpg" alt="Bennett performing at The Handlebar" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Bennett At The Keys</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-handlebar/03-full.jpg" target="_blank" data-lightbox-group="the-handlebar" data-media-index="3" aria-label="Open Spencer at The Handlebar"><img src="images/optimized/media/the-handlebar/03-card.jpg" alt="Spencer performing at The Handlebar" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Spencer Mid-Set</h4></div></article>
+                    <article class="media-card media-card--video">
                             <div class="media-video-frame">
                                 <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=4&amp;rel=0" title="Thrifted Tease The Handlebar video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
-                            <div class="media-card-caption"><h4>Handlebar Clip</h4><p>The live video now sits alongside the still gallery.</p></div>
+                            <div class="media-card-caption"><h4>Handlebar Clip</h4></div>
                         </article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-handlebar/02-full.jpg" target="_blank" data-lightbox-group="the-handlebar" data-media-index="2" aria-label="Open Bennett at The Handlebar"><img src="images/optimized/media/the-handlebar/02-card.jpg" alt="Bennett performing at The Handlebar" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Bennett At The Keys</h4><p>A tighter portrait from the same night.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-handlebar/03-full.jpg" target="_blank" data-lightbox-group="the-handlebar" data-media-index="3" aria-label="Open Spencer at The Handlebar"><img src="images/optimized/media/the-handlebar/03-card.jpg" alt="Spencer performing at The Handlebar" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Spencer Mid-Set</h4><p>A close guitar-side moment from the room.</p></div></article>
                     </div>
                 </article>
 
-                <article class="media-event">
+                <article class="media-event" id="the-pilot" tabindex="-1">
                     <div class="media-event-header">
                         <div>
                             <h3 class="media-event-title">The Pilot</h3>
-                            <p class="media-event-meta">Deep venue folder &middot; multiple player angles &middot; 8-photo venue gallery</p>
+                            <p class="media-event-meta">Live / Photos &amp; film</p>
                         </div>
                     </div>
                     <div class="media-event-grid">
                         <article class="media-card media-card--image media-card--feature">
                             <a class="media-thumb-link" href="images/optimized/media/the-pilot/01-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="1" aria-label="Open Spencer at The Pilot">
                                 <img src="images/optimized/media/the-pilot/01-card.jpg" alt="Spencer performing at The Pilot" loading="lazy" decoding="async" width="960" height="600">
-                                <span class="media-card-badge">Photo</span>
+
                             </a>
-                            <div class="media-card-caption"><h4>The Pilot Opener</h4><p>A featured guitar shot from the venue.</p></div>
+                            <div class="media-card-caption"><h4>The Pilot Opener</h4></div>
                         </article>
-                        <article class="media-card media-card--video">
+
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/02-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="2" aria-label="Open Kevin at The Pilot"><img src="images/optimized/media/the-pilot/02-card.jpg" alt="Kevin playing drums at The Pilot" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Kevin At The Kit</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/03-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="3" aria-label="Open Hamza at The Pilot"><img src="images/optimized/media/the-pilot/03-card.jpg" alt="Hamza at The Pilot" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Hamza Leads The Room</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/04-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="4" aria-label="Open Dylan at The Pilot"><img src="images/optimized/media/the-pilot/04-card.jpg" alt="Dylan at The Pilot" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Dylan Mid-Set</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/05-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="5" aria-label="Open Bennett at The Pilot"><img src="images/optimized/media/the-pilot/05-card.jpg" alt="Bennett at The Pilot" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Bennett Holds The Harmony</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/06-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="6" aria-label="Open second Spencer photo at The Pilot"><img src="images/optimized/media/the-pilot/06-card.jpg" alt="Second Spencer live photo at The Pilot" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Second Guitar Angle</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/07-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="7" aria-label="Open second Kevin photo at The Pilot"><img src="images/optimized/media/the-pilot/07-card.jpg" alt="Second Kevin live photo at The Pilot" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Snare-Side Frame</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/08-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="8" aria-label="Open second Dylan photo at The Pilot"><img src="images/optimized/media/the-pilot/08-card.jpg" alt="Second Dylan live photo at The Pilot" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Groove Detail</h4></div></article>
+                    <article class="media-card media-card--video">
                             <div class="media-video-frame">
                                 <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=5&amp;rel=0" title="Thrifted Tease The Pilot video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
-                            <div class="media-card-caption"><h4>Performance Capture</h4><p>A video card matched to the still gallery.</p></div>
+                            <div class="media-card-caption"><h4>Performance Capture</h4></div>
                         </article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/02-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="2" aria-label="Open Kevin at The Pilot"><img src="images/optimized/media/the-pilot/02-card.jpg" alt="Kevin playing drums at The Pilot" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Kevin At The Kit</h4><p>A crisp stage still from the room.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/03-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="3" aria-label="Open Hamza at The Pilot"><img src="images/optimized/media/the-pilot/03-card.jpg" alt="Hamza at The Pilot" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Hamza Leads The Room</h4><p>A front-facing live frame.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/04-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="4" aria-label="Open Dylan at The Pilot"><img src="images/optimized/media/the-pilot/04-card.jpg" alt="Dylan at The Pilot" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Dylan Mid-Set</h4><p>A live moment with separation and light.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/05-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="5" aria-label="Open Bennett at The Pilot"><img src="images/optimized/media/the-pilot/05-card.jpg" alt="Bennett at The Pilot" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Bennett Holds The Harmony</h4><p>A keys shot from the set.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/06-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="6" aria-label="Open second Spencer photo at The Pilot"><img src="images/optimized/media/the-pilot/06-card.jpg" alt="Second Spencer live photo at The Pilot" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Second Guitar Angle</h4><p>A follow-up still from the set.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/07-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="7" aria-label="Open second Kevin photo at The Pilot"><img src="images/optimized/media/the-pilot/07-card.jpg" alt="Second Kevin live photo at The Pilot" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Snare-Side Frame</h4><p>A second drum still.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/the-pilot/08-full.jpg" target="_blank" data-lightbox-group="the-pilot" data-media-index="8" aria-label="Open second Dylan photo at The Pilot"><img src="images/optimized/media/the-pilot/08-card.jpg" alt="Second Dylan live photo at The Pilot" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Groove Detail</h4><p>Another live still from the venue.</p></div></article>
                     </div>
                 </article>
 
-                <article class="media-event">
+                <article class="media-event" id="band-pics" tabindex="-1">
                     <div class="media-event-header">
                         <div>
                             <h3 class="media-event-title">Band Pics</h3>
-                            <p class="media-event-meta">Portraits, backstage, and off-stage archive &middot; 8-photo band gallery</p>
+                            <p class="media-event-meta">Portraits / Off stage</p>
                         </div>
                     </div>
                     <div class="media-event-grid">
                         <article class="media-card media-card--image media-card--feature">
                             <a class="media-thumb-link" href="images/optimized/media/band-pics/01-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="1" aria-label="Open featured band photo">
                                 <img src="images/optimized/media/band-pics/01-card.jpg" alt="Featured band photo" loading="lazy" decoding="async" width="960" height="600">
-                                <span class="media-card-badge">Photo</span>
+
                             </a>
-                            <div class="media-card-caption"><h4>Band Portrait</h4><p>A polished group image to open the section.</p></div>
+                            <div class="media-card-caption"><h4>Band Portrait</h4></div>
                         </article>
-                        <article class="media-card media-card--video">
+
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/02-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="2" aria-label="Open second band photo"><img src="images/optimized/media/band-pics/02-card.jpg" alt="Second band portrait" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Portrait Alternate</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/03-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="3" aria-label="Open third band photo"><img src="images/optimized/media/band-pics/03-card.jpg" alt="Third band portrait" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Group Shot</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/04-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="4" aria-label="Open fourth band photo"><img src="images/optimized/media/band-pics/04-card.jpg" alt="Fourth band portrait" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Promo Frame</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/05-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="5" aria-label="Open fifth band photo"><img src="images/optimized/media/band-pics/05-card.jpg" alt="Fifth band portrait" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Off-Stage Moment</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/06-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="6" aria-label="Open Spencer band archive photo"><img src="images/optimized/media/band-pics/06-card.jpg" alt="Spencer band archive portrait" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Spencer Portrait</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/07-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="7" aria-label="Open second Spencer band archive photo"><img src="images/optimized/media/band-pics/07-card.jpg" alt="Second Spencer band archive portrait" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Spencer Alternate</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/08-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="8" aria-label="Open Kevin band archive photo"><img src="images/optimized/media/band-pics/08-card.jpg" alt="Kevin band archive portrait" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Kevin Portrait</h4></div></article>
+                    <article class="media-card media-card--video">
                             <div class="media-video-frame">
                                 <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=6&amp;rel=0" title="Thrifted Tease band archive video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
-                            <div class="media-card-caption"><h4>Archive Clip</h4><p>A final mixed-media card for the page.</p></div>
+                            <div class="media-card-caption"><h4>Archive Clip</h4></div>
                         </article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/02-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="2" aria-label="Open second band photo"><img src="images/optimized/media/band-pics/02-card.jpg" alt="Second band portrait" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Portrait Alternate</h4><p>A second group frame.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/03-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="3" aria-label="Open third band photo"><img src="images/optimized/media/band-pics/03-card.jpg" alt="Third band portrait" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Group Shot</h4><p>Another polished still from the folder.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/04-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="4" aria-label="Open fourth band photo"><img src="images/optimized/media/band-pics/04-card.jpg" alt="Fourth band portrait" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Promo Frame</h4><p>A cleaner portrait-oriented moment.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/05-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="5" aria-label="Open fifth band photo"><img src="images/optimized/media/band-pics/05-card.jpg" alt="Fifth band portrait" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Off-Stage Moment</h4><p>A candid from the wider archive.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/06-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="6" aria-label="Open Spencer band archive photo"><img src="images/optimized/media/band-pics/06-card.jpg" alt="Spencer band archive portrait" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Spencer Portrait</h4><p>A solo archive frame.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/07-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="7" aria-label="Open second Spencer band archive photo"><img src="images/optimized/media/band-pics/07-card.jpg" alt="Second Spencer band archive portrait" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Spencer Alternate</h4><p>A second portrait variation.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/band-pics/08-full.jpg" target="_blank" data-lightbox-group="band-pics" data-media-index="8" aria-label="Open Kevin band archive photo"><img src="images/optimized/media/band-pics/08-card.jpg" alt="Kevin band archive portrait" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Kevin Portrait</h4><p>A solo still to round out the section.</p></div></article>
                     </div>
                 </article>
 
-                <article class="media-event">
+                <article class="media-event" id="thrifted-beach" tabindex="-1">
                     <div class="media-event-header">
                         <div>
                             <h3 class="media-event-title">Thrifted Beach</h3>
-                            <p class="media-event-meta">Beach-day archive &middot; image-only gallery &middot; 20-photo outdoor set</p>
+                            <p class="media-event-meta">Beach days / Off stage</p>
                         </div>
                     </div>
                     <div class="media-event-grid">
                         <article class="media-card media-card--image media-card--feature">
                             <a class="media-thumb-link" href="images/optimized/media/badass-band-beach/01-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="1" aria-label="Open featured Thrifted Beach photo">
                                 <img src="images/optimized/media/badass-band-beach/01-card.jpg" alt="Featured Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600">
-                                <span class="media-card-badge">Photo</span>
+
                             </a>
-                            <div class="media-card-caption"><h4>Beach Opener</h4><p>A lead frame from the beach photo set.</p></div>
+                            <div class="media-card-caption"><h4>Beach Opener</h4></div>
                         </article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/02-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="2" aria-label="Open second Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/02-card.jpg" alt="Second Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Two</h4><p>Another outdoor still from the same session.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/03-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="3" aria-label="Open third Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/03-card.jpg" alt="Third Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Three</h4><p>A brighter cut from the shoreline set.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/04-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="4" aria-label="Open fourth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/04-card.jpg" alt="Fourth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Four</h4><p>A relaxed candid from the beach archive.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/05-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="5" aria-label="Open fifth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/05-card.jpg" alt="Fifth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Five</h4><p>A mid-gallery still with more room around the band.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/06-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="6" aria-label="Open sixth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/06-card.jpg" alt="Sixth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Six</h4><p>A wider outdoor moment from the same set.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/07-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="7" aria-label="Open seventh Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/07-card.jpg" alt="Seventh Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Seven</h4><p>A beach-side angle with extra texture in the background.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/08-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="8" aria-label="Open eighth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/08-card.jpg" alt="Eighth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Eight</h4><p>A crisp outdoor still from the larger archive.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/09-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="9" aria-label="Open ninth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/09-card.jpg" alt="Ninth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Nine</h4><p>A second featured-style moment from the session.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/10-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="10" aria-label="Open tenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/10-card.jpg" alt="Tenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Ten</h4><p>A balanced frame from the outdoor run.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/11-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="11" aria-label="Open eleventh Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/11-card.jpg" alt="Eleventh Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Eleven</h4><p>A quieter image from the later part of the set.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/12-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="12" aria-label="Open twelfth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/12-card.jpg" alt="Twelfth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Twelve</h4><p>A softer outdoor cut with more negative space.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/13-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="13" aria-label="Open thirteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/13-card.jpg" alt="Thirteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Thirteen</h4><p>Another natural-light still from the beach day.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/14-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="14" aria-label="Open fourteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/14-card.jpg" alt="Fourteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Beach Frame Fourteen</h4><p>A matching follow-up frame from the same sequence.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/15-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="15" aria-label="Open fifteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/15-card.jpg" alt="Fifteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Phone Frame One</h4><p>An alternate capture from the same beach session.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/16-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="16" aria-label="Open sixteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/16-card.jpg" alt="Sixteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Phone Frame Two</h4><p>A phone-shot angle added to the outdoor archive.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/17-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="17" aria-label="Open seventeenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/17-card.jpg" alt="Seventeenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Phone Frame Three</h4><p>A tighter handheld cut from the same day.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/18-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="18" aria-label="Open eighteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/18-card.jpg" alt="Eighteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Phone Frame Four</h4><p>A more intimate shot from the beach roll.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/19-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="19" aria-label="Open nineteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/19-card.jpg" alt="Nineteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Phone Frame Five</h4><p>A shadowier handheld moment from the set.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/20-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="20" aria-label="Open twentieth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/20-card.jpg" alt="Twentieth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Phone Frame Six</h4><p>A final phone-shot still to close the gallery.</p></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/02-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="2" aria-label="Open second Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/02-card.jpg" alt="Second Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Two</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/03-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="3" aria-label="Open third Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/03-card.jpg" alt="Third Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Three</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/04-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="4" aria-label="Open fourth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/04-card.jpg" alt="Fourth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Four</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/05-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="5" aria-label="Open fifth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/05-card.jpg" alt="Fifth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Five</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/06-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="6" aria-label="Open sixth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/06-card.jpg" alt="Sixth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Six</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/07-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="7" aria-label="Open seventh Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/07-card.jpg" alt="Seventh Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Seven</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/08-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="8" aria-label="Open eighth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/08-card.jpg" alt="Eighth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Eight</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/09-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="9" aria-label="Open ninth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/09-card.jpg" alt="Ninth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Nine</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/10-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="10" aria-label="Open tenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/10-card.jpg" alt="Tenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Ten</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/11-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="11" aria-label="Open eleventh Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/11-card.jpg" alt="Eleventh Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Eleven</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/12-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="12" aria-label="Open twelfth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/12-card.jpg" alt="Twelfth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Twelve</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/13-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="13" aria-label="Open thirteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/13-card.jpg" alt="Thirteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Thirteen</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/14-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="14" aria-label="Open fourteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/14-card.jpg" alt="Fourteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Beach Frame Fourteen</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/15-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="15" aria-label="Open fifteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/15-card.jpg" alt="Fifteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Phone Frame One</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/16-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="16" aria-label="Open sixteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/16-card.jpg" alt="Sixteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Phone Frame Two</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/17-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="17" aria-label="Open seventeenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/17-card.jpg" alt="Seventeenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Phone Frame Three</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/18-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="18" aria-label="Open eighteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/18-card.jpg" alt="Eighteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Phone Frame Four</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/19-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="19" aria-label="Open nineteenth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/19-card.jpg" alt="Nineteenth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Phone Frame Five</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/badass-band-beach/20-full.jpg" target="_blank" data-lightbox-group="thrifted-beach" data-media-index="20" aria-label="Open twentieth Thrifted Beach photo"><img src="images/optimized/media/badass-band-beach/20-card.jpg" alt="Twentieth Thrifted Beach band photo" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Phone Frame Six</h4></div></article>
                     </div>
                 </article>
 
-                <article class="media-event">
+                <article class="media-event" id="recording-bts" tabindex="-1">
                     <div class="media-event-header">
                         <div>
                             <h3 class="media-event-title">Recording (BTS)</h3>
-                            <p class="media-event-meta">Behind-the-scenes studio archive &middot; recording-day details &middot; 8-photo BTS gallery</p>
+                            <p class="media-event-meta">In the studio / Behind the scenes</p>
                         </div>
                     </div>
                     <div class="media-event-grid">
                         <article class="media-card media-card--image media-card--feature">
                             <a class="media-thumb-link" href="images/optimized/media/recording-bts/01-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="1" aria-label="Open featured Recording BTS photo">
                                 <img src="images/optimized/media/recording-bts/01-card.jpg" alt="Band recording together during a behind-the-scenes studio session" loading="lazy" decoding="async" width="960" height="600">
-                                <span class="media-card-badge">Photo</span>
+
                             </a>
-                            <div class="media-card-caption"><h4>Session Overview</h4><p>A wide recording-room frame to open the BTS archive.</p></div>
+                            <div class="media-card-caption"><h4>Session Overview</h4></div>
                         </article>
-                        <article class="media-card media-card--video">
+
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/02-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="2" aria-label="Open microphone setup photo from the recording session"><img src="images/optimized/media/recording-bts/02-card.jpg" alt="Microphone setup during the recording session" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Mic Check</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/03-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="3" aria-label="Open keyboard station photo from the recording session"><img src="images/optimized/media/recording-bts/03-card.jpg" alt="Keyboard station during the recording session" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Keys Station</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/04-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="4" aria-label="Open Kevin recording photo"><img src="images/optimized/media/recording-bts/04-card.jpg" alt="Kevin recording drums during the BTS session" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Kevin Tracking</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/05-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="5" aria-label="Open Hamza recording photo"><img src="images/optimized/media/recording-bts/05-card.jpg" alt="Hamza during the recording session" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Hamza In Session</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/06-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="6" aria-label="Open Spencer recording photo"><img src="images/optimized/media/recording-bts/06-card.jpg" alt="Spencer recording guitar during the BTS session" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Spencer On Guitar</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/07-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="7" aria-label="Open Bennett recording photo"><img src="images/optimized/media/recording-bts/07-card.jpg" alt="Bennett during the recording session" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Bennett In The Room</h4></div></article>
+                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/08-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="8" aria-label="Open guitar detail photo from the recording session"><img src="images/optimized/media/recording-bts/08-card.jpg" alt="Guitar detail from the recording session" loading="lazy" decoding="async" width="960" height="600"></a><div class="media-card-caption"><h4>Instrument Detail</h4></div></article>
+                    <article class="media-card media-card--video">
                             <div class="media-video-frame">
                                 <iframe src="https://www.youtube.com/embed/videoseries?list=UUr0SN3FVP-U01tANF-V4nBA&amp;index=6&amp;rel=0" title="Thrifted Tease recording behind-the-scenes video" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                             </div>
-                            <div class="media-card-caption"><h4>BTS Clip</h4><p>A temporary archive embed until the dedicated recording video is ready.</p></div>
+                            <div class="media-card-caption"><h4>BTS Clip</h4></div>
                         </article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/02-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="2" aria-label="Open microphone setup photo from the recording session"><img src="images/optimized/media/recording-bts/02-card.jpg" alt="Microphone setup during the recording session" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Mic Check</h4><p>Close detail from the studio setup.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/03-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="3" aria-label="Open keyboard station photo from the recording session"><img src="images/optimized/media/recording-bts/03-card.jpg" alt="Keyboard station during the recording session" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Keys Station</h4><p>A studio-side look at the keyboard rig.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/04-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="4" aria-label="Open Kevin recording photo"><img src="images/optimized/media/recording-bts/04-card.jpg" alt="Kevin recording drums during the BTS session" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Kevin Tracking</h4><p>Drum-side coverage from the room.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/05-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="5" aria-label="Open Hamza recording photo"><img src="images/optimized/media/recording-bts/05-card.jpg" alt="Hamza during the recording session" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Hamza In Session</h4><p>A candid performance moment between takes.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/06-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="6" aria-label="Open Spencer recording photo"><img src="images/optimized/media/recording-bts/06-card.jpg" alt="Spencer recording guitar during the BTS session" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Spencer On Guitar</h4><p>A tighter recording-day guitar frame.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/07-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="7" aria-label="Open Bennett recording photo"><img src="images/optimized/media/recording-bts/07-card.jpg" alt="Bennett during the recording session" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Bennett In The Room</h4><p>Another candid from the recording setup.</p></div></article>
-                        <article class="media-card media-card--image"><a class="media-thumb-link" href="images/optimized/media/recording-bts/08-full.jpg" target="_blank" data-lightbox-group="recording-bts" data-media-index="8" aria-label="Open guitar detail photo from the recording session"><img src="images/optimized/media/recording-bts/08-card.jpg" alt="Guitar detail from the recording session" loading="lazy" decoding="async" width="960" height="600"><span class="media-card-badge">Photo</span></a><div class="media-card-caption"><h4>Instrument Detail</h4><p>A final gear-focused frame to close the section.</p></div></article>
                     </div>
                 </article>
 
-                <article class="media-event">
+                <article class="media-event" id="sneaky-dees" tabindex="-1">
                     <div class="media-event-header">
                         <div>
                             <h3 class="media-event-title">Sneaky Dees</h3>
-                            <p class="media-event-meta">Archive placeholder &middot; folder exists, but no source photos or videos are ready yet</p>
+                            <p class="media-event-meta">More from the archive soon</p>
                         </div>
                     </div>
                     <div class="media-event-grid">
                         <article class="media-card">
                             <div class="media-card-caption">
                                 <h4>Gallery Coming Soon</h4>
-                                <p>This section is intentionally waiting on real Sneaky Dees media so the page never shows broken or random assets.</p>
                             </div>
                         </article>
                     </div>
@@ -309,10 +329,19 @@
         </div>
     </section>
 
+    </div>
+    </main>
+    <dialog class="media-viewer" aria-label="Photo viewer">
+        <div class="viewer-toolbar"><p id="viewer-status" aria-live="polite"></p><button type="button" class="viewer-close" autofocus aria-label="Close photo viewer">Close &times;</button></div>
+        <img class="viewer-image" alt="">
+        <p class="viewer-caption"></p>
+        <div class="viewer-controls"><button type="button" class="viewer-prev" aria-label="Previous photo">&larr; Previous</button><a class="viewer-original" target="_blank" rel="noopener">Open original &nearr;</a><button type="button" class="viewer-next" aria-label="Next photo">Next &rarr;</button></div>
+    </dialog>
     <footer class="footer">
         <p>&copy; 2026 Thrifted Tease. All rights reserved.</p>
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/media-archive.js"></script>
 </body>
 </html>

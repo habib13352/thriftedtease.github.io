@@ -9,9 +9,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link rel="preload" as="image" href="images/optimized/pages/hero-shows.jpg">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/identity.css">
+    <link rel="stylesheet" href="css/shows.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Thrifted Tease | Upcoming Shows</title>
 </head>
@@ -30,33 +30,35 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="media.html">Media Gallery</a></li>
                 <li><a href="stream.html">Stream</a></li>
-                <li><a href="shows.html" class="active">Upcoming Shows</a></li>
+                <li><a href="shows.html" class="active" aria-current="page">Upcoming Shows</a></li>
                 <li><a href="merch.html">Merch</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
+    <main>
     <section class="shows-hero">
-        <div class="shows-hero-media" aria-hidden="true">
-            <img src="images/optimized/pages/hero-shows.jpg" alt="" loading="eager" decoding="async" fetchpriority="high" width="1600" height="960">
-        </div>
-        <div class="shows-hero-overlay"></div>
         <div class="shows-hero-content section-container">
-            <p class="shows-kicker">Live Dates</p>
+            <p class="shows-kicker">Thrifted Tease / Live</p>
             <h1 class="hero-title">Upcoming Shows</h1>
-            <p class="hero-subtitle">A cleaner live-date page built for the way a local Toronto band actually books: a small run of nearby shows, clearly laid out.</p>
+            <p class="hero-subtitle">Toronto-area dates, tickets, and places to find us live.</p>
         </div>
     </section>
 
-    <section class="shows-listing paper-surface">
+    <section class="shows-listing">
         <div class="section-container">
             <div class="shows-page-intro">
-                <h2>Next Up</h2>
-                <p class="section-subtitle">Dates stay focused on Toronto and the GTA, with the venue and city easy to read at a glance.</p>
+                <h2>No dates posted right now.</h2>
+                <p class="section-subtitle">We’re booking the next run. Follow along or get in touch for show updates.</p>
+                <div class="show-actions current-actions">
+                    <a href="https://www.instagram.com/thriftedtease/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Follow for updates</a>
+                    <a href="mailto:booking@thriftedtease.com" class="btn btn-accent">Contact booking</a>
+                </div>
             </div>
 
-            <div class="show-list">
+            <div class="past-shows-heading"><p class="shows-kicker">Archive</p><h2>Past Shows</h2></div>
+            <div class="show-list past-show-list">
                 <article class="show-card show-card--featured">
                     <img class="show-poster" src="images/optimized/shows/spring-cleaning-handlebar-poster.jpg" alt="Spring Cleaning at Handlebar event poster" loading="lazy" decoding="async" width="600" height="800">
                     <div class="show-date" aria-label="Friday April 10 2026 at 9 PM">
@@ -68,7 +70,6 @@
                         <p class="show-meta">Doors 8 PM &middot; 19+ &middot; Toronto</p>
                     </div>
                     <div class="show-actions">
-                        <a href="https://www.eventbrite.com/e/spring-cleaning-live-at-handlebar-tickets-1985236818766" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Tickets</a>
                         <a href="https://www.google.com/maps/search/?api=1&query=159+Augusta+Avenue+Toronto+ON+M5T+2L4" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Venue Info</a>
                     </div>
                 </article>
@@ -85,7 +86,6 @@
                         <p>Monarch Tavern bill with Thrifted Tease, Jordan Dias Band, and Static Fuzz.</p>
                     </div>
                     <div class="show-actions">
-                        <a href="https://www.eventbrite.com/e/indie-night-at-monarch-tavern-tickets-1986021256039?aff=oddtdtcreator" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Get Tickets</a>
                         <a href="https://www.google.com/maps/search/?api=1&query=12+Clinton+Street+Toronto+ON+M6J+2N8" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Venue Info</a>
                     </div>
                 </article>
@@ -98,10 +98,9 @@
                     <div class="show-details">
                         <p class="show-meta">Saturday, June 13, 2026 &middot; Mississauga, ON</p>
                         <h3>Studio.89</h3>
-                        <p>West-end GTA date that keeps the live calendar local and clear without pretending the band is on a national tour.</p>
+                        <p>A local show in Mississauga.</p>
                     </div>
                     <div class="show-actions">
-                        <a href="mailto:booking@thriftedtease.com?subject=RSVP%20for%20June%2013%20Show" class="btn btn-primary">RSVP / Ticket Info</a>
                         <a href="https://www.google.com/maps/search/?api=1&query=Studio.89+Mississauga" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Venue Info</a>
                     </div>
                 </article>
@@ -114,10 +113,9 @@
                     <div class="show-details">
                         <p class="show-meta">Friday, July 24, 2026 &middot; Brampton, ON</p>
                         <h3>The Rose Patio Series</h3>
-                        <p>An outdoor GTA date that adds a slightly bigger summer-night feel while keeping the run local and easy to follow.</p>
+                        <p>An outdoor summer show in Brampton.</p>
                     </div>
                     <div class="show-actions">
-                        <a href="mailto:booking@thriftedtease.com?subject=RSVP%20for%20July%2024%20Show" class="btn btn-primary">RSVP / Ticket Info</a>
                         <a href="https://www.google.com/maps/search/?api=1&query=The+Rose+Theatre+Brampton" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Venue Info</a>
                     </div>
                 </article>
@@ -136,6 +134,7 @@
             -->
         </div>
     </section>
+    </main>
 
     <footer class="footer">
         <p>&copy; 2026 Thrifted Tease. All rights reserved.</p>

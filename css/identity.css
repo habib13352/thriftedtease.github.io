@@ -30,6 +30,15 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sky); outline-o
 .contact-landscape-image { position: absolute; inset: 0; z-index: -1; }
 .contact-landscape-image img { width: 100%; height: 100%; object-fit: cover; }
 .contact-landscape > .section-container { background: var(--ink); padding: clamp(24px, 4vw, 60px); border: 1px solid var(--border-dark); max-width: 1000px; margin-left: max(0px, calc((100% - 1200px) / 2)); }
+.contact-portrait { background: var(--ink); padding: clamp(48px, 7vw, 100px) 2rem; }
+.contact-portrait .contact-panel { display: grid; grid-template-columns: minmax(0, 1fr) 180px; gap: clamp(32px, 6vw, 90px); align-items: center; max-width: 1200px; padding: clamp(28px, 5vw, 72px); border: 1px solid var(--border-dark); background: var(--surface-dark); }
+.contact-copy { min-width: 0; }
+.contact-figure { display: block; width: 100%; max-height: 440px; object-fit: contain; align-self: end; }
+@media (max-width: 700px) {
+    .contact-portrait { padding: 48px 1rem; }
+    .contact-portrait .contact-panel { grid-template-columns: minmax(0, 1fr); padding: 24px; gap: 32px; }
+    .contact-figure { width: 86px; max-height: 252px; justify-self: end; }
+}
 .contact-content { grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 .contact-info a { color: var(--paper); text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }
 .contact-info p { font-size: 1rem; }

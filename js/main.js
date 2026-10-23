@@ -81,7 +81,7 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 // Resolve by ID so a bare # or punctuation cannot throw a selector error.
 // Only preventDefault after finding the target so missing targets are not
 // deliberately suppressed. scrollIntoView works with CSS scroll-margin-top.
-document.querySelectorAll('a[href^="#"]:not(.door-skip)').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]:not(.door-skip):not(.archive-jump-link)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const targetSelector = this.getAttribute('href');
         const target = document.getElementById(targetSelector.slice(1));

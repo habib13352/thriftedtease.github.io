@@ -8,7 +8,7 @@ All five pages share warm ink, cream paper, red actions, serif display headings,
 
 stream.html provides the album introduction, Spotify and Apple Music album players, direct fallback links, SoundCloud, and a separate YouTube channel section. Specific video selections can be added later without changing the album players. Audio is user initiated. Players load lazily and stack on phones.
 
-Every Stream navigation link, the hero Skip to music link, and the homepage album CTA now lead to stream.html. The homepage retains #listen for existing links and the animated album reveal. The doorway geometry and reduced-motion/static fallbacks remain intact.
+Every Stream navigation link, the hero Skip to music link, and the homepage All listening options link lead to stream.html. The homepage retains #listen, now with larger cover art and an inline, lazy-loaded Spotify album player. A one-time 650ms entrance introduces the details; reduced-motion, keyboard focus, and no-JavaScript experiences keep them static. The album flows directly into Contact, with the former gallery and divider removed. The doorway geometry and static fallbacks remain intact.
 
 ## Verified destinations
 
