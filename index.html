@@ -7,8 +7,8 @@
     
     SECTIONS:
     1. Navigation - 4 core menu items
-    2. Hero - Main focus with 3 CTAs
-    3. Listen - Streaming platforms
+    2. Hero - Scroll through the doorway
+    3. Listen - Album feature and streaming platforms
     4. Media - Photo gallery
     5. Contact - Email & social links
     6. Footer - Simple footer
@@ -36,14 +36,14 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <!-- Load the same static artwork used by .hero::before in css/styles.css. -->
-    <link rel="preload" as="image" href="images/optimized/homepage/hero-album-top.jpg">
     <!-- Font Awesome 6.4.0 CDN - Provides all social media and UI icons automatically -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Main stylesheet - contains all colors, layouts, animations, and responsive breakpoints -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/identity.css">
+    <link rel="stylesheet" href="css/door-hero.css">
 </head>
-<body>
+<body class="page-index">
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">
@@ -57,7 +57,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="media.html">Media Gallery</a></li>
-                <li><a href="#listen">Stream</a></li>
+                <li><a href="stream.html">Stream</a></li>
                 <li><a href="shows.html">Upcoming Shows</a></li>
                 <li><a href="merch.html">Merch</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -65,76 +65,56 @@
         </div>
     </nav>
 
-    <!-- ===== HERO SECTION ===== Main focus with 3 CTAs -->
-    <section id="home" class="hero">
-        <!-- RESTORE HERO VIDEO (step 1 of 2):
-             Remove the comment delimiters around the video block below, set
-             data-src to your finished MP4, and keep poster as the static fallback.
-             Then uncomment initializeDesktopHeroVideo() at the matching restore
-             note in js/main.js. CSS and loading safeguards are already retained.
-             For now the HTML comment prevents the browser creating a video.
-        -->
-        <!--
-        <video
-            class="hero-video"
-            id="heroVideo"
-            muted
-            loop
-            playsinline
-            preload="none"
-            poster="images/optimized/homepage/hero-album-top.jpg"
-            aria-hidden="true"
-            data-src="images/optimized/homepage/hero-desktop.mp4">
-        </video>
-        -->
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">THRIFTED TEASE</h1>
-            <p class="hero-tagline">Toronto Based. Progressive Pop.</p>
-            <p class="hero-subtitle">The Official Home of Thrifted Tease</p>
-            <div class="hero-ctas">
-                <a href="#listen" class="btn btn-secondary">
-                    <i class="fas fa-music"></i> Stream
-                </a>
-                <a href="https://thriftedtease.myshopify.com" class="btn btn-secondary" target="_blank">
-                    <i class="fas fa-tshirt"></i> Shop
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Contact
-                </a>
+    <section id="home" class="door-story" aria-labelledby="door-heading">
+        <div class="door-stage">
+            <div class="door-scene" role="img" aria-label="A figure faces a red door and an optical tunnel in an orange desert beneath a blue sky.">
+                <picture>
+                    <source media="(max-width: 700px)" srcset="images/door/landscape-mobile.webp">
+                    <img class="door-landscape" src="images/door/landscape-desktop.webp" width="1536" height="1024" alt="" fetchpriority="high">
+                </picture>
+                <div class="door-rig">
+                    <div class="door-assembly">
+                        <div class="door-shadow"></div>
+                        <div class="door-portal"><img src="images/door/tunnel.svg" width="400" height="900" alt="" style="width:100%;height:100%;display:block"></div>
+                        <img class="door-frame" src="images/door/door.webp" width="800" height="1190" alt="">
+                    </div>
+                </div>
+                <div class="door-foreground">
+                    <img class="door-person-shadow" src="images/door/figure.webp" width="258" height="756" alt="">
+                    <img class="door-person" src="images/door/figure.webp" width="258" height="756" alt="">
+                </div>
+            </div>
+            <div class="door-copy">
+                <span class="door-eyebrow">Thrifted Tease presents</span>
+                <h1 id="door-heading">Two Weeks<br> Notice</h1>
+                <p>A different world is waiting.</p>
+            </div>
+            <div class="door-hint" aria-hidden="true">Scroll to enter &darr;</div>
+            <div class="door-wash" aria-hidden="true"></div>
+            <a class="door-skip" href="stream.html">Skip to music &nearr;</a>
+        </div>
+    </section>
+
+    <section id="listen" class="door-album" aria-labelledby="album-heading" tabindex="-1">
+        <div class="section-container door-album-inner">
+            <img class="door-record" src="images/door/album.webp" width="800" height="800" alt="Two Weeks Notice album cover" loading="lazy" decoding="async">
+            <div>
+                <span class="door-eyebrow">Thrifted Tease / The record</span>
+                <h2 id="album-heading">Two Weeks<br>Notice</h2>
+                <p>Step into the world of <em>Two Weeks Notice.</em><br>Find Thrifted Tease on your favourite platform.</p>
+                <a class="btn btn-primary album-cta" href="stream.html">Listen to the album &nearr;</a>
             </div>
         </div>
     </section>
 
-    <!-- ===== STREAMING SECTION ===== -->
-    <section id="listen" class="listen">
-        <div class="section-container">
-            <h2>Stream Our Music</h2>
-            <p class="section-subtitle">Available on all platforms</p>
-            
-            <div class="streaming-platforms">
-                <a href="https://open.spotify.com/artist/2Bzx8VvEQmCcalgPMMIpay" class="stream-link spotify" target="_blank">
-                    <i class="fab fa-spotify"></i>
-                    <span>Spotify</span>
-                </a>
-                <a href="https://music.apple.com/ca/artist/thrifted-tease/1793417836" class="stream-link apple" target="_blank">
-                    <i class="fab fa-apple"></i>
-                    <span>Apple Music</span>
-                </a>
-                <a href="https://www.youtube.com/channel/UCr0SN3FVP-U01tANF-V4nBA" class="stream-link youtube" target="_blank">
-                    <i class="fab fa-youtube"></i>
-                    <span>YouTube</span>
-                </a>
-                <a href="https://soundcloud.com/thriftedtease" class="stream-link soundcloud" target="_blank">
-                    <i class="fab fa-soundcloud"></i>
-                    <span>SoundCloud</span>
-                </a>
-            </div>
-        </div>
-    </section>
+    <div class="landscape-divider" aria-hidden="true">
+        <picture><source media="(max-width: 700px)" srcset="images/identity/divider-mobile.webp">
+            <img src="images/identity/divider-desktop.webp" width="1600" height="534" alt="" loading="lazy" decoding="async">
+        </picture>
+    </div>
 
     <!-- ===== MEDIA SECTION ===== Photo gallery -->
-    <section id="media" class="media">
+    <section id="media" class="media paper-surface">
         <div class="section-container">
             <h2>Photos & Videos</h2>
             
@@ -180,7 +160,11 @@
     </section>
 
      <!-- ===== CONTACT SECTION ===== -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact contact-landscape">
+        <picture class="contact-landscape-image" aria-hidden="true">
+            <source media="(max-width: 700px)" srcset="images/identity/panorama-mobile.webp">
+            <img src="images/identity/panorama-desktop.webp" width="1440" height="960" alt="" loading="lazy" decoding="async">
+        </picture>
         <div class="section-container">
             <h2>Get In Touch</h2>
             
@@ -210,5 +194,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/door-hero.js"></script>
 </body>
 </html>

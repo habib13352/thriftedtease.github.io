@@ -24,14 +24,19 @@ Official website for the Toronto-based progressive pop band <strong>Thrifted Tea
 
 A static band website built with **HTML5, CSS3, and vanilla JavaScript**.
 
-The current site is centered around four public-facing pages:
+The homepage now features the layered **Through the Door** entrance to *Two Weeks Notice*. See [implementation and preview notes](docs/door-entrance.md) for the current hero, responsive assets, reduced-motion fallback, and browser checks. The earlier hero/video notes below describe the previous implementation.
+
+The shared album-inspired identity and dedicated streaming page are implemented locally. See [identity, assets, streaming, and validation notes](docs/identity-and-streaming.md). Historical video notes below refer to the retired hero treatment.
+
+The current site is centered around five public-facing pages:
 
 - `index.html` for the main landing experience
+- `stream.html` for Spotify and Apple Music album players, SoundCloud, and YouTube
 - `media.html` for the long-scroll media archive
 - `shows.html` for upcoming live dates
 - `merch.html` for merchandise promotion
 
-The design system is shared through `css/styles.css`, with page-specific enhancements layered on top where needed.
+The design system uses tokens in `css/styles.css`, shared treatments in `css/identity.css`, and dedicated doorway styles in `css/door-hero.css`.
 
 ## Live Site
 
@@ -58,7 +63,7 @@ https://habib13352.github.io/thriftedtease.github.io/
 
 ## Project Overview
 
-This repo currently contains a responsive band website with a shared fixed navigation, a darker navy and rust visual system, and lightweight vanilla JavaScript interactions.
+This repo contains a responsive band website with shared fixed navigation, a warm ink, cream, and red visual system, and lightweight vanilla JavaScript interactions.
 
 The site goals are:
 
@@ -75,8 +80,8 @@ The site goals are:
 The main landing page includes:
 
 - fixed navigation with mobile hamburger menu
-- full-screen hero with a static optimized background image
-- streaming platform links for Spotify, Apple Music, YouTube, and SoundCloud
+- layered scroll-through-door hero with reduced-motion and static fallbacks
+- album reveal linking to the dedicated streaming page
 - a simple media preview grid using optimized homepage derivatives
 - contact and social links
 
@@ -177,17 +182,17 @@ thriftedtease.github.io/
 
 ## Colour Scheme and Branding
 
-The site uses a darker thrifted palette with navy grounding, rust/clay accents, and warm parchment neutrals.
+The site uses warm black, cream paper, red actions, rust landscape accents, and sky blue drawn from the album.
 
 Core CSS variables:
 
 ```css
 :root {
-    --primary-color: #0a0e27;
-    --secondary-color: #b56d4b;
-    --accent-color: #d8c8b2;
-    --text-color: #e7e0d3;
-    --dark-bg: #1a1f3a;
+    --ink: #151311;
+    --paper: #f2e9d8;
+    --action-red: #ac351e;
+    --rust: #b65b2d;
+    --sky: #8ebbe9;
 }
 ```
 
@@ -231,6 +236,7 @@ http://localhost:8000
 Edit these files directly:
 
 - `index.html` for landing page copy, streaming links, and contact details
+- `stream.html` for album embeds and streaming destinations
 - `media.html` for event sections, media captions, image links, and YouTube embeds
 - `shows.html` for upcoming dates and ticket URLs
 - `merch.html` for item names, descriptions, imagery, and store links
@@ -238,7 +244,7 @@ Edit these files directly:
 ### Styling
 
 - use `css/styles.css` for shared site styling
-- keep page-specific additions aligned with the shared navy, rust, and parchment system
+- use `css/identity.css` for the shared cream, ink, and red treatments
 - preserve shared classes used by `js/main.js` such as `navbar`, `hamburger`, and `nav-menu`
 
 ### Media page pattern
@@ -289,7 +295,7 @@ The repo currently includes these local band images:
 - `media.html` uses optimized JPG derivatives plus embedded YouTube content
 - `shows.html` and `merch.html` still reference placeholder imagery in their page-specific inline styles and cards
 
-### Hero video policy
+### Historical hero video policy (retired)
 
 - the homepage remains image-first for first paint
 - `images/optimized/homepage/hero-desktop.mp4` is the desktop-only enhancement path
@@ -306,8 +312,7 @@ powershell -ExecutionPolicy Bypass -File .\scripts\optimize-homepage-assets.ps1
 
 For performance notes and the current asset baselines, see `docs/homepage-performance.md`.
 
-The desktop hero video currently loads from `images/optimized/homepage/hero-desktop.mp4`.
-Keep it out of the critical path and refresh it with `ffmpeg` when the source video changes, for example:
+The retained desktop video is no longer loaded by the homepage. If reused later, keep it out of the critical path; derivatives can be refreshed with `ffmpeg`, for example:
 
 ```powershell
 ffmpeg -y -i images\hero.mp4 -an -c:v libx264 -preset slow -crf 30 -vf scale=1080:-2 -pix_fmt yuv420p -movflags +faststart images\optimized\homepage\hero-desktop.mp4

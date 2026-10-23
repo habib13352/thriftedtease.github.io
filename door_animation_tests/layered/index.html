@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Through the Door — Layered prototype</title>
+<link rel="stylesheet" href="../../css/styles.css"><link rel="stylesheet" href="../../css/identity.css"><link rel="stylesheet" href="../../css/door-hero.css">
+</head><body><nav class="navbar"><div class="nav-container"><a class="logo" href="../../index.html">THRIFTED TEASE</a><a href="../../stream.html">The music &darr;</a></div></nav><main>    <section id="home" class="door-story" aria-labelledby="door-heading">
+        <div class="door-stage">
+            <div class="door-scene" role="img" aria-label="A figure faces a red door and an optical tunnel in an orange desert beneath a blue sky.">
+                <picture>
+                    <source media="(max-width: 700px)" srcset="../../images/door/landscape-mobile.webp">
+                    <img class="door-landscape" src="../../images/door/landscape-desktop.webp" width="1536" height="1024" alt="" fetchpriority="high">
+                </picture>
+                <div class="door-rig">
+                    <div class="door-assembly">
+                        <div class="door-shadow"></div>
+                        <div class="door-portal"><img src="../../images/door/tunnel.svg" width="400" height="900" alt="" style="width:100%;height:100%;display:block"></div>
+                        <img class="door-frame" src="../../images/door/door.webp" width="800" height="1190" alt="">
+                    </div>
+                </div>
+                <div class="door-foreground">
+                    <img class="door-person-shadow" src="../../images/door/figure.webp" width="258" height="756" alt="">
+                    <img class="door-person" src="../../images/door/figure.webp" width="258" height="756" alt="">
+                </div>
+            </div>
+            <div class="door-copy">
+                <span class="door-eyebrow">Thrifted Tease presents</span>
+                <h1 id="door-heading">Two Weeks<br> Notice</h1>
+                <p>A different world is waiting.</p>
+            </div>
+            <div class="door-hint" aria-hidden="true">Scroll to enter &darr;</div>
+            <div class="door-wash" aria-hidden="true"></div>
+            <a class="door-skip" href="../../stream.html">Skip to music &nearr;</a>
+        </div>
+    </section>    <section id="listen" class="door-album" aria-labelledby="album-heading" tabindex="-1">
+        <div class="section-container door-album-inner">
+            <img class="door-record" src="../../images/door/album.webp" width="800" height="800" alt="Two Weeks Notice album cover" loading="lazy" decoding="async">
+            <div>
+                <span class="door-eyebrow">Thrifted Tease / The record</span>
+                <h2 id="album-heading">Two Weeks<br>Notice</h2>
+                <p>Step into the world of <em>Two Weeks Notice.</em><br>Find Thrifted Tease on your favourite platform.</p>
+                <a class="btn btn-primary album-cta" href="../../stream.html">Listen to the album &nearr;</a>
+            </div>
+        </div>
+    </section></main>
+<script src="../../js/door-hero.js"></script></body></html>

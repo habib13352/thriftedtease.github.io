@@ -1,0 +1,77 @@
+/* Through the Door: scoped to the homepage and the isolated prototype. */
+.door-story {
+    --door-ink: var(--ink);
+    position: relative;
+    height: 100svh;
+    min-height: 560px;
+    background: var(--door-ink);
+    color: var(--paper);
+    padding: 0;
+    margin: 0;
+}
+.door-stage { position: sticky; top: 0; height: 100svh; min-height: 560px; overflow: hidden; isolation: isolate; }
+.door-story.is-animated { height: 300svh; }
+.door-scene, .door-landscape, .door-rig, .door-foreground { position: absolute; inset: 0; }
+.door-landscape { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.door-tunnel-canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.is-animated .door-portal { background: transparent; }
+.is-animated .door-portal img { visibility: hidden; }
+.door-rig, .door-foreground { pointer-events: none; }
+.door-assembly { position: absolute; height: 72%; aspect-ratio: 800 / 1190; top: 17%; left: 64%; transform: translateX(-50%); }
+.door-frame { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; }
+.door-portal { position: absolute; left: 8%; top: 4.7%; width: 54%; height: 81%; overflow: hidden; background: #111; }
+.door-portal svg { width: 100%; height: 100%; display: block; }
+.door-shadow { position: absolute; left: 13%; top: 84%; width: 180%; height: 22%; background: #24190d; opacity: .32; clip-path: polygon(0 0, 37% 0, 100% 40%, 60% 100%); }
+.door-person { position: absolute; height: 44%; width: auto; top: 53%; left: 58.5%; transform: translateX(-50%); }
+.door-person-shadow { position: absolute; height: 44%; width: auto; top: 53%; left: 58.5%; transform-origin: 50% 100%; transform: translateX(-50%) skewX(-62deg) scaleY(.17); filter: brightness(0); opacity: .30; }
+.door-copy { position: absolute; top: 28%; left: 7%; max-width: 34%; text-shadow: 0 2px 12px #23180eaa; }
+.door-eyebrow { display: block; font-size: .7rem; font-weight: 700; letter-spacing: .23em; text-transform: uppercase; margin-bottom: 1rem; }
+.door-copy h1 { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: clamp(3.3rem, 6.5vw, 7.8rem); letter-spacing: -.055em; line-height: .95; color: var(--paper-light); margin: 0; }
+.door-copy p { margin-top: 1.4rem; font-size: .8rem; letter-spacing: .12em; }
+.door-skip { position: absolute; right: 2rem; bottom: 1.7rem; z-index: 10; color: var(--paper-light); background: rgba(var(--ink-rgb), .9); padding: .7rem 1.1rem; border: 1px solid var(--border-dark); border-radius: 2px; font-size: .75rem; letter-spacing: .06em; }
+.door-skip:hover { color: white; background: var(--ink); }
+.door-hint { display: none; position: absolute; left: 2rem; bottom: 2rem; font-size: .65rem; letter-spacing: .22em; text-transform: uppercase; color: #fff; text-shadow: 0 1px 4px #000; }
+.is-animated .door-hint { display: block; }
+.door-wash { position: absolute; inset: 0; background: var(--door-ink); opacity: 0; pointer-events: none; }
+.door-story.is-animated .door-rig, .door-story.is-animated .door-foreground { will-change: transform; }
+.door-album { position: relative; padding: clamp(64px, 9vw, 130px) 0; background: var(--ink); scroll-margin-top: 80px; }
+.door-album .door-album-inner { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); gap: clamp(35px, 7vw, 100px); align-items: center; }
+.door-record { width: 100%; max-width: 480px; height: auto; display: block; box-shadow: 14px 14px 0 #30241c; }
+.door-album h2 { font: italic clamp(3rem, 6vw, 6.5rem)/.96 var(--font-display); text-transform: none; letter-spacing: -.05em; margin: 0 0 1.5rem; color: var(--paper); }
+.door-album .door-eyebrow { color: var(--accent-light); }
+.door-album p { color: var(--muted-light); max-width: 28rem; }
+.door-album .streaming-platforms { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin-top: 2rem; }
+.door-album .stream-link { min-width: 0; padding: 1rem; background: transparent; border: 1px solid var(--border-dark); border-radius: 0; color: var(--paper); display: flex; flex-direction: row; justify-content: flex-start; gap: .7rem; }
+.door-album .stream-link i { font-size: 1.3rem; margin: 0; }
+.door-album .stream-link:hover { background: var(--action-red); border-color: var(--action-red); transform: none; }
+.door-story a:focus-visible, .door-album a:focus-visible { outline: 3px solid #fff; outline-offset: 5px; }
+.door-album:focus { outline: none; }
+@media (max-width: 700px) {
+    .door-story, .door-stage { min-height: 540px; }
+    .door-story.is-animated { height: 200svh; }
+    .door-assembly { height: 58%; top: 27%; left: 55%; }
+    .door-person, .door-person-shadow { height: 33%; top: 62%; left: 45.5%; }
+    .door-copy { top: 13%; left: 7%; max-width: 88%; }
+    .door-copy h1 { font-size: clamp(2.6rem, 9vw, 4rem); }
+    .door-copy h1 br { display: none; }
+    .door-copy p { display: none; }
+    .door-eyebrow { font-size: .6rem; margin-bottom: .65rem; }
+    .door-skip { right: 1rem; bottom: 1rem; font-size: .7rem; }
+    .door-hint { left: 1rem; bottom: 1.8rem; font-size: .55rem; }
+    .door-album .door-album-inner { grid-template-columns: 1fr; }
+    .door-record { width: 85%; max-width: 370px; margin: 0 auto; }
+    .door-album h2 { font-size: clamp(3.5rem, 13vw, 5rem); }
+}
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .door-story.is-animated { height: 100svh; }
+    .door-story .door-hint { display: none; }
+    .door-story.is-animated .door-rig, .door-story.is-animated .door-foreground { will-change: auto; }
+}
+@media (max-height: 600px) {
+    .door-story, .door-stage { min-height: 0; }
+    .door-story.is-animated { height: 200svh; }
+    .door-copy { top: 26%; }
+    .door-copy h1 { font-size: clamp(2rem, 7vh, 3.5rem); }
+    .door-copy p { display: none; }
+}

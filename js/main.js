@@ -7,7 +7,6 @@
 // - Mobile menu toggle
 // - Smooth scroll navigation
 // - Scroll animations (fade-in effects)
-// - Desktop-only hero video enhancement (temporarily disabled)
 // - Analytics event tracking hooks
 //
 // All code is vanilla JavaScript (no jQuery or build step).
@@ -17,7 +16,8 @@
 // so null checks and empty querySelectorAll results keep features optional.
 //
 // READING GUIDE: menu -> anchors -> section reveals -> streaming click hooks ->
-// page load/nav shadow -> retained video functions -> console analytics hooks.
+// page load/nav shadow -> console analytics hooks.
+// The homepage doorway animation is isolated in door-hero.js.
 // Appearance is in css/styles.css; link destinations and content are in HTML.
 // trackEvent currently logs to the console; no analytics service is connected.
 // ========================================
@@ -31,17 +31,27 @@
 // these references, but their DOM elements can still change (classes/styles).
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('navMenu');
-const hero = document.querySelector('.hero');
-const heroVideo = document.getElementById('heroVideo');
 
 // && requires both elements before attaching a listener. classList.toggle adds
 // or removes a class; CSS uses that state to expand the menu and rotate the bars.
 // A normal function callback gets `this` from the clicked button; an arrow
 // function would instead keep `this` from its surrounding scope.
 if (hamburger && navMenu) {
+    hamburger.setAttribute('aria-label', 'Toggle navigation');
+    hamburger.setAttribute('aria-controls', 'navMenu');
+    hamburger.setAttribute('aria-expanded', String(navMenu.classList.contains('active')));
     hamburger.addEventListener('click', function () {
         navMenu.classList.toggle('active');
         this.classList.toggle('active');
+        this.setAttribute('aria-expanded', String(navMenu.classList.contains('active')));
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.focus();
+        }
     });
 }
 
@@ -55,7 +65,10 @@ if (hamburger && navMenu) {
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         if (navMenu) navMenu.classList.remove('active');
-        if (hamburger) hamburger.classList.remove('active');
+        if (hamburger) {
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', 'false');
+        }
     });
 });
 
@@ -65,20 +78,20 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
  */
 // [href^="#"] selects same-page anchors only, not links like index.html#listen.
 // getAttribute reads the written fragment rather than the resolved full URL.
-// Existing fragments must be valid CSS selectors (e.g. #listen, not a bare #).
+// Resolve by ID so a bare # or punctuation cannot throw a selector error.
 // Only preventDefault after finding the target so missing targets are not
 // deliberately suppressed. scrollIntoView works with CSS scroll-margin-top.
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]:not(.door-skip)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const targetSelector = this.getAttribute('href');
-        const target = document.querySelector(targetSelector);
+        const target = document.getElementById(targetSelector.slice(1));
 
         if (!target) return;
 
         e.preventDefault();
 
         target.scrollIntoView({
-            behavior: 'smooth',
+            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
             block: 'start'
         });
     });
@@ -99,7 +112,7 @@ const observerOptions = {
 
 // :not(...) excludes heroes and the media archive so their initial content
 // stays visible. Add another exclusion here if a new section must not fade in.
-const animatedSections = document.querySelectorAll('section:not(.hero):not(.media-hero):not(.media-archive):not(.merch-hero):not(.shows-hero)');
+const animatedSections = document.querySelectorAll('section:not(.stream-intro):not(#album-players):not(.youtube-section):not(.door-story):not(.door-album):not(.hero):not(.media-hero):not(.media-archive):not(.merch-hero):not(.shows-hero)');
 
 // This helper receives a DOM element. Assigning .style writes inline CSS,
 // which takes precedence over ordinary stylesheet rules for those properties.
@@ -179,11 +192,6 @@ window.addEventListener('load', function () {
         'color: #d4a574; font-size: 16px; font-weight: bold;'
     );
 
-    // RESTORE HERO VIDEO (step 2 of 2):
-    // First uncomment the <video> block marked RESTORE HERO VIDEO in index.html
-    // and set its data-src to the desired MP4. Then uncomment the call below.
-    // Keep both switches disabled for the current static album-art hero.
-    // initializeDesktopHeroVideo();
 });
 
 /**
@@ -203,111 +211,6 @@ window.addEventListener('scroll', function () {
         navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.3)';
     }
 });
-
-/**
- * ===== DESKTOP HERO VIDEO =====
- * Loads the video only after first paint on desktop-capable devices.
- */
-// Retained for later: declaring a function does not execute it. The load-event
-// call above is commented out, and index.html currently has no active video.
-// Early returns act as guard clauses, keeping the main path less nested.
-function initializeDesktopHeroVideo() {
-    if (!hero || !heroVideo) return;
-    if (!shouldLoadDesktopHeroVideo()) {
-        console.log('[hero-video] Skipped desktop hero video enhancement.');
-        return;
-    }
-
-    // A nested callback remembers surrounding variables (a closure). dataset
-    // maps HTML data-src to .src and data-loaded to .loaded; values are strings.
-    // A data-src alone never downloads media. Assigning video.src below starts
-    // the real media-loading path. The loaded flag prevents duplicate setup.
-    const setupVideo = () => {
-        const videoSource = heroVideo.dataset.src;
-        if (!videoSource || heroVideo.dataset.loaded === 'true') return;
-
-        console.log(`[hero-video] Loading deferred video: ${videoSource}`);
-        heroVideo.dataset.loaded = 'true';
-        heroVideo.src = videoSource;
-
-        // Named callbacks translate browser media events into CSS state classes.
-        // canplay means enough media is buffered to begin, not a guarantee that
-        // playback has started. Error/autoplay rejection keeps the static art.
-        const onCanPlay = () => {
-            console.log('[hero-video] Video ready and visible.');
-            hero.classList.add('hero--video-ready');
-            hero.classList.remove('hero--video-failed');
-        };
-
-        const onError = () => {
-            console.log('[hero-video] Video failed to load or autoplay. Keeping static hero.');
-            hero.classList.remove('hero--video-ready');
-            hero.classList.add('hero--video-failed');
-        };
-
-        // once removes the listener after its first invocation. play() returns
-        // a Promise, which may reject if autoplay is blocked or media fails;
-        // catch handles that asynchronously without leaving a blank hero.
-        heroVideo.addEventListener('canplay', onCanPlay, { once: true });
-        heroVideo.addEventListener('error', onError, { once: true });
-
-        heroVideo.load();
-        heroVideo.play().catch(() => {
-            onError();
-        });
-    };
-
-    // Schedule optional work when the browser has spare time. The timeout
-    // bounds how long to wait; older browsers use a short timer instead.
-    // This function is called after load when enabled, so video is deferred.
-    if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(setupVideo, { timeout: 2000 });
-        return;
-    }
-
-    window.setTimeout(setupVideo, 250);
-}
-
-// A boolean policy function: false skips the optional video entirely. matchMedia
-// evaluates CSS-style queries in JS; keep its 768px limit aligned with CSS.
-// These are startup checks, not live listeners for later preference/resizes.
-function shouldLoadDesktopHeroVideo() {
-    if (!heroVideo || !heroVideo.dataset.src) {
-        console.log('[hero-video] Missing video element or source path.');
-        return false;
-    }
-
-    if (window.matchMedia('(max-width: 768px)').matches) {
-        console.log('[hero-video] Skipping because viewport is mobile/tablet width.');
-        return false;
-    }
-
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        console.log('[hero-video] Skipping because prefers-reduced-motion is enabled.');
-        return false;
-    }
-
-    // The Network Information API is optional. Alternative property names
-    // support older implementations. If it is absent, network checks are
-    // skipped; viewport and reduced-motion checks still apply.
-    const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-
-    if (connection) {
-        if (connection.saveData) {
-            console.log('[hero-video] Skipping because save-data is enabled.');
-            return false;
-        }
-
-        const constrainedTypes = ['slow-2g', '2g', '3g'];
-        if (connection.effectiveType && constrainedTypes.includes(connection.effectiveType)) {
-            console.log(`[hero-video] Skipping because network is constrained: ${connection.effectiveType}.`);
-            return false;
-        }
-    }
-
-    console.log('[hero-video] Desktop enhancement allowed.');
-    return true;
-}
 
 /**
  * ===== ANALYTICS EVENT TRACKING (Integration point) =====
