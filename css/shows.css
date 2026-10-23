@@ -2,6 +2,8 @@
 .page-shows .shows-hero { min-height: 0; margin-top: 70px; padding: clamp(64px,9vw,120px) 0 52px; background: var(--ink); }
 .page-shows .shows-hero::before,.page-shows .shows-hero::after { display: none; }
 .page-shows .shows-hero-content { max-width: 1200px; }
+.page-shows .shows-hero-layout { display: grid; grid-template-columns: minmax(0,1fr) 220px; gap: 56px; align-items: center; }
+.page-shows .shows-hero-decor { width: 180px; max-height: 270px; object-fit: contain; justify-self: end; }
 .page-shows .hero-title { font: italic clamp(3.5rem,8vw,7rem)/.95 var(--font-display); letter-spacing: -.05em; text-transform: none; }
 .page-shows .hero-subtitle { color: var(--muted-light); }
 .page-shows .shows-listing { background: var(--ink); color: var(--paper); padding-top: 20px; }
@@ -9,11 +11,13 @@
 .page-shows .shows-page-intro h2,.page-shows .past-shows-heading h2 { color: var(--paper); font: italic clamp(2.5rem,5vw,4.5rem)/1 var(--font-display); text-transform: none; }
 .page-shows .section-subtitle { color: var(--muted-light); }
 .page-shows .current-actions { display: flex; flex-wrap: wrap; justify-content: flex-start; margin-top: 28px; }
-.page-shows .past-shows-heading { padding-bottom: 20px; }
+.page-shows .past-shows-heading { position: relative; isolation: isolate; min-height: 150px; padding-bottom: 20px; }
+.page-shows .past-shows-heading > div { position: relative; z-index: 1; }
+.page-shows .past-shows-ticket.decor-object { position: absolute; z-index: 0; width: 270px; right: 4%; top: -20px; opacity: .24; }
 .page-shows .show-card { border-color: var(--border-dark); }
 .page-shows .show-date { border-color: var(--border-dark); }
 .page-shows .show-date-day,.page-shows .show-details h3 { color: var(--paper); }
 .page-shows .show-meta,.page-shows .show-details p:last-of-type { color: var(--muted-light); }
 .page-shows .show-poster { filter: saturate(.9); }
 .page-shows .show-actions .btn-accent { color: var(--paper); border-color: var(--border-dark); }
-@media(max-width:700px){.page-shows .shows-page-intro{padding-bottom:48px}.page-shows .current-actions{align-items:stretch}.page-shows .show-poster{max-height:360px}}
+@media(max-width:700px){.page-shows .shows-hero-layout{grid-template-columns:minmax(0,1fr) 95px;gap:16px}.page-shows .shows-hero-decor{width:90px;max-height:140px}.page-shows .shows-page-intro{padding-bottom:48px}.page-shows .current-actions{align-items:stretch}.page-shows .show-poster{max-height:360px}.page-shows .past-shows-heading{min-height:0}}

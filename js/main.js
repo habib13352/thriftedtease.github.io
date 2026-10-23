@@ -155,6 +155,23 @@ if ('IntersectionObserver' in window) {
     animatedSections.forEach(revealSection);
 }
 
+// Decorative cutouts remain visible without JavaScript and enter once when enhanced.
+const decorativeObjects = document.querySelectorAll('.decor-object');
+const reduceDecorMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (decorativeObjects.length && !reduceDecorMotion && 'IntersectionObserver' in window) {
+    const decorObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-revealed');
+            decorObserver.unobserve(entry.target);
+        });
+    }, { threshold: 0.15 });
+    decorativeObjects.forEach(object => {
+        object.classList.add('is-reveal-ready');
+        decorObserver.observe(object);
+    });
+}
+
 /**
  * ===== STREAMING PLATFORM LINKS (Analytics hook) =====
  * Track which streaming platform users click.

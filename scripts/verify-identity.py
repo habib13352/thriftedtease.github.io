@@ -8,7 +8,7 @@ OUT=ROOT/'.cache/identity-qa';OUT.mkdir(parents=True,exist_ok=True)
 BASE='http://127.0.0.1:8000'
 with sync_playwright() as p:
     browser=p.chromium.launch(channel='msedge',headless=True)
-    for width,height in [(1440,900),(390,844),(844,390)]:
+    for width,height in [(1440,900),(390,844),(320,700),(844,390)]:
         context=browser.new_context(viewport={'width':width,'height':height},reduced_motion='reduce')
         for name in ['index','stream','shows','media','merch']:
             page=context.new_page();errors=[];missing=[];requests=[]
@@ -20,7 +20,7 @@ with sync_playwright() as p:
             assert not page.evaluate('document.documentElement.scrollWidth>innerWidth'),(name,width,'overflow')
             assert page.locator('#navMenu a',has_text='Stream').get_attribute('href')=='stream.html'
             assert page.locator('h1').count()==1
-            for target in (['#listen','#contact'] if name=='index' else ['.stream-intro','#album-players','.stream-youtube'] if name=='stream' else ['.media-archive'] if name=='media' else ['section:nth-of-type(2)']):
+            for target in (['#listen','#contact'] if name=='index' else ['.stream-intro','.stream-youtube'] if name=='stream' else ['.media-hero','.media-archive'] if name=='media' else ['section:nth-of-type(1)','section:nth-of-type(2)']):
                 page.locator(target).scroll_into_view_if_needed()
                 if name=='index' and target=='#listen':
                     page.locator('.door-record').evaluate('(img) => img.decode()')
@@ -44,6 +44,11 @@ with sync_playwright() as p:
                     assert frames.nth(i).get_attribute('title')
                     assert frames.nth(i).bounding_box()['width']<=width
                 assert page.locator('a[aria-current="page"]').text_content().strip().lower()=='stream'
+            expected_decor={'stream':2,'media':1,'shows':2,'merch':2}.get(name,0)
+            assert page.locator('.decor-object').count()==expected_decor
+            assert not any('Additional_Assets' in u or 'Character_Assets' in u or 'World_Assets' in u or u.endswith('.zip') for u in requests)
+            if width<600 and name in ('stream','shows'):
+                assert not page.locator('.decor-secondary').is_visible()
             if name=='media':
                 first=page.locator('[data-lightbox-group]').first
                 first.click()
@@ -102,5 +107,17 @@ with sync_playwright() as p:
     assert page.get_by_role('link',name='Open in Apple Music').is_visible()
     assert page.get_by_role('link',name='Open playlist on YouTube',exact=False).is_visible()
     assert page.locator('#stream-youtube-title').is_visible()
+    assert page.locator('.stream-youtube-tv').is_visible()
     print('PASS blocked third parties + no JavaScript: links and content survive',flush=True)
+    context.close()
+    context=browser.new_context(viewport={'width':390,'height':844},reduced_motion='no-preference')
+    page=context.new_page();errors=[]
+    page.on('pageerror',lambda e:errors.append(str(e)))
+    page.route('**/images/optimized/decor/*',lambda r:r.abort())
+    page.goto(BASE+'/merch.html',wait_until='load')
+    page.wait_for_timeout(300)
+    assert page.locator('h1').is_visible() and page.locator('.merch-card').first.is_visible()
+    assert not page.evaluate('document.documentElement.scrollWidth>innerWidth')
+    assert not errors,errors
+    print('PASS failed decoration: core merch content remains usable',flush=True)
     context.close();browser.close()
