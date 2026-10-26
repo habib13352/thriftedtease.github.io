@@ -22,7 +22,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--sky); outline-o
 .decor-object.is-reveal-ready { opacity: 0; transform: translateY(16px) rotate(-1deg); }
 .decor-object.is-revealed { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s ease; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-    .decor-hover:hover { transform: rotate(2deg) translateY(-3px); transition: transform .25s ease; }
+    .decor-hover { display: block; }
+    .decor-hover:hover .decor-object { transform: rotate(2deg) translateY(-3px); transition: transform .25s ease; }
 }
 @media (prefers-reduced-motion: reduce) {
     .decor-object, .decor-object.is-reveal-ready, .decor-object.is-revealed { opacity: 1; transform: none; transition: none; }

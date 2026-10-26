@@ -29,6 +29,7 @@
 .stream-door-decor { width: 110px; max-height: 165px; object-fit: contain; opacity: .72; }
 .stream-youtube-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .stream-youtube-tv { width: 145px; }
+.stream-youtube .decor-hover:hover .stream-youtube-tv { filter: drop-shadow(0 0 8px rgb(212 165 116 / .24)); }
 .stream-youtube h2 { font: 700 .75rem/1.5 var(--font-body); text-transform: uppercase; letter-spacing: .18em; color: var(--paper); margin-bottom: 24px; }
 .stream-youtube-player { width: 100%; aspect-ratio: 16 / 9; min-height: 200px; background: var(--surface-dark); border-radius: 12px; overflow: hidden; }
 .stream-youtube-player iframe { display: block; width: 100%; height: 100%; min-height: 200px; border: 0; }
