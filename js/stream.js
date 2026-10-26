@@ -17,6 +17,7 @@
     panels.forEach((panel,i) => { panel.setAttribute('role','tabpanel'); panel.setAttribute('aria-labelledby',tabs[i].id); });
     tabs.forEach((tab,i) => {
         tab.addEventListener('click',()=>activate(i));
+        tab.addEventListener('focus',()=>activate(i));
         tab.addEventListener('keydown',event=>{
             let next;
             if (event.key==='ArrowRight' || event.key==='ArrowLeft') next=(i+1)%tabs.length;

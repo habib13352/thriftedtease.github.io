@@ -1,0 +1,134 @@
+:root {
+  color-scheme: dark;
+  --ink: #18140f;
+  --paper: #f1e1bd;
+  --cream: #fff3d5;
+  --rust: #a33f23;
+  --gold: #d69b35;
+  --olive: #3a3b25;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--ink); color: var(--paper); font-family: Georgia, "Times New Roman", serif; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--cream); outline-offset: 5px; }
+
+.review-bar {
+  position: relative;
+  z-index: 20;
+  min-height: 64px;
+  padding: 0 5vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  background: #17130f;
+  border-bottom: 1px solid #f1e1bd33;
+  font-family: Arial, sans-serif;
+  font-size: .68rem;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.wordmark { font-size: .82rem; font-weight: 800; text-decoration: none; }
+
+.album-context, .after-passage, .crop-study {
+  padding: clamp(72px, 10vw, 145px) max(6vw, calc((100vw - 1260px) / 2));
+}
+.album-context {
+  min-height: 72svh;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+  background: radial-gradient(circle at 20% 5%, #69311f 0, transparent 35%), #211b16;
+}
+.eyebrow {
+  margin: 0 0 1rem;
+  font-family: Arial, sans-serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+h1, h2 { margin: 0; color: var(--cream); font-weight: 400; font-style: italic; line-height: .9; letter-spacing: -.045em; }
+h1 { max-width: 760px; font-size: clamp(4rem, 9vw, 9rem); }
+h2 { font-size: clamp(3.7rem, 8vw, 8rem); }
+.context-note { max-width: 40rem; margin: 2rem 0 0; font-family: Arial, sans-serif; line-height: 1.6; }
+.text-link { flex: 0 0 auto; padding: 1rem 0; text-underline-offset: 5px; }
+
+.passage { position: relative; min-height: 100svh; background: #0c0a08; }
+.passage.is-ready { height: 160svh; }
+.passage-stage { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; background: #0c0a08; }
+.passage.is-ready .passage-stage { position: sticky; top: 0; height: 100svh; }
+.scene, .scene-image, .scene-shade { position: absolute; inset: 0; width: 100%; height: 100%; }
+.scene { overflow: hidden; }
+.scene-image { display: block; object-fit: cover; object-position: 50% 52%; transform: scale(1); }
+.scene-opening { z-index: 1; }
+.scene-portal { z-index: 2; opacity: 0; }
+.scene-portal .scene-image { object-position: 50% 54%; transform: scale(1.04); }
+.scene-shade { z-index: 3; background: linear-gradient(90deg, #0a0806c9 0, #0a08063d 35%, transparent 62%), linear-gradient(0deg, #090705a8 0, transparent 32%); }
+.passage-copy { position: absolute; z-index: 4; top: clamp(100px, 15vh, 150px); left: 6vw; max-width: 500px; text-shadow: 0 2px 18px #000; }
+.passage-copy p:last-child { max-width: 22rem; font-size: clamp(1rem, 1.4vw, 1.25rem); }
+.passage-actions {
+  position: absolute;
+  z-index: 5;
+  right: 3vw;
+  bottom: 3vw;
+  display: flex;
+  gap: .5rem;
+  padding: .55rem;
+  background: #17130fe8;
+  border: 1px solid #f1e1bd55;
+}
+.passage-actions a { padding: .7rem .85rem; font-family: Arial, sans-serif; font-size: .72rem; letter-spacing: .06em; text-underline-offset: 4px; }
+.passage-actions a:hover { background: var(--rust); }
+.scroll-cue { position: absolute; z-index: 4; left: 6vw; bottom: 3vw; margin: 0; font-family: Arial, sans-serif; font-size: .64rem; letter-spacing: .2em; text-transform: uppercase; }
+.passage:not(.is-ready) .scroll-cue { display: none; }
+.passage:not(.is-ready) .scene-portal { display: none; }
+
+.after-passage { scroll-margin-top: 1rem; min-height: 72svh; background: #29271d; }
+.after-passage p:not(.eyebrow) { max-width: 42rem; margin: 2rem 0; font-family: Arial, sans-serif; font-size: 1.05rem; line-height: 1.65; }
+.button-link { display: inline-block; padding: 1rem 1.3rem; border: 1px solid var(--paper); text-decoration: none; font-family: Arial, sans-serif; }
+.button-link:hover { background: var(--rust); border-color: var(--rust); }
+
+.crop-study { background: #e4cf9f; color: #271d15; }
+.crop-study h2 { color: #271d15; font-size: clamp(3rem, 6vw, 6rem); }
+.study-heading > p:last-child { max-width: 50rem; font-family: Arial, sans-serif; line-height: 1.6; }
+.crop-grid { margin-top: 3rem; display: grid; grid-template-columns: 1.5fr .55fr 1.5fr; gap: 1.25rem; align-items: start; }
+figure { margin: 0; }
+.crop-frame { overflow: hidden; background: #1a1712; box-shadow: 0 10px 40px #2f241938; }
+.crop-wide { aspect-ratio: 16 / 10; }
+.crop-phone { aspect-ratio: 390 / 844; }
+.crop-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 52%; }
+figcaption { display: grid; gap: .45rem; padding-top: .9rem; font-family: Arial, sans-serif; font-size: .8rem; line-height: 1.45; }
+figcaption span { opacity: .76; }
+
+@media (max-width: 700px), (max-height: 500px) {
+  html { scroll-behavior: auto; }
+  .review-bar { min-height: 54px; padding-inline: 1rem; }
+  .review-bar span { display: none; }
+  .album-context { min-height: 60svh; display: grid; align-content: end; padding: 64px 1rem 48px; }
+  h1 { font-size: clamp(3.2rem, 17vw, 5rem); }
+  .passage, .passage.is-ready { min-height: 0; height: auto; padding: 0; background: #17130f; }
+  .passage-stage, .passage.is-ready .passage-stage { position: relative; top: auto; height: auto; min-height: 0; overflow: visible; }
+  .scene-opening { position: relative; aspect-ratio: 4 / 5; }
+  .scene-image { object-position: 50% 52%; }
+  .scene-portal, .scene-shade, .scroll-cue { display: none; }
+  .passage-copy { top: 2rem; left: 1rem; right: 1rem; }
+  .passage-copy h2 { font-size: clamp(3.6rem, 18vw, 5.6rem); }
+  .passage-copy p:last-child { display: none; }
+  .passage-actions { position: relative; right: auto; bottom: auto; display: grid; grid-template-columns: 1fr; gap: 0; padding: .5rem 1rem 1rem; border: 0; background: #17130f; }
+  .passage-actions a { padding: 1rem .25rem; border-bottom: 1px solid #f1e1bd33; }
+  .after-passage, .crop-study { min-height: 0; padding: 72px 1rem; }
+  .after-passage h2 { font-size: clamp(3.2rem, 16vw, 5rem); }
+  .crop-grid { grid-template-columns: 1fr; }
+  .crop-phone { width: min(65%, 260px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .passage, .passage.is-ready { height: auto; }
+  .passage.is-ready .passage-stage { position: relative; }
+  .scene-portal, .scroll-cue { display: none; }
+}
