@@ -20,4 +20,11 @@
 .page-merch .merch-store-cta p { color: var(--muted-light); }
 .page-merch .merch-store-cta { display: grid; grid-template-columns: 150px minmax(0,1fr) auto; gap: 28px; align-items: center; }
 .page-merch .merch-briefcase { width: 140px; }
+@media (min-width: 701px) and (prefers-reduced-motion: no-preference) {
+    .page-merch .decor-float .merch-hero-decor.is-revealed { animation: merch-brogues-float 10s ease-in-out infinite; }
+}
+@keyframes merch-brogues-float {
+    0%, 100% { transform: translateY(-2px); }
+    50% { transform: translateY(4px); }
+}
 @media(max-width:700px){.page-merch .merch-hero-layout{grid-template-columns:minmax(0,1fr) 130px;gap:18px}.page-merch .merch-hero-decor{max-width:130px}.page-merch .merch-page-intro{padding-bottom:32px}.page-merch .merch-grid{grid-template-columns:1fr}.page-merch .merch-card-media{min-height:340px}.page-merch .merch-store-cta{grid-template-columns:90px minmax(0,1fr);gap:16px}.page-merch .merch-briefcase{width:85px}.page-merch .merch-store-cta .btn{grid-column:1/-1}}

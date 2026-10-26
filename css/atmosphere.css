@@ -1,0 +1,129 @@
+/* Quiet ink texture connects the collage artwork across both pages. */
+.page-media,
+.page-stream { isolation: isolate; }
+.page-media::before,
+.page-stream::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: .55;
+    background: url('../images/identity/atmosphere/ink-grain.webp') center / cover;
+}
+.page-media main,
+.page-stream main { background: transparent; }
+
+.page-media .media-hero {
+    overflow: visible;
+    z-index: 1;
+    background: transparent;
+}
+
+.page-media .media-hero::before {
+    opacity: 1;
+    transform: none;
+    mix-blend-mode: normal;
+    background: linear-gradient(90deg, rgb(21 19 17 / .82), rgb(21 19 17 / .6) 45%, transparent 70%),
+        url('../images/identity/atmosphere/desert-backdrop.webp') center bottom / cover no-repeat;
+}
+
+.page-media .media-hero-decor {
+    max-height: 420px;
+    filter: drop-shadow(0 16px 12px rgb(0 0 0 / .4));
+}
+
+.page-media .media-event-grid { gap: 28px 16px; }
+.page-media .media-event-meta { color: var(--muted-light); }
+.page-media .media-event-header::after { opacity: .5; }
+
+.page-stream main {
+    position: relative;
+    isolation: isolate;
+}
+.page-stream main::before {
+    content: '';
+    position: absolute;
+    inset: auto 0 0;
+    height: max(960px, 66.666vw);
+    max-height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: url('../images/identity/atmosphere/desert-backdrop.webp') center bottom / 100% 100% no-repeat;
+    mask-image: linear-gradient(transparent, #000 30%);
+}
+
+.focused-stream,
+.stream-youtube { background: transparent; }
+.focused-stream::before,
+.stream-youtube::before { content: none; }
+.focused-stream { border-bottom-color: rgb(182 164 140 / .25); }
+
+.focused-grid {
+    grid-template-columns: minmax(250px, 1fr) minmax(340px, 1fr) minmax(220px, .55fr);
+    column-gap: clamp(28px, 2.6vw, 40px);
+}
+.focused-heading { margin-bottom: 8px; }
+.focused-heading .eyebrow { display: block; }
+.focused-player {
+    padding: 16px;
+    border-color: rgb(182 164 140 / .25);
+    background: rgb(21 19 17 / .88);
+    box-shadow: 0 16px 40px rgb(0 0 0 / .2);
+}
+.stream-story p { font-weight: 400; }
+.stream-door-decor { filter: drop-shadow(0 12px 16px rgb(0 0 0 / .4)); }
+.stream-youtube { padding-bottom: 64px; }
+.stream-youtube-inner { gap: 0 48px; }
+.stream-youtube .decor-hover {
+    width: 100%;
+    align-self: end;
+    margin-bottom: 40px;
+}
+.stream-youtube-tv {
+    transform: rotate(5deg);
+    filter: drop-shadow(0 16px 10px rgb(0 0 0 / .5));
+}
+
+@media (min-width: 761px) and (max-width: 1200px) {
+    .focused-grid {
+        grid-template-columns: minmax(240px, .9fr) minmax(340px, 1.1fr);
+        grid-template-areas: 'heading heading' 'cover player' 'story story';
+        padding-inline: 32px;
+    }
+    .stream-story {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 32px;
+        max-width: 840px;
+        padding-top: 12px;
+    }
+    .stream-story p { margin: 0; }
+    .stream-door-decor-wrap { display: none; }
+}
+
+@media (max-width: 760px) {
+    .page-stream main::before,
+    .page-media .media-hero::before { content: none; }
+    .focused-grid { grid-template-columns: minmax(0, 1fr); }
+    .stream-youtube-inner { gap: 24px 20px; }
+    .stream-youtube .decor-hover { width: 110px; margin-bottom: 0; }
+    .stream-youtube-tv { transform: none; }
+}
+
+@media (max-width: 599px) {
+    .page-media .media-hero-layout { grid-template-columns: minmax(0, 1fr); }
+    .page-media .media-hero-layout > picture,
+    .stream-youtube .decor-hover { display: none; }
+    .page-media .hero-title { max-width: 440px; font-size: clamp(3rem, 12vw, 4.5rem); }
+    .page-media .media-hero { padding-block: 44px; }
+    .page-media .hero-subtitle { max-width: 28rem; }
+    .stream-youtube-inner {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas: 'heading' 'player' 'link';
+        gap: 24px;
+    }
+    .stream-youtube h2 { font-size: clamp(2rem, 9vw, 3.2rem); }
+    .stream-youtube-inner > a { padding-top: 0; }
+}
